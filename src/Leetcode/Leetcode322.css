@@ -1,0 +1,73 @@
+.problem {
+    padding: 20px;
+    display: flex;
+    /* flex-direction: column; */
+}
+
+table {
+    text-align: center;
+}
+
+.coinRow {
+    height: 30px;
+}
+
+.coin {
+    width: 28px;
+    height: 28px;
+    border-radius: 14px;
+    border: 1px solid gold;
+    background-color: yellow;
+    vertical-align: middle;
+    text-align: center;
+    
+}
+
+.array td {
+    width: 40px;
+    height: 40px;
+}
+
+.array td:not(.current, .no-border) {
+    border: 1px solid blue;
+}
+
+/* .no-border {
+    border: none;
+} */
+
+.current {
+    border: 2px solid orangered;
+}
+
+.old {
+    text-decoration: line-through;
+}
+
+.new {
+    color: red;
+}
+
+.btn {
+    color: white;
+    background-color: #39a77f;
+    padding: 6px 18px;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.btn:hover {
+    outline-width: 0;
+    background-color: #059862;
+}
+
+.btnbar {
+    text-align: right;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
