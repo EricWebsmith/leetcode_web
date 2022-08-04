@@ -48,22 +48,7 @@ table {
     color: red;
 }
 
-.btn {
-    color: white;
-    background-color: #39a77f;
-    padding: 6px 18px;
-    border-radius: 5px;
-    border: none;
-    text-align: center;
-    display: inline-block;
-    cursor: pointer;
-    margin: 5px;
-}
 
-.btn:hover {
-    outline-width: 0;
-    background-color: #059862;
-}
 
 .btnbar {
     text-align: right;
