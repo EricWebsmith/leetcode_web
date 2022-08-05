@@ -18,15 +18,15 @@ table {
 }
 
 .lc76array td:not(.lc76current-red, .lc76current-green, .no-border) {
-    border: 1px solid blue;
+    border: 3px solid blue;
 }
 
 .lc76current-red {
-    border: 2px solid orangered;
+    border: 3px solid orangered;
 }
 
 .lc76current-green {
-    border: 2px solid green;
+    border: 3px solid green;
 }
 
 

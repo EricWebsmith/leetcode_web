@@ -10,6 +10,12 @@ table {
 
 .coinRow {
     height: 30px;
+    text-align: center;
+}
+
+.coinRow td {
+    text-align: center;
+    justify-content: center;
 }
 
 .coin {
@@ -17,10 +23,9 @@ table {
     height: 28px;
     border-radius: 14px;
     border: 1px solid gold;
-    background-color: yellow;
+    background-color: gold;
     vertical-align: middle;
     text-align: center;
-    
 }
 
 .array td {
@@ -29,7 +34,16 @@ table {
 }
 
 .array td:not(.current, .no-border) {
-    border: 1px solid blue;
+    border: 3px solid blue;
+}
+
+.dp td {
+    width: 40px;
+    height: 40px;
+}
+
+.dp td:not(.current, .no-border) {
+    border: 3px solid blue;
 }
 
 /* .no-border {
@@ -37,18 +51,17 @@ table {
 } */
 
 .current {
-    border: 2px solid orangered;
+    border: 3px solid orangered;
 }
 
 .old {
     text-decoration: line-through;
+    color: gray;
 }
 
 .new {
     color: red;
 }
-
-
 
 .btnbar {
     text-align: right;

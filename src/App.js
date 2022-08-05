@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { NavLink, Route, Routes } from 'react-router-dom';
-import Leetcode_322 from './Leetcode/Leetcode_322';
+
 import Leetcode_76 from './Leetcode/Leetcode_76';
+import Leetcode_322 from './Leetcode/Leetcode_322';
+import Leetcode377 from './Leetcode/Leetcode377';
 
 function App() {
   const [showNavbar, setShowNavbar] = useState(true);
@@ -21,6 +23,7 @@ function App() {
       <li><button onClick={hide}>&lt;&lt;</button><NavLink to="/leetcode_web/">Home</NavLink></li>
       <li><NavLink to="/leetcode_web/76" >76. Minimum Window Substring</NavLink></li>
       <li><NavLink to="/leetcode_web/322" >322. Coin Change</NavLink></li>
+      <li><NavLink to="/leetcode_web/377" >377. Combination Sum IV</NavLink></li>
     </ul>
 
   </nav>
@@ -36,6 +39,7 @@ function App() {
           <Route path="/leetcode_web/" element={<Leetcode_322></Leetcode_322>}></Route>
           <Route path="/leetcode_web/76" element={<Leetcode_76></Leetcode_76>}></Route>
           <Route path="/leetcode_web/322" element={<Leetcode_322></Leetcode_322>}></Route>
+          <Route path="/leetcode_web/377" element={<Leetcode377></Leetcode377>}></Route>
         </Routes>
       </div>
 

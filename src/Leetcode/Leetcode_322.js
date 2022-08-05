@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './Leetcode_322.css'
+import './Leetcode.css'
 import logo from '../logo.png';
 
 export default function Leetcode322() {
