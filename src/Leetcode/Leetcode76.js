@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import './Leetcode_76.css';
+import './Leetcode76.css';
 import logo from '../logo.png';
 
-export default function Leetcode_76() {
+export default function Leetcode76() {
   const [step, setStep] = useState(0)
   const s = "ADOBECODEBANC";
   const sArray = s.split('');
