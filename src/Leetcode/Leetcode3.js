@@ -2,25 +2,28 @@ import { useEffect, useState } from 'react';
 import logo from '../logo.png';
 
 export default function Leetcode3() {
-    //const dispatch = useDispatch();
     const [frameIndex, setFrameIndex] = useState(0)
 
-    const frameLength = 14;
+    const frameLength = 18;
     const frames = {
         0: { left: 0, right: 0, ans: 1 },
         1: { left: 0, right: 1, ans: 1 },
         2: { left: 0, right: 2, ans: 1 },
         3: { left: 0, right: 3, ans: 1 },
         4: { left: 0, right: 4, ans: 1 },
-        5: { left: 2, right: 5, ans: 4 },
-        6: { left: 5, right: 6, ans: 4 },
-        7: { left: 7, right: 7, ans: 4 },
-        8: { left: 7, right: 8, ans: 4 },
-        9: { left: 7, right: 9, ans: 4 },
-        10: { left: 7, right: 10, ans: 4 },
-        11: { left: 7, right: 11, ans: 4 },
-        12: { left: 8, right: 12, ans: 5 },
-        13: { left: 8, right: 13, ans: 6 },
+        5: { left: 0, right: 5, ans: 5, key: true, repeat: 1 },
+        6: { left: 2, right: 5, ans: 5, key: true, repeat: 1 },
+        7: { left: 2, right: 6, ans: 5, key: true, repeat: 4 },
+        8: { left: 5, right: 6, ans: 5, key: true, repeat: 4 },
+        9: { left: 5, right: 7, ans: 5, key: true, repeat: 6 },
+        10: { left: 7, right: 7, ans: 5, key: true, repeat: 6 },
+        11: { left: 7, right: 8, ans: 5 },
+        12: { left: 7, right: 9, ans: 5 },
+        13: { left: 7, right: 10, ans: 5 },
+        14: { left: 7, right: 11, ans: 5 },
+        15: { left: 7, right: 12, ans: 5, key: true, repeat: 7 },
+        16: { left: 8, right: 12, ans: 5 },
+        17: { left: 8, right: 13, ans: 6 },
     }
 
     const step = 65;
@@ -55,23 +58,35 @@ export default function Leetcode3() {
         for (const rect of rects) {
             rect.setAttribute('fill', 'blue');
         }
-        if (previousFrame) {
 
-            if (previousFrame.left !== frame.left) {
-                const repeatCharIndex = frame.left - 1;
-                rects[repeatCharIndex].setAttribute('fill', 'red');
-            }
+        if (frame.key) {
+            
 
-            if (previousFrame.ans<frame.ans) {
-                document.getElementById('ans').setAttribute('fill', 'red');
-            } else {
-                document.getElementById('ans').setAttribute('fill', 'black');
-            }
+            // for(let i=frame.left;i<frame.right;i++) {
+            //     rects[i].setAttribute('fill', 'green');
+            // }
+
+            rects[frame.repeat].setAttribute('fill', 'red');
+
+            rects[frame.right].setAttribute('fill', 'red');
         }
 
+        // if (previousFrame) {
 
+        //     if (previousFrame.left !== frame.left) {
+        //         rects[frame.right].setAttribute('fill', 'red');
+        //     }
 
+        //     for(let i=previousFrame.left;i<frame.right;i++) {
+        //         rects[i].setAttribute('fill', 'green');
+        //     }
 
+        //     if (previousFrame.ans<frame.ans) {
+        //         document.getElementById('ans').setAttribute('fill', 'red');
+        //     } else {
+        //         document.getElementById('ans').setAttribute('fill', 'black');
+        //     }
+        // }
 
     }, [frameIndex]);
 
@@ -93,7 +108,7 @@ export default function Leetcode3() {
     return (
         <>
 
-            <div className='ppt' style={{ width: 950, cursor:'url(Laser_Pointer.png), pointer!important' }}>
+            <div className='ppt' style={{ width: 950 }}>
                 <header>
                     <img className='logo' src={logo} alt='logo' />
                     <h1>3. Longest Substring Without Repeating Characters</h1>
