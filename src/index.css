@@ -87,3 +87,15 @@ li a:hover {
   outline-width: 0;
   background-color: #059862;
 }
+
+.more-button {
+  color: #606060;
+  display: inline-block;
+  margin-top: 8px;
+  text-transform: uppercase;
+  font-family: "Roboto","Arial",sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  font-weight: 500;
+  cursor: pointer;
+}
