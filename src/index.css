@@ -99,3 +99,10 @@ li a:hover {
   font-weight: 500;
   cursor: pointer;
 }
+
+.btnbar {
+  text-align: right;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}

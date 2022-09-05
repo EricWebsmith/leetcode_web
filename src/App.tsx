@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import React from 'react'
 import { NavLink, Route, Routes } from 'react-router-dom';
 
 import Leetcode3 from './Leetcode/Leetcode3';
@@ -8,7 +9,7 @@ import Leetcode377 from './Leetcode/Leetcode377';
 import Leetcode659 from './Leetcode/Leetcode659';
 
 function App() {
-  const [showNavbar, setShowNavbar] = useState(true);
+  const [showNavbar, setShowNavbar] = useState<boolean>(true);
 
   function hide() {
     setShowNavbar(false);
@@ -17,6 +18,8 @@ function App() {
   function show() {
     setShowNavbar(true);
   }
+
+  console.log(showNavbar);
 
   const navbar = showNavbar? (
     <nav className='navbar'>
@@ -40,12 +43,14 @@ function App() {
       <div className="article">
         
         <Routes>
-          <Route path="/leetcode_web/" element={<Leetcode659></Leetcode659>}></Route>
+          
+          <Route path="/leetcode_web/" element={<Leetcode3></Leetcode3>}></Route>
           <Route path="/leetcode_web/3" element={<Leetcode3></Leetcode3>}></Route>
           <Route path="/leetcode_web/76" element={<Leetcode76></Leetcode76>}></Route>
           <Route path="/leetcode_web/322" element={<Leetcode322></Leetcode322>}></Route>
           <Route path="/leetcode_web/377" element={<Leetcode377></Leetcode377>}></Route>
           <Route path="/leetcode_web/659" element={<Leetcode659></Leetcode659>}></Route>
+          <Route path="*" element={<Leetcode659></Leetcode659>}></Route>
         </Routes>
       </div>
 
