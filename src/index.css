@@ -30,11 +30,14 @@ header {
   text-align: center;
   flex-shrink: inherit;
   vertical-align: top;
-  border: 2px solid green;
+  /* border: 2px solid green;
+  background-color: #555; */
 }
 
 img {
-  border: 2px solid red;
+  padding-top: 0;
+  margin: 0 10px;
+  /* border: 2px solid red; */
   vertical-align: top;
 }
 

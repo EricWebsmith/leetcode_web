@@ -44,7 +44,6 @@ function App(): JSX.Element {
       <div className="article">
         <LeetcodeSelector />
       </div>
-      <div>id</div>
     </main>
   );
 }

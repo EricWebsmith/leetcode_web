@@ -104,7 +104,7 @@ export default function Leetcode3() {
             <div id='svg-info' style={{
                 display: 'flex'
             }}>
-                <svg id='svg' width={650} height={430} style={{
+                <svg id='svg' width={650} height={450} style={{
                     backgroundColor: 'white',
                     cursor: 'url(Laser_Pointer.png), pointer!important'
                 }}>
@@ -219,7 +219,6 @@ export default function Leetcode3() {
                         <text x='375' y='145'>5</text>
                         <text x='438' y='145'>6</text>
                         <text x='505' y='145'>7</text>
-
                     </g>
                 </svg>
                 <div style={{
