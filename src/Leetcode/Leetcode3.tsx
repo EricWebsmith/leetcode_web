@@ -87,6 +87,11 @@ export default function Leetcode3() {
         }
     }
 
+
+    function handleResetClick() {
+        setFrameIndex(0);
+    }
+
     return (
         <div className='ppt' style={{ width: 950 }}>
             <header>
@@ -189,6 +194,7 @@ export default function Leetcode3() {
                 <path id='rightPointer' transform='translate(-80, 0)' d="M150 50 L150 80 L140 80 L160 100 L180 80 L170 80 L170 50 Z" />
             </svg>
             <div className='btnbar'>
+                <button className='btn' onClick={handleResetClick}>Reset</button>
                 <button className='btn' onClick={handlePreviousClick}>Previous Step</button>
                 <button className='btn' onClick={handleNextClick}>Next Step</button>
             </div>

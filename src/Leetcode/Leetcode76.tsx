@@ -233,24 +233,24 @@ export default function Leetcode3() {
         // moving bag numbers
         const movingBagControl = getElementById('moving-bag-numbers');
         const movingBagNumbers = getChildren(movingBagControl);
-        for (let i=0;i<3;i++) {
+        for (let i = 0; i < 3; i++) {
             //movingBagNumbers[i].setAttribute('fill', 'blue');
             movingBagNumbers[i].innerHTML = `${frame.movingBag[i]}`;
 
         }
 
         // moving-bag-rects
-        if (previousFrame!=null) {
+        if (previousFrame != null) {
             const movingBagRectControl = getElementById('moving-bag-rects');
             const movingBagRects = getChildren(movingBagRectControl);
-            
-            for (let i=0;i<3;i++) {
+
+            for (let i = 0; i < 3; i++) {
                 movingBagRects[i].setAttribute('fill', 'blue');
                 if (frame.movingBag[i] != previousFrame.movingBag[i]) {
                     movingBagRects[i].setAttribute('fill', 'red');
                 }
-                
-    
+
+
             }
         }
 
@@ -269,6 +269,10 @@ export default function Leetcode3() {
         if (frameIndex + 1 < frames.length) {
             setFrameIndex(frameIndex + 1);
         }
+    }
+
+    function handleResetClick() {
+        setFrameIndex(0);
     }
 
     const titleStyle = {
@@ -448,6 +452,7 @@ export default function Leetcode3() {
 
             </svg>
             <div className='btnbar'>
+                <button className='btn' onClick={handleResetClick}>Reset</button>
                 <button className='btn' onClick={handlePreviousClick}>Previous Step</button>
                 <button className='btn' onClick={handleNextClick}>Next Step</button>
             </div>
