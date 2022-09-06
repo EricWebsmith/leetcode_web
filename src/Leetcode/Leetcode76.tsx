@@ -292,8 +292,8 @@ export default function Leetcode3() {
             }}>
                 <path id='leftPointer' transform='translate(-110, 0)' d="M150 50 L150 80 L140 80 L160 100 L180 80 L170 80 L170 50 Z" />
                 <path id='leftPointerShadow' fill='transparent'
-                    stroke-dasharray="3,3"
-                    stroke='black' stroke-width="3" transform='translate(-110, 0)' d="M150 50 L150 80 L140 80 L160 100 L180 80 L170 80 L170 50 Z" />
+                    strokeDasharray="3,3"
+                    stroke='black' strokeWidth="3" transform='translate(-110, 0)' d="M150 50 L150 80 L140 80 L160 100 L180 80 L170 80 L170 50 Z" />
                 <path id='rightPointer' transform='translate(-80, 0)' d="M150 50 L150 80 L140 80 L160 100 L180 80 L170 80 L170 50 Z" />
                 <g id='rectContainer'
                     ref={rectContainer}
