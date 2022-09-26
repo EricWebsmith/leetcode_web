@@ -8,6 +8,7 @@ import Leetcode322 from './Leetcode/Leetcode322';
 import Leetcode377 from './Leetcode/Leetcode377';
 import Leetcode659 from './Leetcode/Leetcode659';
 import Leetcode862 from './Leetcode/Leetcode862';
+import Leetcode2421 from './Leetcode/Leetcode2421';
 
 
 function App(): JSX.Element {
@@ -32,6 +33,7 @@ function App(): JSX.Element {
         <li><NavLink to="/leetcode_web/?id=377" >377. Combination Sum IV</NavLink></li>
         <li><NavLink to="/leetcode_web/?id=659" >659. Split Array into Consecutive Subsequences</NavLink></li>
         <li><NavLink to="/leetcode_web/?id=862" >862. Shortest Subarray with Sum at Least K</NavLink></li>
+        <li><NavLink to="/leetcode_web/?id=2421" >2421. Number of Good Paths</NavLink></li>
       </ul>
 
     </nav>
@@ -51,8 +53,8 @@ function App(): JSX.Element {
 function LeetcodeSelector() {
   const [searchParams, setSearchParams] = useSearchParams();
   const id = searchParams.get('id')
-  const definedId = id == null?659:Number(id);
-  switch(definedId) {
+  const definedId = id == null ? 659 : Number(id);
+  switch (definedId) {
     case 3:
       return (<Leetcode3 />);
     case 76:
@@ -65,6 +67,8 @@ function LeetcodeSelector() {
       return (<Leetcode659 />);
     case 862:
       return (<Leetcode862 />);
+    case 2421:
+      return (<Leetcode2421 />);
     default:
       return (<Leetcode659 />);
   }
