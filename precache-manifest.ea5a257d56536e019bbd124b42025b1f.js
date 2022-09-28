@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/leetcode_web/static/media/logo.4ef58c63.png"
   },
   {
-    "revision": "c4185c78a3b5b8a7c244f1872780fbd8",
+    "revision": "6d0cd9a39d9506143ba0e7374c2e4252",
     "url": "/leetcode_web/index.html"
   }
 ];
