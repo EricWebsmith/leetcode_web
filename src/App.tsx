@@ -3,6 +3,7 @@ import React from 'react'
 import { NavLink, Route, Routes, useParams, useSearchParams } from 'react-router-dom';
 
 import Leetcode3 from './Leetcode/Leetcode3';
+import Leetcode19 from './Leetcode/Leetcode19';
 import Leetcode76 from './Leetcode/Leetcode76';
 import Leetcode322 from './Leetcode/Leetcode322';
 import Leetcode377 from './Leetcode/Leetcode377';
@@ -28,6 +29,7 @@ function App(): JSX.Element {
       <ul>
         <li><button onClick={hide}>&lt;&lt;</button><NavLink to="/leetcode_web/">Home</NavLink></li>
         <li><NavLink to="/leetcode_web/?id=3" >3. Longest Substring Without Repeating Characters</NavLink></li>
+        <li><NavLink to="/leetcode_web/?id=19" >19. Remove Nth Node From End of List</NavLink></li>
         <li><NavLink to="/leetcode_web/?id=76" >76. Minimum Window Substring</NavLink></li>
         <li><NavLink to="/leetcode_web/?id=322" >322. Coin Change</NavLink></li>
         <li><NavLink to="/leetcode_web/?id=377" >377. Combination Sum IV</NavLink></li>
@@ -57,6 +59,8 @@ function LeetcodeSelector() {
   switch (definedId) {
     case 3:
       return (<Leetcode3 />);
+      case 19:
+        return (<Leetcode19 />);
     case 76:
       return (<Leetcode76 />);
     case 322:

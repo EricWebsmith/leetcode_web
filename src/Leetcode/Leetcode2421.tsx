@@ -22,27 +22,15 @@ export default function Leetcode3() {
     const frame = frames[frameIndex];
 
     React.useEffect(() => {
-
-        if (step1.current == null || step2.current == null || step3.current == null) {
-            return
-        }
-
-        if (frame.display.includes(step1)) {
-            step1.current.setAttribute('opacity', '1')
-        } else {
-            step1.current.setAttribute('opacity', '0.5')
-        }
-
-        if (frame.display.includes(step2)) {
-            step2.current.setAttribute('opacity', '1')
-        } else {
-            step2.current.setAttribute('opacity', '0.5')
-        }
-
-        if (frame.display.includes(step3)) {
-            step3.current.setAttribute('opacity', '1')
-        } else {
-            step3.current.setAttribute('opacity', '0.5')
+        for(const step_control of [step1, step2, step3]){
+            if (step_control.current == null) {
+                continue
+            }
+            if (frame.display.includes(step_control)) {
+                step_control.current.setAttribute('opacity', '1')
+            } else {
+                step_control.current.setAttribute('opacity', '0.5')
+            }
         }
 
     }, [frameIndex]);
