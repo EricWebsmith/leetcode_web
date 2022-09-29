@@ -1,7 +1,7 @@
 {
   "main.css": "/leetcode_web/static/css/main.3c2db603.chunk.css",
-  "main.js": "/leetcode_web/static/js/main.8121e4e5.chunk.js",
-  "main.js.map": "/leetcode_web/static/js/main.8121e4e5.chunk.js.map",
+  "main.js": "/leetcode_web/static/js/main.a15597ab.chunk.js",
+  "main.js.map": "/leetcode_web/static/js/main.a15597ab.chunk.js.map",
   "static/js/1.05e2768b.chunk.js": "/leetcode_web/static/js/1.05e2768b.chunk.js",
   "static/js/1.05e2768b.chunk.js.map": "/leetcode_web/static/js/1.05e2768b.chunk.js.map",
   "runtime~main.js": "/leetcode_web/static/js/runtime~main.c44b3a1a.js",
@@ -9,6 +9,6 @@
   "static/media/logo.png": "/leetcode_web/static/media/logo.4ef58c63.png",
   "static/css/main.3c2db603.chunk.css.map": "/leetcode_web/static/css/main.3c2db603.chunk.css.map",
   "index.html": "/leetcode_web/index.html",
-  "precache-manifest.ea5a257d56536e019bbd124b42025b1f.js": "/leetcode_web/precache-manifest.ea5a257d56536e019bbd124b42025b1f.js",
+  "precache-manifest.118f245b8be711ebde230a1d473a93eb.js": "/leetcode_web/precache-manifest.118f245b8be711ebde230a1d473a93eb.js",
   "service-worker.js": "/leetcode_web/service-worker.js"
 }

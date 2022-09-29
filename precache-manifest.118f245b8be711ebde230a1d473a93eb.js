@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "8121e4e59c2314a4f857",
+    "revision": "a15597ab8d11e252afa4",
     "url": "/leetcode_web/static/css/main.3c2db603.chunk.css"
   },
   {
-    "revision": "8121e4e59c2314a4f857",
-    "url": "/leetcode_web/static/js/main.8121e4e5.chunk.js"
+    "revision": "a15597ab8d11e252afa4",
+    "url": "/leetcode_web/static/js/main.a15597ab.chunk.js"
   },
   {
     "revision": "05e2768b6d327d226b7d",
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/leetcode_web/static/media/logo.4ef58c63.png"
   },
   {
-    "revision": "6d0cd9a39d9506143ba0e7374c2e4252",
+    "revision": "e99f174fbfc06776b4346ece445d24f0",
     "url": "/leetcode_web/index.html"
   }
 ];
