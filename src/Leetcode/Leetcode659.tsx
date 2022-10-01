@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 import logo from '../logo.png';
-import * as html from '../Utils/html'
+import * as html from '../Utils/html';
 
 type Group = {
     indices: number[],
@@ -16,7 +16,7 @@ type Frame = {
     ends: (number | null)[]
 }
 
-export default function Leetcode3() {
+export default function Leetcode659() {
     const [frameIndex, setFrameIndex] = React.useState(0);
     const [advanced, setAdvanced] = React.useState(false);
     const groupColors = ['lightgreen', 'yellow'];

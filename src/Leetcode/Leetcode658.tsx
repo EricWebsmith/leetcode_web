@@ -6,7 +6,7 @@ type Frame = {
     right: number
 }
 
-export default function Leetcode3() {
+export default function Leetcode658() {
     const [frameIndex, setFrameIndex] = React.useState<number>(0)
     const leftPointer = React.useRef<SVGPathElement>(null);
     const rightPointer = React.useRef<SVGPathElement>(null);

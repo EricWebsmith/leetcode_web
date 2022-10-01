@@ -1,13 +1,13 @@
 import React from 'react';
 import logo from '../logo.png';
-import { getChildren, getChildrenFromRef, getElementById } from '../Utils/html'
+import { getChildren, getChildrenFromRef, getElementById } from '../Utils/html';
 
 type Frame = {
     current: number,
     dp: (number | null)[],
 }
 
-export default function Leetcode3() {
+export default function Leetcode377() {
     const [frameIndex, setFrameIndex] = React.useState<number>(0)
 
     const frames: Frame[] = [

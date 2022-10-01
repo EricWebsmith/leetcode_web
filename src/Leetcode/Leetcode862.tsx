@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from '../logo.png';
-import { getChildrenFromRef, getElementById } from '../Utils/html'
+import { getChildrenFromRef } from '../Utils/html';
 
 type Frame = {
     colors: string[];
@@ -15,7 +15,7 @@ const colors = {
     default: 'blue',
 }
 
-export default function Leetcode3() {
+export default function Leetcode862() {
     const [frameIndex, setFrameIndex] = React.useState<number>(0)
 
     const frames: Frame[] = [

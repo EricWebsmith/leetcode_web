@@ -8,7 +8,7 @@ type Frame = {
     slowPointer: number
 }
 
-export default function Leetcode3() {
+export default function Leetcode19() {
     const [frameIndex, setFrameIndex] = React.useState<number>(0)
 
     const crosses = React.useRef<SVGGElement>(null)

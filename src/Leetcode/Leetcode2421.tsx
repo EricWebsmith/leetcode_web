@@ -5,7 +5,7 @@ type Frame = {
     display: RefObject<SVGGElement>[],
 }
 
-export default function Leetcode3() {
+export default function Leetcode2421() {
     const [frameIndex, setFrameIndex] = React.useState<number>(0)
 
     const step1 = useRef<SVGGElement>(null);
