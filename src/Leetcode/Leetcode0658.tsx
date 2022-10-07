@@ -14,36 +14,17 @@ export default function Leetcode0658() {
   const rectContainer = React.useRef<SVGGElement>(null);
 
   const frames: Frame[] = [
-    {
-      left: 1,
-      right: 2,
-    },
-    {
-      left: 1,
-      right: 3,
-    },
-    {
-      left: 0,
-      right: 3,
-    },
-    {
-      left: 0,
-      right: 4,
-    },
-    {
-      left: -1,
-      right: 4,
-    },
+    { left: 1, right: 2 },
+    { left: 1, right: 3 },
+    { left: 0, right: 3 },
+    { left: 0, right: 4 },
+    { left: -1, right: 4 },
   ];
 
   const frame = frames[frameIndex];
 
   React.useEffect(() => {
-    if (
-      rectContainer.current == null ||
-      leftPointer.current == null ||
-      rightPointer.current == null
-    ) {
+    if (rectContainer.current == null || leftPointer.current == null || rightPointer.current == null) {
       return;
     }
 

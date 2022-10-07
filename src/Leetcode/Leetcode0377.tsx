@@ -32,10 +32,7 @@ export default function Leetcode0377() {
       current: 4,
       dp: [0, 1, 2, 4, 7, null, null, null],
     },
-    {
-      current: 6,
-      dp: [0, 1, 2, 4, 7, null, null],
-    },
+    { current: 6, dp: [0, 1, 2, 4, 7, null, null] },
   ];
 
   const frame = frames[frameIndex];

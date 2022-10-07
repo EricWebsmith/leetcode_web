@@ -169,22 +169,10 @@ export default function Leetcode0091() {
         }}
         transform='translate(100, 0)'>
         <defs>
-          <marker
-            ref={head1}
-            id='arrow-head-1'
-            markerWidth='2.595'
-            orient='auto'
-            refX='0.3'
-            refY='1.3'>
+          <marker ref={head1} id='arrow-head-1' markerWidth='2.595' orient='auto' refX='0.3' refY='1.3'>
             <path transform='scale(.25) translate(-1,-1)' d='M2,2 L2,11 L10,6 L2,2' />
           </marker>
-          <marker
-            ref={head2}
-            id='arrow-head-2'
-            markerWidth='2.595'
-            orient='auto'
-            refX='0.3'
-            refY='1.3'>
+          <marker ref={head2} id='arrow-head-2' markerWidth='2.595' orient='auto' refX='0.3' refY='1.3'>
             <path transform='scale(.25) translate(-1,-1)' d='M2,2 L2,11 L10,6 L2,2' />
           </marker>
         </defs>

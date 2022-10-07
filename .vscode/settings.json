@@ -1,3 +1,10 @@
 {
-    "eslint.workingDirectories": ["src"]
+    "eslint.workingDirectories": [
+        "src"
+    ],
+    "[javascript]": {
+        "editor.maxTokenizationLineLength": 2500,
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "prettier.printWidth": 110
 }

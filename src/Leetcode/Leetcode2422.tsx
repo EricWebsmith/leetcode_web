@@ -39,11 +39,7 @@ export default function Leetcode2422() {
   const frame = frames[frameIndex];
 
   React.useEffect(() => {
-    if (
-      sumContainer.current == null ||
-      leftPointer.current == null ||
-      rightPointer.current == null
-    ) {
+    if (sumContainer.current == null || leftPointer.current == null || rightPointer.current == null) {
       return;
     }
 

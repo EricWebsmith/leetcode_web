@@ -49,10 +49,7 @@ export default function Leetcode0003() {
     leftPointer.setAttribute('transform', `translate(${leftPointerBase + frame.left * step}, 0)`);
 
     const rightPointer = getElementById('rightPointer');
-    rightPointer.setAttribute(
-      'transform',
-      `translate(${rightPointerBase + frame.right * step}, 0)`
-    );
+    rightPointer.setAttribute('transform', `translate(${rightPointerBase + frame.right * step}, 0)`);
 
     const leftPointerShadow = getElementById('leftPointerShadow');
     leftPointerShadow.setAttribute('display', 'none');
