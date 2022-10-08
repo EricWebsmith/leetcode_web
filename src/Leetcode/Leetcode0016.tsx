@@ -143,7 +143,7 @@ export default function Leetcode0016() {
         }}>
         <div>Target: {12}</div>
         <div>Current: {frame.current}</div>
-        <div>Best: {frame.best}</div>
+        <div>Closest: {frame.best}</div>
       </div>
       <div className='btnbar'>
         <button className='btn' onClick={handleResetClick}>
