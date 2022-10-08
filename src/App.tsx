@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink, useSearchParams } from 'react-router-dom';
 
 import Leetcode0003 from './Leetcode/Leetcode0003';
+import Leetcode0016 from './Leetcode/Leetcode0016';
 import Leetcode0019 from './Leetcode/Leetcode0019';
 import Leetcode0076 from './Leetcode/Leetcode0076';
 import Leetcode0091 from './Leetcode/Leetcode0091';
@@ -33,9 +34,10 @@ function App(): JSX.Element {
           <NavLink to='/leetcode_web/'>Home</NavLink>
         </li>
         <li>
-          <NavLink to='/leetcode_web/?id=3'>
-            3. Longest Substring Without Repeating Characters
-          </NavLink>
+          <NavLink to='/leetcode_web/?id=3'>3. Longest Substring Without Repeating Characters</NavLink>
+        </li>
+        <li>
+          <NavLink to='/leetcode_web/?id=16'>16. 3Sum Closest</NavLink>
         </li>
         <li>
           <NavLink to='/leetcode_web/?id=19'>19. Remove Nth Node From End of List</NavLink>
@@ -56,9 +58,7 @@ function App(): JSX.Element {
           <NavLink to='/leetcode_web/?id=658'>658. Find K Closest Elements</NavLink>
         </li>
         <li>
-          <NavLink to='/leetcode_web/?id=659'>
-            659. Split Array into Consecutive Subsequences
-          </NavLink>
+          <NavLink to='/leetcode_web/?id=659'>659. Split Array into Consecutive Subsequences</NavLink>
         </li>
         <li>
           <NavLink to='/leetcode_web/?id=732'>732. My Calendar III</NavLink>
@@ -96,6 +96,8 @@ function LeetcodeSelector() {
   switch (definedId) {
     case 3:
       return <Leetcode0003 />;
+    case 16:
+      return <Leetcode0016 />;
     case 19:
       return <Leetcode0019 />;
     case 76:

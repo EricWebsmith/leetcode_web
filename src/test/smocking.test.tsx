@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import Leetcode0003 from '../Leetcode/Leetcode0003';
+import Leetcode0016 from '../Leetcode/Leetcode0016';
 import Leetcode0019 from '../Leetcode/Leetcode0019';
 import Leetcode0076 from '../Leetcode/Leetcode0076';
 import Leetcode0091 from '../Leetcode/Leetcode0091';
@@ -7,6 +8,7 @@ import Leetcode0322 from '../Leetcode/Leetcode0322';
 import Leetcode0377 from '../Leetcode/Leetcode0377';
 import Leetcode0658 from '../Leetcode/Leetcode0658';
 import Leetcode0659 from '../Leetcode/Leetcode0659';
+import Leetcode0732 from '../Leetcode/Leetcode0732';
 import Leetcode0862 from '../Leetcode/Leetcode0862';
 import Leetcode2421 from '../Leetcode/Leetcode2421';
 import Leetcode2422 from '../Leetcode/Leetcode2422';
@@ -14,6 +16,7 @@ import { NEXT_STEP, PREVIOUS_STEP, RESET, SHOW_LESS, SHOW_MORE } from '../Utils/
 
 const typeList = [
   Leetcode0003,
+  Leetcode0016,
   Leetcode0019,
   Leetcode0091,
   Leetcode0076,
@@ -21,6 +24,7 @@ const typeList = [
   Leetcode0377,
   Leetcode0658,
   Leetcode0659,
+  Leetcode0732,
   Leetcode0862,
   Leetcode2421,
   Leetcode2422,
@@ -54,6 +58,9 @@ for (const T of typeList) {
     for (let i = outputs.length - 2; i >= 0; i--) {
       const btn: HTMLElement = screen.getByText(PREVIOUS_STEP);
       expect(fireEvent.click(btn)).toBe(true);
+      if (svg.innerHTML !== outputs[i]) {
+        console.log(i, outputs.length);
+      }
       expect(svg.innerHTML).toBe(outputs[i]);
     }
 

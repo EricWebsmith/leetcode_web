@@ -10,7 +10,7 @@ type Frame = {
   textDict?: Map<string, string>;
 };
 
-export default function Leetcode0377() {
+export default function Leetcode0732() {
   const [frameIndex, setFrameIndex] = React.useState<number>(0);
 
   const frames: Frame[] = [
