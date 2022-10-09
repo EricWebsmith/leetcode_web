@@ -15,20 +15,20 @@ function App(): JSX.Element {
     setShowNavbar(true);
   }
 
-  const lis = [];
-  for (const T of typeList) {
-    const meta = nameMetaDict.get(T.name);
-    if (meta) {
-      const url = `/leetcode_web/?id=${meta.id}`;
-      const title = `${meta.id}. ${meta.title}`;
-      const key = meta.id;
-      lis.push(
-        <li key={key}>
-          <NavLink to={url}>{title}</NavLink>
-        </li>
-      );
-    }
-  }
+  // const lis = [];
+  // for (const T of typeList) {
+  //   const meta = nameMetaDict.get(T.name);
+  //   if (meta) {
+  //     const url = `/leetcode_web/?id=${meta.id}`;
+  //     const title = `${meta.id}. ${meta.title}`;
+  //     const key = meta.id;
+  //     lis.push(
+  //       <li key={key}>
+  //         <NavLink to={url}>{title}</NavLink>
+  //       </li>
+  //     );
+  //   }
+  // }
 
   const navbar = showNavbar ? (
     <nav className='navbar'>
