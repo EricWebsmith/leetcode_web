@@ -113,5 +113,43 @@ for (const meta of metaList) {
   nameMetaDict.set(name, meta);
 }
 
-export { typeList, idMetaDict, nameMetaDict };
+function LeetcodeSelector(id: number) {
+  // const [searchParams] = useSearchParams();
+  // const id = searchParams.get('id');
+  const definedId = id == null ? 659 : Number(id);
+  switch (definedId) {
+    case 3:
+      return <Leetcode0003 />;
+    case 16:
+      return <Leetcode0016 />;
+    case 19:
+      return <Leetcode0019 />;
+    case 76:
+      return <Leetcode0076 />;
+    case 91:
+      return <Leetcode0091 />;
+    case 322:
+      return <Leetcode0322 />;
+    case 377:
+      return <Leetcode0377 />;
+    case 658:
+      return <Leetcode0658 />;
+    case 659:
+      return <Leetcode0659 />;
+    case 732:
+      return <Leetcode0732 />;
+    case 862:
+      return <Leetcode0862 />;
+    case 2421:
+      return <Leetcode2421 />;
+    case 2422:
+      return <Leetcode2422 />;
+    case 2434:
+      return <Leetcode2434 />;
+    default:
+      return <Leetcode0659 />;
+  }
+}
+
+export { metaList, typeList, idMetaDict, nameMetaDict, LeetcodeSelector };
 export type { ProblemMetadata, ILeetcodeProps };
