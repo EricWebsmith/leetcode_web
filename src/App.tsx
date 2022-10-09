@@ -14,6 +14,7 @@ import Leetcode0732 from './Leetcode/Leetcode0732';
 import Leetcode0862 from './Leetcode/Leetcode0862';
 import Leetcode2421 from './Leetcode/Leetcode2421';
 import Leetcode2422 from './Leetcode/Leetcode2422';
+import Leetcode2434 from './Leetcode/Leetcode2434';
 
 function App(): JSX.Element {
   const [showNavbar, setShowNavbar] = React.useState<boolean>(true);
@@ -74,6 +75,11 @@ function App(): JSX.Element {
             2422. Merge Operations to Turn Array Into a Palindrome
           </NavLink>
         </li>
+        <li>
+          <NavLink to='/leetcode_web/?id=2434'>
+            2434. Using a Robot to Print the Lexicographically Smallest String
+          </NavLink>
+        </li>
       </ul>
     </nav>
   ) : (
@@ -120,6 +126,8 @@ function LeetcodeSelector() {
       return <Leetcode2421 />;
     case 2422:
       return <Leetcode2422 />;
+    case 2434:
+      return <Leetcode2434 />;
     default:
       return <Leetcode0659 />;
   }

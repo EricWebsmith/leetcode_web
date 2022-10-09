@@ -11,6 +11,10 @@ interface Props {
 }
 
 const Rects = React.forwardRef((props: Props, ref: React.ForwardedRef<SVGGElement>) => {
+  if (props.n === 0 || props.n == null) {
+    return <></>;
+  }
+
   const rects = [];
   for (let i = 0; i < props.n; i++) {
     const rect = (

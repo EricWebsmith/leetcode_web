@@ -50,7 +50,7 @@ export default function Leetcode0016() {
     { i: 0, left: 1, right: 4, current: '13', best: '13' },
     { i: 0, left: 1, right: 3, current: '11', best: '11' },
     { i: 0, left: 2, right: 3, current: '13', best: '11' },
-    { i: 1, left: 2, right: 4, current: '19', best: '11' },
+    { i: 1, left: 2, right: 4, current: '17', best: '11' },
     { i: 1, left: 2, right: 3, current: '15', best: '11' },
     { i: 2, left: 3, right: 4, current: '21', best: '11' },
   ];

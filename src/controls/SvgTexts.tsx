@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface Props {
-  text: string;
+  text?: string;
   x: number;
   y: number;
   offsetX: number;
@@ -11,6 +11,9 @@ interface Props {
 }
 
 const Texts = React.forwardRef((props: Props, ref: React.ForwardedRef<SVGGElement>) => {
+  if (props.text == null) {
+    return <></>;
+  }
   const texts = [];
   for (let i = 0; i < props.text.length; i++) {
     const text = (
