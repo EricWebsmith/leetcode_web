@@ -117,9 +117,10 @@ function LeetcodeSelector(id: number) {
   // const [searchParams] = useSearchParams();
   // const id = searchParams.get('id');
   const definedId = id == null ? 659 : Number(id);
+  const meta = idMetaDict.get(id);
   switch (definedId) {
     case 3:
-      return <Leetcode0003 />;
+      return <Leetcode0003 meta={meta} />;
     case 16:
       return <Leetcode0016 />;
     case 19:
@@ -146,6 +147,8 @@ function LeetcodeSelector(id: number) {
       return <Leetcode2422 />;
     case 2434:
       return <Leetcode2434 />;
+    case 2435:
+      return <Leetcode2435 meta={meta} />;
     default:
       return <Leetcode0659 />;
   }
