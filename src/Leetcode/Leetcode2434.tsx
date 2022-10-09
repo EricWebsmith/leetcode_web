@@ -10,18 +10,22 @@ type Frame = {
   ans: string;
 };
 
-export default function Leetcode0016() {
+export default function Leetcode2434() {
   const [frameIndex, setFrameIndex] = React.useState<number>(0);
 
   const frames: Frame[] = [
     { s: 'adbecf', t: '', ans: '' },
+    { s: 'dbecf', t: 'a', ans: '' },
     { s: 'dbecf', t: '', ans: 'a' },
     { s: 'becf', t: 'd', ans: 'a' },
+    { s: 'ecf', t: 'db', ans: 'a' },
     { s: 'ecf', t: 'd', ans: 'ab' },
     { s: 'cf', t: 'de', ans: 'ab' },
+    { s: 'f', t: 'dec', ans: 'ab' },
     { s: 'f', t: 'de', ans: 'abc' },
     { s: 'f', t: 'd', ans: 'abce' },
     { s: 'f', t: '', ans: 'abced' },
+    { s: '', t: 'f', ans: 'abced' },
     { s: '', t: '', ans: 'abcedf' },
   ];
 

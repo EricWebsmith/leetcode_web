@@ -3,6 +3,7 @@ import SvgRects from '../controls/SvgRects';
 import logo from '../logo.png';
 import { NEXT_STEP, PREVIOUS_STEP, RESET } from '../Utils/constants';
 import { getChildrenFromRef, getElementById } from '../Utils/html';
+import { ILeetcodeProps } from './metadata';
 
 type Frame = {
   left: number;
@@ -12,7 +13,7 @@ type Frame = {
   repeat?: number;
 };
 
-export default function Leetcode0003() {
+export default function Leetcode0003(props: ILeetcodeProps) {
   const [frameIndex, setFrameIndex] = React.useState<number>(0);
 
   const frames: Frame[] = [
@@ -93,11 +94,13 @@ export default function Leetcode0003() {
     setFrameIndex(0);
   }
 
+  const title = `${props.meta?.id}. ${props.meta?.title}`;
+
   return (
     <div className='ppt' style={{ width: 950 }}>
       <header>
         <img className='logo' src={logo} alt='logo' />
-        <h1>3. Longest Substring Without Repeating Characters</h1>
+        <h1>{title}</h1>
       </header>
       <svg
         id='svg'
