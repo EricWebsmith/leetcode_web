@@ -102,6 +102,7 @@ function LeetcodeSelector() {
   const [searchParams] = useSearchParams();
   const id = searchParams.get('id');
   const definedId = id == null ? 659 : Number(id);
+  console.log(typeList.length);
   for (const T of typeList) {
     const meta = nameMetaDict.get(T.name);
     if (meta && meta.id === definedId) {
