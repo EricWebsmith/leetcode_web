@@ -104,11 +104,13 @@ function LeetcodeSelector() {
   const definedId = id == null ? 659 : Number(id);
   console.log(typeList.length);
   for (const T of typeList) {
+    console.log(T.name);
     const meta = nameMetaDict.get(T.name);
     if (meta && meta.id === definedId) {
       return <T meta={meta} />;
     }
   }
+  console.log('1130');
   return <Leetcode0659 />;
 }
 
