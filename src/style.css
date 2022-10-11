@@ -111,8 +111,10 @@ li a:hover {
 }
 
 .btnbar {
+  padding-top: 15px;
   text-align: right;
   display: flex;
   flex-direction: row;
   justify-content: end;
+  cursor: default;
 }

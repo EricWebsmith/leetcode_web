@@ -9,6 +9,7 @@ import Leetcode0658 from './Leetcode0658';
 import Leetcode0659 from './Leetcode0659';
 import Leetcode0732 from './Leetcode0732';
 import Leetcode0862 from './Leetcode0862';
+import Leetcode1234 from './Leetcode1234';
 import Leetcode2421 from './Leetcode2421';
 import Leetcode2422 from './Leetcode2422';
 import Leetcode2434 from './Leetcode2434';
@@ -26,6 +27,7 @@ const typeList = [
   Leetcode0659,
   Leetcode0732,
   Leetcode0862,
+  Leetcode1234,
   Leetcode2421,
   Leetcode2422,
   Leetcode2434,
@@ -63,7 +65,7 @@ const metaList: ProblemMetadata[] = [
     title: 'Decode Ways',
   },
   {
-    id: 332,
+    id: 322,
     title: 'Coin Change',
   },
   {
@@ -85,6 +87,10 @@ const metaList: ProblemMetadata[] = [
   {
     id: 862,
     title: 'Shortest Subarray with Sum at Least K',
+  },
+  {
+    id: 1234,
+    title: 'Replace the Substring for Balanced String',
   },
   {
     id: 2421,
@@ -141,6 +147,8 @@ function LeetcodeSelector(id: number) {
       return <Leetcode0732 />;
     case 862:
       return <Leetcode0862 />;
+    case 1234:
+      return <Leetcode1234 meta={meta} />;
     case 2421:
       return <Leetcode2421 />;
     case 2422:
