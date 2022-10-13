@@ -1,6 +1,6 @@
-import React from 'react';
-import logo from '../logo.png';
-import { NEXT_STEP, PREVIOUS_STEP, RESET } from '../Utils/constants';
+import React, { SetStateAction } from 'react';
+import ButtonBar from '../controls/ButtonBar';
+import SvgTexts from '../controls/SvgTexts';
 import { getChildren, getChildrenFromRef, getElementById } from '../Utils/html';
 
 type Frame = {
@@ -15,172 +15,32 @@ export default function Leetcode0076() {
   const [frameIndex, setFrameIndex] = React.useState<number>(0);
 
   const frames: Frame[] = [
-    {
-      left: 1000,
-      right: -1,
-      movingBag: [0, 0, 0],
-      ans: '""',
-    },
-    {
-      left: 0,
-      right: 0,
-      movingBag: [1, 0, 0],
-      ans: '""',
-    },
-    {
-      left: 0,
-      right: 1,
-      movingBag: [1, 0, 0],
-      ans: '""',
-    },
-    {
-      left: 0,
-      right: 2,
-      movingBag: [1, 0, 0],
-      ans: '""',
-    },
-    {
-      left: 0,
-      right: 3,
-      movingBag: [1, 1, 0],
-      ans: '""',
-    },
-    {
-      left: 0,
-      right: 4,
-      movingBag: [1, 1, 0],
-      ans: '""',
-    },
-    {
-      left: 0,
-      right: 5,
-      movingBag: [1, 1, 1],
-      isSubset: true,
-      ans: 'ADOBEC',
-    },
-    {
-      left: 1,
-      right: 5,
-      movingBag: [0, 1, 1],
-      ans: 'ADOBEC',
-    },
-    {
-      left: 1,
-      right: 6,
-      movingBag: [0, 1, 1],
-      ans: 'ADOBEC',
-    },
-    {
-      left: 1,
-      right: 7,
-      movingBag: [0, 1, 1],
-      ans: 'ADOBEC',
-    },
-    {
-      left: 1,
-      right: 8,
-      movingBag: [0, 1, 1],
-      ans: 'ADOBEC',
-    },
-    {
-      left: 1,
-      right: 9,
-      movingBag: [0, 2, 1],
-      ans: 'ADOBEC',
-    },
-    {
-      left: 1,
-      right: 10,
-      movingBag: [1, 2, 1],
-      isSubset: true,
-      ans: 'ADOBEC',
-    },
-    {
-      left: 2,
-      right: 10,
-      movingBag: [1, 2, 1],
-      isSubset: true,
-      ans: 'ADOBEC',
-    },
-    {
-      left: 3,
-      right: 10,
-      movingBag: [1, 2, 1],
-      isSubset: true,
-      ans: 'ADOBEC',
-    },
-    {
-      left: 4,
-      right: 10,
-      movingBag: [1, 1, 1],
-      isSubset: true,
-      ans: 'ADOBEC',
-    },
-    {
-      left: 5,
-      right: 10,
-      movingBag: [1, 1, 1],
-      isSubset: true,
-      ans: 'ADOBEC',
-    },
-    {
-      left: 6,
-      right: 10,
-      movingBag: [1, 1, 0],
-      ans: 'ADOBEC',
-    },
-    {
-      left: 6,
-      right: 11,
-      movingBag: [1, 1, 0],
-      ans: 'ADOBEC',
-    },
-    {
-      left: 6,
-      right: 12,
-      movingBag: [1, 1, 1],
-      isSubset: true,
-      ans: 'ADOBEC',
-    },
-    {
-      left: 7,
-      right: 12,
-      movingBag: [1, 1, 1],
-      isSubset: true,
-      ans: 'ADOBEC',
-    },
-    {
-      left: 8,
-      right: 12,
-      movingBag: [1, 1, 1],
-      isSubset: true,
-      ans: 'EBANC',
-    },
-    {
-      left: 9,
-      right: 12,
-      movingBag: [1, 1, 1],
-      isSubset: true,
-      ans: 'BANC',
-    },
-    {
-      left: 10,
-      right: 12,
-      movingBag: [1, 0, 1],
-      ans: 'BANC',
-    },
-    {
-      left: 11,
-      right: 12,
-      movingBag: [0, 0, 1],
-      ans: 'BANC',
-    },
-    {
-      left: 12,
-      right: 12,
-      movingBag: [0, 0, 1],
-      ans: 'BANC',
-    },
+    { left: 1000, right: -1, movingBag: [0, 0, 0], ans: '""' },
+    { left: 0, right: 0, movingBag: [1, 0, 0], ans: '""' },
+    { left: 0, right: 1, movingBag: [1, 0, 0], ans: '""' },
+    { left: 0, right: 2, movingBag: [1, 0, 0], ans: '""' },
+    { left: 0, right: 3, movingBag: [1, 1, 0], ans: '""' },
+    { left: 0, right: 4, movingBag: [1, 1, 0], ans: '""' },
+    { left: 0, right: 5, movingBag: [1, 1, 1], isSubset: true, ans: 'ADOBEC' },
+    { left: 1, right: 5, movingBag: [0, 1, 1], ans: 'ADOBEC' },
+    { left: 1, right: 6, movingBag: [0, 1, 1], ans: 'ADOBEC' },
+    { left: 1, right: 7, movingBag: [0, 1, 1], ans: 'ADOBEC' },
+    { left: 1, right: 8, movingBag: [0, 1, 1], ans: 'ADOBEC' },
+    { left: 1, right: 9, movingBag: [0, 2, 1], ans: 'ADOBEC' },
+    { left: 1, right: 10, movingBag: [1, 2, 1], isSubset: true, ans: 'ADOBEC' },
+    { left: 2, right: 10, movingBag: [1, 2, 1], isSubset: true, ans: 'ADOBEC' },
+    { left: 3, right: 10, movingBag: [1, 2, 1], isSubset: true, ans: 'ADOBEC' },
+    { left: 4, right: 10, movingBag: [1, 1, 1], isSubset: true, ans: 'ADOBEC' },
+    { left: 5, right: 10, movingBag: [1, 1, 1], isSubset: true, ans: 'ADOBEC' },
+    { left: 6, right: 10, movingBag: [1, 1, 0], ans: 'ADOBEC' },
+    { left: 6, right: 11, movingBag: [1, 1, 0], ans: 'ADOBEC' },
+    { left: 6, right: 12, movingBag: [1, 1, 1], isSubset: true, ans: 'ADOBEC' },
+    { left: 7, right: 12, movingBag: [1, 1, 1], isSubset: true, ans: 'ADOBEC' },
+    { left: 8, right: 12, movingBag: [1, 1, 1], isSubset: true, ans: 'EBANC' },
+    { left: 9, right: 12, movingBag: [1, 1, 1], isSubset: true, ans: 'BANC' },
+    { left: 10, right: 12, movingBag: [1, 0, 1], ans: 'BANC' },
+    { left: 11, right: 12, movingBag: [0, 0, 1], ans: 'BANC' },
+    { left: 12, right: 12, movingBag: [0, 0, 1], ans: 'BANC' },
   ];
 
   const step = 65;
@@ -197,10 +57,7 @@ export default function Leetcode0076() {
     leftPointer.setAttribute('transform', `translate(${leftPointerBase + frame.left * step}, 0)`);
 
     const rightPointer = getElementById('rightPointer');
-    rightPointer.setAttribute(
-      'transform',
-      `translate(${rightPointerBase + frame.right * step}, 0)`
-    );
+    rightPointer.setAttribute('transform', `translate(${rightPointerBase + frame.right * step}, 0)`);
 
     const leftPointerShadow = getElementById('leftPointerShadow');
 
@@ -262,20 +119,17 @@ export default function Leetcode0076() {
     }
   }, [frameIndex]);
 
-  function handlePreviousClick() {
-    if (frameIndex > 0) {
-      setFrameIndex(frameIndex - 1);
+  function setIndex(index: SetStateAction<number>) {
+    let newIndex = 0;
+    if (typeof index == 'number') {
+      newIndex = index;
+    } else {
+      newIndex = index(frameIndex);
     }
-  }
 
-  function handleNextClick() {
-    if (frameIndex + 1 < frames.length) {
-      setFrameIndex(frameIndex + 1);
+    if (newIndex >= 0 && newIndex < frames.length) {
+      setFrameIndex(index);
     }
-  }
-
-  function handleResetClick() {
-    setFrameIndex(0);
   }
 
   const titleStyle = {
@@ -283,12 +137,14 @@ export default function Leetcode0076() {
     fontFamily: 'Arial Black',
   };
 
+  const textStyle = {
+    fontSize: '48px',
+    fill: 'white',
+    fontFamily: 'Arial Black',
+  };
+
   return (
-    <div className='ppt' style={{ width: 950 }}>
-      <header>
-        <img className='logo' src={logo} alt='logo' />
-        <h1>76. Minimum Window Substring</h1>
-      </header>
+    <>
       <svg
         id='svg'
         width={950}
@@ -338,53 +194,7 @@ export default function Leetcode0076() {
           <rect x={750} y={100} height='60' width='60'></rect>
           <rect x={815} y={100} height='60' width='60'></rect>
         </g>
-        <g
-          id='chars'
-          style={{
-            fontSize: '48px',
-            fill: 'white',
-            fontFamily: 'Arial Black',
-          }}>
-          <text x='45' y='145'>
-            A
-          </text>
-          <text x='115' y='145'>
-            D
-          </text>
-          <text x='175' y='145'>
-            O
-          </text>
-          <text x='240' y='145'>
-            B
-          </text>
-          <text x='305' y='145'>
-            E
-          </text>
-          <text x='375' y='145'>
-            C
-          </text>
-          <text x='435' y='145'>
-            O
-          </text>
-          <text x='500' y='145'>
-            D
-          </text>
-          <text x='570' y='145'>
-            E
-          </text>
-          <text x='630' y='145'>
-            B
-          </text>
-          <text x='695' y='145'>
-            A
-          </text>
-          <text x='760' y='145'>
-            N
-          </text>
-          <text x='825' y='145'>
-            C
-          </text>
-        </g>
+        <SvgTexts x={45} y={145} offsetX={65} text={'ADOBECODEBANC'} style={textStyle}></SvgTexts>
         <g
           id='index'
           transform='translate(0, 50)'
@@ -567,17 +377,7 @@ export default function Leetcode0076() {
           {frame.ans}
         </text>
       </svg>
-      <div className='btnbar'>
-        <button className='btn' onClick={handleResetClick}>
-          {RESET}
-        </button>
-        <button className='btn' onClick={handlePreviousClick}>
-          {PREVIOUS_STEP}
-        </button>
-        <button className='btn' onClick={handleNextClick}>
-          {NEXT_STEP}
-        </button>
-      </div>
-    </div>
+      <ButtonBar setIndex={setIndex} />
+    </>
   );
 }

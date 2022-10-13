@@ -1,9 +1,6 @@
-import React from 'react';
-import Header from '../controls/Header';
+import React, { SetStateAction } from 'react';
+import ButtonBar from '../controls/ButtonBar';
 import SvgTexts from '../controls/SvgTexts';
-import { NEXT_STEP, PREVIOUS_STEP, RESET } from '../Utils/constants';
-import ILeetcodeProps from './ILeetcodeProps';
-import { getDisplayTitle } from './ProblemMetadata';
 
 type Frame = {
   edgeRemoved?: boolean;
@@ -11,24 +8,16 @@ type Frame = {
   text: string;
 };
 
-export default function Leetcode0237(props: ILeetcodeProps) {
+export default function Leetcode0237() {
   const [frameIndex, setFrameIndex] = React.useState<number>(0);
 
   const crosses = React.useRef<SVGGElement>(null);
   const edge59 = React.useRef<SVGPathElement>(null);
 
   const frames: Frame[] = [
-    {
-      text: '4519',
-    },
-    {
-      text: '4119',
-    },
-    {
-      edgeRemoved: true,
-      _35connected: true,
-      text: '4119',
-    },
+    { text: '4519' },
+    { text: '4119' },
+    { edgeRemoved: true, _35connected: true, text: '4119' },
   ];
 
   const frame = frames[frameIndex];
@@ -51,20 +40,17 @@ export default function Leetcode0237(props: ILeetcodeProps) {
     }
   }, [frameIndex]);
 
-  function handlePreviousClick() {
-    if (frameIndex > 0) {
-      setFrameIndex(frameIndex - 1);
+  function setIndex(index: SetStateAction<number>) {
+    let newIndex = 0;
+    if (typeof index == 'number') {
+      newIndex = index;
+    } else {
+      newIndex = index(frameIndex);
     }
-  }
 
-  function handleNextClick() {
-    if (frameIndex + 1 < frames.length) {
-      setFrameIndex(frameIndex + 1);
+    if (newIndex >= 0 && newIndex < frames.length) {
+      setFrameIndex(index);
     }
-  }
-
-  function handleResetClick() {
-    setFrameIndex(0);
   }
 
   const edgeStyle = {
@@ -93,8 +79,7 @@ export default function Leetcode0237(props: ILeetcodeProps) {
   };
 
   return (
-    <div className='ppt' style={{ width: 950 }}>
-      <Header title={getDisplayTitle(props.meta)}></Header>
+    <>
       <svg
         id='svg'
         width={900}
@@ -109,7 +94,7 @@ export default function Leetcode0237(props: ILeetcodeProps) {
           </marker>
         </defs>
         <g fill='blue' transform='translate(0, -100)'>
-          <g strokeWidth='12'>
+          <g>
             <circle cx='200' cy='250' r='65' />
             <circle cx='400' cy='250' r='65' fill='purple' />
             <circle cx='600' cy='250' r='65' />
@@ -134,17 +119,7 @@ export default function Leetcode0237(props: ILeetcodeProps) {
         </g>
         <SvgTexts x={180} y={175} text={frame.text} offsetX={200} style={textStyle}></SvgTexts>
       </svg>
-      <div className='btnbar'>
-        <button className='btn' onClick={handleResetClick}>
-          {RESET}
-        </button>
-        <button className='btn' onClick={handlePreviousClick}>
-          {PREVIOUS_STEP}
-        </button>
-        <button className='btn' onClick={handleNextClick}>
-          {NEXT_STEP}
-        </button>
-      </div>
-    </div>
+      <ButtonBar setIndex={setIndex} />
+    </>
   );
 }

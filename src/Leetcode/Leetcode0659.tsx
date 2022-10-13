@@ -1,6 +1,6 @@
-import React from 'react';
-import logo from '../logo.png';
-import { NEXT_STEP, PREVIOUS_STEP, RESET } from '../Utils/constants';
+import React, { SetStateAction } from 'react';
+import ButtonBar from '../controls/ButtonBar';
+import { SHOW_LESS, SHOW_MORE } from '../Utils/constants';
 import * as html from '../Utils/html';
 
 type Group = {
@@ -21,8 +21,6 @@ export default function Leetcode0659() {
   const [frameIndex, setFrameIndex] = React.useState(0);
   const [advanced, setAdvanced] = React.useState(false);
   const groupColors = ['lightblue', 'yellow'];
-
-  const frameLength = 9;
   const frames: Frame[] = [
     {
       pointer: -2,
@@ -35,24 +33,14 @@ export default function Leetcode0659() {
     {
       pointer: 0,
       message: 'The first element 1 has no sequence to follow. So it starts one.',
-      groups: [
-        {
-          indices: [0, 1, 3],
-          color: groupColors[0],
-        },
-      ],
+      groups: [{ indices: [0, 1, 3], color: groupColors[0] }],
       counter: [0, 0, 1, 2, 2],
       ends: [1, null, null],
     },
     {
       pointer: 1,
       message: 'This one is already taken.',
-      groups: [
-        {
-          indices: [0, 1, 3],
-          color: groupColors[0],
-        },
-      ],
+      groups: [{ indices: [0, 1, 3], color: groupColors[0] }],
       counter: [0, 0, 1, 2, 2],
       ends: [1, null, null],
     },
@@ -60,14 +48,8 @@ export default function Leetcode0659() {
       pointer: 2,
       message: 'This one has no sequence to follow. So she starts a sequence.',
       groups: [
-        {
-          indices: [0, 1, 3],
-          color: groupColors[0],
-        },
-        {
-          indices: [2, 5, 7],
-          color: groupColors[1],
-        },
+        { indices: [0, 1, 3], color: groupColors[0] },
+        { indices: [2, 5, 7], color: groupColors[1] },
       ],
       counter: [0, 0, 0, 1, 1],
       ends: [1, null, 1],
@@ -76,14 +58,8 @@ export default function Leetcode0659() {
       pointer: 3,
       message: 'This one is already taken.',
       groups: [
-        {
-          indices: [0, 1, 3],
-          color: groupColors[0],
-        },
-        {
-          indices: [2, 5, 7],
-          color: groupColors[1],
-        },
+        { indices: [0, 1, 3], color: groupColors[0] },
+        { indices: [2, 5, 7], color: groupColors[1] },
       ],
       counter: [0, 0, 0, 1, 1],
       ends: [1, null, 1],
@@ -92,14 +68,8 @@ export default function Leetcode0659() {
       pointer: 4,
       message: 'He joins green.',
       groups: [
-        {
-          indices: [0, 1, 3, 4],
-          color: groupColors[0],
-        },
-        {
-          indices: [2, 5, 7],
-          color: groupColors[1],
-        },
+        { indices: [0, 1, 3, 4], color: groupColors[0] },
+        { indices: [2, 5, 7], color: groupColors[1] },
       ],
       counter: [0, 0, 0, 0, 1],
       ends: [null, 1, 1],
@@ -108,14 +78,8 @@ export default function Leetcode0659() {
       pointer: 5,
       message: 'This one is already taken.',
       groups: [
-        {
-          indices: [0, 1, 3, 4],
-          color: groupColors[0],
-        },
-        {
-          indices: [2, 5, 7],
-          color: groupColors[1],
-        },
+        { indices: [0, 1, 3, 4], color: groupColors[0] },
+        { indices: [2, 5, 7], color: groupColors[1] },
       ],
       counter: [0, 0, 0, 0, 1],
       ends: [null, 1, 1],
@@ -124,14 +88,8 @@ export default function Leetcode0659() {
       pointer: 6,
       message: 'This one joins the green sequence.',
       groups: [
-        {
-          indices: [0, 1, 3, 4, 6],
-          color: groupColors[0],
-        },
-        {
-          indices: [2, 5, 7],
-          color: groupColors[1],
-        },
+        { indices: [0, 1, 3, 4, 6], color: groupColors[0] },
+        { indices: [2, 5, 7], color: groupColors[1] },
       ],
       counter: [0, 0, 0, 0, 0],
       ends: [null, null, 2],
@@ -140,14 +98,8 @@ export default function Leetcode0659() {
       pointer: 7,
       message: 'This one is already taken.',
       groups: [
-        {
-          indices: [0, 1, 3, 4, 6],
-          color: groupColors[0],
-        },
-        {
-          indices: [2, 5, 7],
-          color: groupColors[1],
-        },
+        { indices: [0, 1, 3, 4, 6], color: groupColors[0] },
+        { indices: [2, 5, 7], color: groupColors[1] },
       ],
       counter: [0, 0, 0, 0, 0],
       ends: [null, null, 2],
@@ -177,15 +129,16 @@ export default function Leetcode0659() {
     }
   }, [frameIndex, advanced]);
 
-  function handlePreviousClick() {
-    if (frameIndex > 0) {
-      setFrameIndex(frameIndex - 1);
+  function setIndex(index: SetStateAction<number>) {
+    let newIndex = 0;
+    if (typeof index == 'number') {
+      newIndex = index;
+    } else {
+      newIndex = index(frameIndex);
     }
-  }
 
-  function handleNextClick() {
-    if (frameIndex + 1 < frameLength) {
-      setFrameIndex(frameIndex + 1);
+    if (newIndex >= 0 && newIndex < frames.length) {
+      setFrameIndex(index);
     }
   }
 
@@ -194,25 +147,17 @@ export default function Leetcode0659() {
     const btn = html.getElementById('showAdvancedBtn');
     if (!advanced) {
       svg.setAttribute('height', '440');
-      btn.innerText = 'SHOW LESS';
+      btn.innerText = SHOW_LESS;
     } else {
       svg.setAttribute('height', '250');
-      btn.innerText = 'SHOW MORE';
+      btn.innerText = SHOW_MORE;
     }
 
     setAdvanced(!advanced);
   }
 
-  function handleResetClick() {
-    setFrameIndex(0);
-  }
-
   return (
-    <div className='ppt' style={{ width: 950 }}>
-      <header>
-        <img className='logo' src={logo} alt='logo' />
-        <h1>659. Split Array into Consecutive Subsequences</h1>
-      </header>
+    <>
       <svg
         id='svg'
         width={950}
@@ -309,7 +254,6 @@ export default function Leetcode0659() {
             7
           </text>
         </g>
-
         <g
           id='counter'
           transform='translate(0, 170)'
@@ -422,7 +366,7 @@ export default function Leetcode0659() {
       </svg>
       <div style={{ textAlign: 'center' }}>
         <div className='more-button' onClick={handleAdvancedClick} id='showAdvancedBtn'>
-          SHOW MORE
+          {SHOW_MORE}
         </div>
       </div>
 
@@ -435,17 +379,7 @@ export default function Leetcode0659() {
         }}>
         {frame.message}
       </div>
-      <div className='btnbar'>
-        <button className='btn' onClick={handleResetClick}>
-          {RESET}
-        </button>
-        <button className='btn' onClick={handlePreviousClick}>
-          {PREVIOUS_STEP}
-        </button>
-        <button className='btn' onClick={handleNextClick}>
-          {NEXT_STEP}
-        </button>
-      </div>
-    </div>
+      <ButtonBar setIndex={setIndex} />
+    </>
   );
 }

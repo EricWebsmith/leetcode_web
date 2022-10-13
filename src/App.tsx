@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink, useSearchParams } from 'react-router-dom';
-import { LeetcodeSelector, metaList } from './Leetcode/metadata';
+import Header from './controls/Header';
+import { idMetaDict, LeetcodeSelector, metaList } from './Leetcode/metadata';
 
 function App(): JSX.Element {
   const [showNavbar, setShowNavbar] = React.useState<boolean>(true);
@@ -40,21 +41,24 @@ function App(): JSX.Element {
   ) : (
     <button onClick={show}>&gt;&gt;</button>
   );
+
+  const [searchParams] = useSearchParams();
+  const paramId = searchParams.get('id');
+  let id = paramId == null ? 659 : Number(paramId);
+  if (!idMetaDict.has(id)) {
+    id = 659;
+  }
+  const meta = idMetaDict.get(id);
+
   return (
     <main>
       {navbar}
-      <div className='article'>
-        <LeetcodeSelectorLocal />
+      <div className='ppt' style={{ width: 950 }}>
+        <Header id={id} title={meta?.title ?? ''} />
+        {LeetcodeSelector(id)}
       </div>
     </main>
   );
-}
-
-function LeetcodeSelectorLocal() {
-  const [searchParams] = useSearchParams();
-  const id = searchParams.get('id');
-  const definedId = id == null ? 659 : Number(id);
-  return LeetcodeSelector(definedId);
 }
 
 export default App;

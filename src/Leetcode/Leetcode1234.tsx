@@ -1,9 +1,7 @@
-import React from 'react';
-import Header from '../controls/Header';
+import React, { SetStateAction } from 'react';
+import ButtonBar from '../controls/ButtonBar';
 import SvgRects from '../controls/SvgRects';
 import SvgTexts from '../controls/SvgTexts';
-import { NEXT_STEP, PREVIOUS_STEP, RESET } from '../Utils/constants';
-import ILeetcodeProps from './ILeetcodeProps';
 
 interface PointerProps {
   letter: string;
@@ -43,7 +41,7 @@ type Frame = {
   valid: boolean;
 };
 
-export default function Leetcode1234(props: ILeetcodeProps) {
+export default function Leetcode1234() {
   const [frameIndex, setFrameIndex] = React.useState<number>(0);
 
   const frames: Frame[] = [
@@ -62,6 +60,7 @@ export default function Leetcode1234(props: ILeetcodeProps) {
     { left: 4, right: 7, counter: '2110', valid: true, best: '3' },
     { left: 5, right: 7, counter: '2210', valid: true, best: '3' },
     { left: 6, right: 7, counter: '3210', valid: false, best: '3' },
+    { left: 7, right: 7, counter: '3211', valid: false, best: '3' },
   ];
 
   const frame = frames[frameIndex];
@@ -74,23 +73,19 @@ export default function Leetcode1234(props: ILeetcodeProps) {
     return;
   }, [frameIndex]);
 
-  function handlePreviousClick() {
-    if (frameIndex > 0) {
-      setFrameIndex(frameIndex - 1);
+  function setIndex(index: SetStateAction<number>) {
+    let newIndex = 0;
+    if (typeof index == 'number') {
+      newIndex = index;
+    } else {
+      newIndex = index(frameIndex);
+    }
+
+    if (newIndex >= 0 && newIndex < frames.length) {
+      setFrameIndex(index);
     }
   }
 
-  function handleNextClick() {
-    if (frameIndex + 1 < frames.length) {
-      setFrameIndex(frameIndex + 1);
-    }
-  }
-
-  function handleResetClick() {
-    setFrameIndex(0);
-  }
-
-  const title = `${props.meta?.id}. ${props.meta?.title}`;
   const rectStyle = {
     border: '3px solid red',
     borderColor: 'red',
@@ -103,8 +98,7 @@ export default function Leetcode1234(props: ILeetcodeProps) {
   };
 
   return (
-    <div className='ppt' style={{ width: 950 }}>
-      <Header title={title}></Header>
+    <>
       <svg
         id='svg'
         width={1100}
@@ -177,17 +171,7 @@ export default function Leetcode1234(props: ILeetcodeProps) {
         {leftPointer}
         {rightPointer}
       </svg>
-      <div className='btnbar'>
-        <button className='btn' onClick={handleResetClick}>
-          {RESET}
-        </button>
-        <button className='btn' onClick={handlePreviousClick}>
-          {PREVIOUS_STEP}
-        </button>
-        <button className='btn' onClick={handleNextClick}>
-          {NEXT_STEP}
-        </button>
-      </div>
-    </div>
+      <ButtonBar setIndex={setIndex} />
+    </>
   );
 }

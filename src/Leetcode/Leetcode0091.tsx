@@ -1,6 +1,5 @@
-import React from 'react';
-import logo from '../logo.png';
-import { NEXT_STEP, PREVIOUS_STEP, RESET } from '../Utils/constants';
+import React, { SetStateAction } from 'react';
+import ButtonBar from '../controls/ButtonBar';
 import { getChildrenFromRef } from '../Utils/html';
 
 const RED = 'red';
@@ -24,31 +23,11 @@ export default function Leetcode0091() {
   const dpContainer = React.useRef<SVGGElement>(null);
 
   const frames: Frame[] = [
-    {
-      current: 0,
-      pointer1Color: 'green',
-      pointer2Color: 'red',
-    },
-    {
-      current: 1,
-      pointer1Color: 'green',
-      pointer2Color: 'green',
-    },
-    {
-      current: 2,
-      pointer1Color: 'red',
-      pointer2Color: 'green',
-    },
-    {
-      current: 3,
-      pointer1Color: 'green',
-      pointer2Color: 'red',
-    },
-    {
-      current: 4,
-      pointer1Color: 'green',
-      pointer2Color: 'green',
-    },
+    { current: 0, pointer1Color: 'green', pointer2Color: 'red' },
+    { current: 1, pointer1Color: 'green', pointer2Color: 'green' },
+    { current: 2, pointer1Color: 'red', pointer2Color: 'green' },
+    { current: 3, pointer1Color: 'green', pointer2Color: 'red' },
+    { current: 4, pointer1Color: 'green', pointer2Color: 'green' },
   ];
 
   const frame = frames[frameIndex];
@@ -93,20 +72,17 @@ export default function Leetcode0091() {
     dpRects[frame.current].setAttribute('fill', frame.pointer2Color);
   }, [frameIndex]);
 
-  function handlePreviousClick() {
-    if (frameIndex > 0) {
-      setFrameIndex(frameIndex - 1);
+  function setIndex(index: SetStateAction<number>) {
+    let newIndex = 0;
+    if (typeof index == 'number') {
+      newIndex = index;
+    } else {
+      newIndex = index(frameIndex);
     }
-  }
 
-  function handleNextClick() {
-    if (frameIndex + 1 < frames.length) {
-      setFrameIndex(frameIndex + 1);
+    if (newIndex >= 0 && newIndex < frames.length) {
+      setFrameIndex(index);
     }
-  }
-
-  function handleResetClick() {
-    setFrameIndex(0);
   }
 
   function hanldePointer1MouseEnter() {
@@ -154,20 +130,8 @@ export default function Leetcode0091() {
   };
 
   return (
-    <div className='ppt' style={{ width: 950 }}>
-      <header>
-        <img className='logo' src={logo} alt='logo' />
-        <h1>91. Decode Ways</h1>
-      </header>
-      <svg
-        id='svg'
-        width={1100}
-        height={450}
-        style={{
-          backgroundColor: 'white',
-          cursor: 'url(Laser_Pointer.png), pointer!important',
-        }}
-        transform='translate(100, 0)'>
+    <>
+      <svg id='svg' width={950} height={450} transform='translate(100, 0)'>
         <defs>
           <marker ref={head1} id='arrow-head-1' markerWidth='2.595' orient='auto' refX='0.3' refY='1.3'>
             <path transform='scale(.25) translate(-1,-1)' d='M2,2 L2,11 L10,6 L2,2' />
@@ -249,17 +213,7 @@ export default function Leetcode0091() {
           </text>
         </g>
       </svg>
-      <div className='btnbar'>
-        <button className='btn' onClick={handleResetClick}>
-          {RESET}
-        </button>
-        <button className='btn' onClick={handlePreviousClick}>
-          {PREVIOUS_STEP}
-        </button>
-        <button className='btn' onClick={handleNextClick}>
-          {NEXT_STEP}
-        </button>
-      </div>
-    </div>
+      <ButtonBar setIndex={setIndex} />
+    </>
   );
 }

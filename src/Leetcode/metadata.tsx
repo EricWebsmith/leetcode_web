@@ -37,15 +37,6 @@ const typeList = [
   Leetcode2435,
 ];
 
-// type ProblemMetadata = {
-//   id: number;
-//   title: string;
-// };
-
-// interface ILeetcodeProps {
-//   meta?: ProblemMetadata;
-// }
-
 const metaList: ProblemMetadata[] = [
   {
     id: 3,
@@ -130,10 +121,9 @@ function LeetcodeSelector(id: number) {
   // const [searchParams] = useSearchParams();
   // const id = searchParams.get('id');
   const definedId = id == null ? 659 : Number(id);
-  const meta = idMetaDict.get(id);
   switch (definedId) {
     case 3:
-      return <Leetcode0003 meta={meta} />;
+      return <Leetcode0003 />;
     case 16:
       return <Leetcode0016 />;
     case 19:
@@ -143,7 +133,7 @@ function LeetcodeSelector(id: number) {
     case 91:
       return <Leetcode0091 />;
     case 237:
-      return <Leetcode0237 meta={meta} />;
+      return <Leetcode0237 />;
     case 322:
       return <Leetcode0322 />;
     case 377:
@@ -157,7 +147,7 @@ function LeetcodeSelector(id: number) {
     case 862:
       return <Leetcode0862 />;
     case 1234:
-      return <Leetcode1234 meta={meta} />;
+      return <Leetcode1234 />;
     case 2421:
       return <Leetcode2421 />;
     case 2422:
@@ -165,7 +155,7 @@ function LeetcodeSelector(id: number) {
     case 2434:
       return <Leetcode2434 />;
     case 2435:
-      return <Leetcode2435 meta={meta} />;
+      return <Leetcode2435 />;
     default:
       return <Leetcode0659 />;
   }

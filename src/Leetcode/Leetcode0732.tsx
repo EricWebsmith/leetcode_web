@@ -1,6 +1,5 @@
-import React from 'react';
-import Header from '../controls/Header';
-import { NEXT_STEP, PREVIOUS_STEP, RESET } from '../Utils/constants';
+import React, { SetStateAction } from 'react';
+import ButtonBar from '../controls/ButtonBar';
 
 type Frame = {
   start: number;
@@ -131,51 +130,26 @@ export default function Leetcode0732() {
     }
   }, [frameIndex]);
 
-  function handlePreviousClick() {
-    if (frameIndex > 0) {
-      setFrameIndex(frameIndex - 1);
+  function setIndex(index: SetStateAction<number>) {
+    let newIndex = 0;
+    if (typeof index == 'number') {
+      newIndex = index;
+    } else {
+      newIndex = index(frameIndex);
+    }
+
+    if (newIndex >= 0 && newIndex < frames.length) {
+      setFrameIndex(index);
     }
   }
 
-  function handleNextClick() {
-    if (frameIndex + 1 < frames.length) {
-      setFrameIndex(frameIndex + 1);
-    }
-  }
-
-  function handleResetClick() {
-    setFrameIndex(0);
-  }
-
-  const rectStyleMask = {
-    fill: '#888888',
-    opacity: 0.5,
-    stroke: 'black',
-  };
-
-  const rectStyleRed = {
-    fill: '#ff0000',
-  };
-
-  const rectStyleGreen = {
-    fill: '#30e027',
-  };
-
-  const rectStyleBlue = {
-    fill: '#0000ff',
-  };
-
-  const rectStyleYellow = {
-    fill: '#ffff00',
-  };
-
-  const rectStyleCyan = {
-    fill: '#00ffff',
-  };
-
-  const rectStyleMegenta = {
-    fill: '#ff00ff',
-  };
+  const rectStyleMask = { fill: '#888888', opacity: 0.5, stroke: 'black' };
+  const rectStyleRed = { fill: '#ff0000' };
+  const rectStyleGreen = { fill: '#30e027' };
+  const rectStyleBlue = { fill: '#0000ff' };
+  const rectStyleYellow = { fill: '#ffff00' };
+  const rectStyleCyan = { fill: '#00ffff' };
+  const rectStyleMegenta = { fill: '#ff00ff' };
 
   const textStyle = {
     fontStyle: 'normal',
@@ -186,8 +160,7 @@ export default function Leetcode0732() {
   };
 
   return (
-    <div className='ppt' style={{ width: 950 }}>
-      <Header title='732. My Calendar III'></Header>
+    <>
       <svg
         id='svg'
         ref={svg}
@@ -257,17 +230,7 @@ export default function Leetcode0732() {
 
         <rect style={rectStyleMask} id='mask' width='105' height='55' x='198' y='48' />
       </svg>
-      <div className='btnbar'>
-        <button className='btn' onClick={handleResetClick}>
-          {RESET}
-        </button>
-        <button className='btn' onClick={handlePreviousClick}>
-          {PREVIOUS_STEP}
-        </button>
-        <button className='btn' onClick={handleNextClick}>
-          {NEXT_STEP}
-        </button>
-      </div>
-    </div>
+      <ButtonBar setIndex={setIndex} />
+    </>
   );
 }

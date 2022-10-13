@@ -1,6 +1,5 @@
-import React from 'react';
-import logo from '../logo.png';
-import { NEXT_STEP, PREVIOUS_STEP, RESET } from '../Utils/constants';
+import React, { SetStateAction } from 'react';
+import ButtonBar from '../controls/ButtonBar';
 
 type Frame = {
   left: number;
@@ -47,20 +46,17 @@ export default function Leetcode0658() {
     }
   }, [frameIndex]);
 
-  function handlePreviousClick() {
-    if (frameIndex > 0) {
-      setFrameIndex(frameIndex - 1);
+  function setIndex(index: SetStateAction<number>) {
+    let newIndex = 0;
+    if (typeof index == 'number') {
+      newIndex = index;
+    } else {
+      newIndex = index(frameIndex);
     }
-  }
 
-  function handleNextClick() {
-    if (frameIndex + 1 < frames.length) {
-      setFrameIndex(frameIndex + 1);
+    if (newIndex >= 0 && newIndex < frames.length) {
+      setFrameIndex(index);
     }
-  }
-
-  function handleResetClick() {
-    setFrameIndex(0);
   }
 
   const pointerStyle = {
@@ -87,11 +83,7 @@ export default function Leetcode0658() {
   };
 
   return (
-    <div className='ppt' style={{ width: 950 }}>
-      <header>
-        <img className='logo' src={logo} alt='logo' />
-        <h1>658. Find K Closest Elements</h1>
-      </header>
+    <>
       <svg
         id='svg'
         width={1100}
@@ -155,17 +147,7 @@ export default function Leetcode0658() {
           transform='translate(-150, 0)'
         />
       </svg>
-      <div className='btnbar'>
-        <button className='btn' onClick={handleResetClick}>
-          {RESET}
-        </button>
-        <button className='btn' onClick={handlePreviousClick}>
-          {PREVIOUS_STEP}
-        </button>
-        <button className='btn' onClick={handleNextClick}>
-          {NEXT_STEP}
-        </button>
-      </div>
-    </div>
+      <ButtonBar setIndex={setIndex} />
+    </>
   );
 }

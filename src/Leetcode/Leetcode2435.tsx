@@ -1,8 +1,6 @@
-import React from 'react';
-import Header from '../controls/Header';
+import React, { SetStateAction } from 'react';
+import ButtonBar from '../controls/ButtonBar';
 import SvgMatrix from '../controls/SvgMatrix';
-import { NEXT_STEP, PREVIOUS_STEP, RESET } from '../Utils/constants';
-import ILeetcodeProps from './ILeetcodeProps';
 
 type Frame = {
   r: number;
@@ -11,7 +9,7 @@ type Frame = {
   newDp: string[];
 };
 
-export default function Leetcode2435(props: ILeetcodeProps) {
+export default function Leetcode2435() {
   const [frameIndex, setFrameIndex] = React.useState<number>(0);
 
   const frames: Frame[] = [
@@ -38,20 +36,17 @@ export default function Leetcode2435(props: ILeetcodeProps) {
     return;
   }, [frameIndex]);
 
-  function handlePreviousClick() {
-    if (frameIndex > 0) {
-      setFrameIndex(frameIndex - 1);
+  function setIndex(index: SetStateAction<number>) {
+    let newIndex = 0;
+    if (typeof index == 'number') {
+      newIndex = index;
+    } else {
+      newIndex = index(frameIndex);
     }
-  }
 
-  function handleNextClick() {
-    if (frameIndex + 1 < frames.length) {
-      setFrameIndex(frameIndex + 1);
+    if (newIndex >= 0 && newIndex < frames.length) {
+      setFrameIndex(index);
     }
-  }
-
-  function handleResetClick() {
-    setFrameIndex(0);
   }
 
   const rectStyle = {
@@ -111,11 +106,8 @@ export default function Leetcode2435(props: ILeetcodeProps) {
     }
   }
 
-  const title = `${props.meta?.id}. ${props.meta?.title}`;
-
   return (
-    <div className='ppt' style={{ width: 950 }}>
-      <Header title={title}></Header>
+    <>
       <svg
         id='svg'
         width={1100}
@@ -172,17 +164,7 @@ export default function Leetcode2435(props: ILeetcodeProps) {
           colorMatrix={newDpColorMatrix}
         />
       </svg>
-      <div className='btnbar'>
-        <button className='btn' onClick={handleResetClick}>
-          {RESET}
-        </button>
-        <button className='btn' onClick={handlePreviousClick}>
-          {PREVIOUS_STEP}
-        </button>
-        <button className='btn' onClick={handleNextClick}>
-          {NEXT_STEP}
-        </button>
-      </div>
-    </div>
+      <ButtonBar setIndex={setIndex} />
+    </>
   );
 }

@@ -1,6 +1,5 @@
-import React from 'react';
-import logo from '../logo.png';
-import { NEXT_STEP, PREVIOUS_STEP, RESET } from '../Utils/constants';
+import React, { SetStateAction } from 'react';
+import ButtonBar from '../controls/ButtonBar';
 import { getChildren, getChildrenFromRef, getElementById } from '../Utils/html';
 
 type Frame = {
@@ -12,26 +11,11 @@ export default function Leetcode0377() {
   const [frameIndex, setFrameIndex] = React.useState<number>(0);
 
   const frames: Frame[] = [
-    {
-      current: 0,
-      dp: [0, null, null, null, null, null, null, null, null, null, null, null, null, null],
-    },
-    {
-      current: 1,
-      dp: [0, 1, 1, 1, null, null, null, null, null, null],
-    },
-    {
-      current: 1,
-      dp: [0, 1, 2, 2, 1, null, null, null, null, null],
-    },
-    {
-      current: 2,
-      dp: [0, 1, 2, 4, 3, null, null, null],
-    },
-    {
-      current: 4,
-      dp: [0, 1, 2, 4, 7, null, null, null],
-    },
+    { current: 0, dp: [0, null, null, null, null, null, null, null, null, null, null, null, null, null] },
+    { current: 1, dp: [0, 1, 1, 1, null, null, null, null, null, null] },
+    { current: 1, dp: [0, 1, 2, 2, 1, null, null, null, null, null] },
+    { current: 2, dp: [0, 1, 2, 4, 3, null, null, null] },
+    { current: 4, dp: [0, 1, 2, 4, 7, null, null, null] },
     { current: 6, dp: [0, 1, 2, 4, 7, null, null] },
   ];
 
@@ -75,28 +59,21 @@ export default function Leetcode0377() {
     }
   }, [frameIndex]);
 
-  function handlePreviousClick() {
-    if (frameIndex > 0) {
-      setFrameIndex(frameIndex - 1);
+  function setIndex(index: SetStateAction<number>) {
+    let newIndex = 0;
+    if (typeof index == 'number') {
+      newIndex = index;
+    } else {
+      newIndex = index(frameIndex);
     }
-  }
 
-  function handleNextClick() {
-    if (frameIndex + 1 < frames.length) {
-      setFrameIndex(frameIndex + 1);
+    if (newIndex >= 0 && newIndex < frames.length) {
+      setFrameIndex(index);
     }
-  }
-
-  function handleResetClick() {
-    setFrameIndex(0);
   }
 
   return (
-    <div className='ppt' style={{ width: 950 }}>
-      <header>
-        <img className='logo' src={logo} alt='logo' />
-        <h1>377. Combination Sum IV</h1>
-      </header>
+    <>
       <svg
         id='svg'
         width={850}
@@ -219,17 +196,7 @@ export default function Leetcode0377() {
           </text>
         </g>
       </svg>
-      <div className='btnbar'>
-        <button className='btn' onClick={handleResetClick}>
-          {RESET}
-        </button>
-        <button className='btn' onClick={handlePreviousClick}>
-          {PREVIOUS_STEP}
-        </button>
-        <button className='btn' onClick={handleNextClick}>
-          {NEXT_STEP}
-        </button>
-      </div>
-    </div>
+      <ButtonBar setIndex={setIndex} />
+    </>
   );
 }
