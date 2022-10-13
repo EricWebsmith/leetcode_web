@@ -118,8 +118,6 @@ export default function Leetcode0016() {
           x={95}
           y={200}
           text={text}
-          height={100}
-          width={100}
           offsetX={130}
           style={{
             fontSize: 80,

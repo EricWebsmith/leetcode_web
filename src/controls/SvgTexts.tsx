@@ -5,8 +5,6 @@ interface Props {
   x: number;
   y: number;
   offsetX: number;
-  height: number;
-  width: number;
   style: object;
 }
 
@@ -17,7 +15,7 @@ const Texts = React.forwardRef((props: Props, ref: React.ForwardedRef<SVGGElemen
   const texts = [];
   for (let i = 0; i < props.text.length; i++) {
     const text = (
-      <text key={i} x={props.x + props.offsetX * i} y={props.y} height={props.height} width={props.width}>
+      <text key={i} x={props.x + props.offsetX * i} y={props.y}>
         {props.text[i]}
       </text>
     );

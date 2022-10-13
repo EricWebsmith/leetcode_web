@@ -3,6 +3,7 @@ import Leetcode0016 from './Leetcode0016';
 import Leetcode0019 from './Leetcode0019';
 import Leetcode0076 from './Leetcode0076';
 import Leetcode0091 from './Leetcode0091';
+import Leetcode0237 from './Leetcode0237';
 import Leetcode0322 from './Leetcode0322';
 import Leetcode0377 from './Leetcode0377';
 import Leetcode0658 from './Leetcode0658';
@@ -14,6 +15,7 @@ import Leetcode2421 from './Leetcode2421';
 import Leetcode2422 from './Leetcode2422';
 import Leetcode2434 from './Leetcode2434';
 import Leetcode2435 from './Leetcode2435';
+import { ProblemMetadata } from './ProblemMetadata';
 
 const typeList = [
   Leetcode0003,
@@ -21,6 +23,7 @@ const typeList = [
   Leetcode0019,
   Leetcode0091,
   Leetcode0076,
+  Leetcode0237,
   Leetcode0322,
   Leetcode0377,
   Leetcode0658,
@@ -34,14 +37,14 @@ const typeList = [
   Leetcode2435,
 ];
 
-type ProblemMetadata = {
-  id: number;
-  title: string;
-};
+// type ProblemMetadata = {
+//   id: number;
+//   title: string;
+// };
 
-interface ILeetcodeProps {
-  meta?: ProblemMetadata;
-}
+// interface ILeetcodeProps {
+//   meta?: ProblemMetadata;
+// }
 
 const metaList: ProblemMetadata[] = [
   {
@@ -63,6 +66,10 @@ const metaList: ProblemMetadata[] = [
   {
     id: 91,
     title: 'Decode Ways',
+  },
+  {
+    id: 237,
+    title: 'Delete Node in a Linked List',
   },
   {
     id: 322,
@@ -135,6 +142,8 @@ function LeetcodeSelector(id: number) {
       return <Leetcode0076 />;
     case 91:
       return <Leetcode0091 />;
+    case 237:
+      return <Leetcode0237 meta={meta} />;
     case 322:
       return <Leetcode0322 />;
     case 377:
@@ -163,4 +172,3 @@ function LeetcodeSelector(id: number) {
 }
 
 export { metaList, typeList, idMetaDict, nameMetaDict, LeetcodeSelector };
-export type { ProblemMetadata, ILeetcodeProps };

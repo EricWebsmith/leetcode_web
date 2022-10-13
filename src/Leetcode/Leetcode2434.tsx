@@ -98,8 +98,6 @@ export default function Leetcode2434() {
           x={arrX + 30 + (6 - frame.s.length) * offset}
           y={100}
           text={s}
-          height={100}
-          width={100}
           offsetX={offset}
           style={{
             fontSize: 80,
@@ -137,8 +135,6 @@ export default function Leetcode2434() {
           x={arrX + 30}
           y={225}
           text={frame.t}
-          height={100}
-          width={100}
           offsetX={offset}
           style={{
             fontSize: 80,
@@ -175,8 +171,6 @@ export default function Leetcode2434() {
           x={arrX + 30}
           y={350}
           text={ans}
-          height={100}
-          width={100}
           offsetX={offset}
           style={{
             fontSize: 80,

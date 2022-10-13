@@ -1,9 +1,10 @@
 import React from 'react';
+import Header from '../controls/Header';
 import SvgRects from '../controls/SvgRects';
-import logo from '../logo.png';
 import { NEXT_STEP, PREVIOUS_STEP, RESET } from '../Utils/constants';
 import { getChildrenFromRef, getElementById } from '../Utils/html';
-import { ILeetcodeProps } from './metadata';
+import ILeetcodeProps from './ILeetcodeProps';
+import { getDisplayTitle } from './ProblemMetadata';
 
 type Frame = {
   left: number;
@@ -94,14 +95,13 @@ export default function Leetcode0003(props: ILeetcodeProps) {
     setFrameIndex(0);
   }
 
-  const title = `${props.meta?.id}. ${props.meta?.title}`;
-
   return (
     <div className='ppt' style={{ width: 950 }}>
-      <header>
+      <Header title={getDisplayTitle(props.meta)}></Header>
+      {/* <header>
         <img className='logo' src={logo} alt='logo' />
         <h1>{title}</h1>
-      </header>
+      </header> */}
       <svg
         id='svg'
         width={950}

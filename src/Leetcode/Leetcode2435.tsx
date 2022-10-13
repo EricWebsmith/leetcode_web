@@ -2,7 +2,8 @@ import React from 'react';
 import Header from '../controls/Header';
 import SvgMatrix from '../controls/SvgMatrix';
 import { NEXT_STEP, PREVIOUS_STEP, RESET } from '../Utils/constants';
-import { ILeetcodeProps } from './metadata';
+import ILeetcodeProps from './ILeetcodeProps';
+
 type Frame = {
   r: number;
   c: number;

@@ -3,7 +3,7 @@ import Header from '../controls/Header';
 import SvgRects from '../controls/SvgRects';
 import SvgTexts from '../controls/SvgTexts';
 import { NEXT_STEP, PREVIOUS_STEP, RESET } from '../Utils/constants';
-import { ILeetcodeProps } from './metadata';
+import ILeetcodeProps from './ILeetcodeProps';
 
 interface PointerProps {
   letter: string;
@@ -118,8 +118,6 @@ export default function Leetcode1234(props: ILeetcodeProps) {
           x={95}
           y={200}
           text='ABCABADA'
-          height={100}
-          width={100}
           offsetX={offset}
           style={{
             fill: 'white',
@@ -131,8 +129,6 @@ export default function Leetcode1234(props: ILeetcodeProps) {
           x={495}
           y={280}
           text='ABCD'
-          height={100}
-          width={100}
           offsetX={offset}
           style={{
             fontSize: 60,
@@ -153,8 +149,6 @@ export default function Leetcode1234(props: ILeetcodeProps) {
           x={495}
           y={370}
           text={frame.counter}
-          height={100}
-          width={100}
           offsetX={offset}
           style={{
             fontSize: 80,
