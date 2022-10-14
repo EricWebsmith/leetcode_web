@@ -10,6 +10,7 @@ import Leetcode0658 from './Leetcode0658';
 import Leetcode0659 from './Leetcode0659';
 import Leetcode0732 from './Leetcode0732';
 import Leetcode0862 from './Leetcode0862';
+import Leetcode0940 from './Leetcode0940';
 import Leetcode1234 from './Leetcode1234';
 import Leetcode2421 from './Leetcode2421';
 import Leetcode2422 from './Leetcode2422';
@@ -30,6 +31,7 @@ const typeList = [
   Leetcode0659,
   Leetcode0732,
   Leetcode0862,
+  Leetcode0940,
   Leetcode1234,
   Leetcode2421,
   Leetcode2422,
@@ -85,6 +87,10 @@ const metaList: ProblemMetadata[] = [
   {
     id: 862,
     title: 'Shortest Subarray with Sum at Least K',
+  },
+  {
+    id: 940,
+    title: 'Distinct Subsequences II',
   },
   {
     id: 1234,
@@ -144,6 +150,8 @@ function LeetcodeSelector(id: number) {
       return <Leetcode0659 />;
     case 732:
       return <Leetcode0732 />;
+    case 940:
+      return <Leetcode0940 />;
     case 862:
       return <Leetcode0862 />;
     case 1234:

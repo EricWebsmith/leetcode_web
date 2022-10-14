@@ -118,3 +118,9 @@ li a:hover {
   justify-content: end;
   cursor: default;
 }
+
+#message {
+  margin-left: 50px;
+  font-size: 48px;
+  height: 100px;
+}
