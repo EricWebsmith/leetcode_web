@@ -12,6 +12,7 @@ import Leetcode0732 from './Leetcode0732';
 import Leetcode0862 from './Leetcode0862';
 import Leetcode0940 from './Leetcode0940';
 import Leetcode1234 from './Leetcode1234';
+import Leetcode2095 from './Leetcode2095';
 import Leetcode2421 from './Leetcode2421';
 import Leetcode2422 from './Leetcode2422';
 import Leetcode2434 from './Leetcode2434';
@@ -33,6 +34,7 @@ const typeList = [
   Leetcode0862,
   Leetcode0940,
   Leetcode1234,
+  Leetcode2095,
   Leetcode2421,
   Leetcode2422,
   Leetcode2434,
@@ -97,6 +99,10 @@ const metaList: ProblemMetadata[] = [
     title: 'Replace the Substring for Balanced String',
   },
   {
+    id: 2095,
+    title: 'Delete the Middle Node of a Linked List',
+  },
+  {
     id: 2421,
     title: 'Number of Good Paths',
   },
@@ -156,6 +162,8 @@ function LeetcodeSelector(id: number) {
       return <Leetcode0862 />;
     case 1234:
       return <Leetcode1234 />;
+    case 2095:
+      return <Leetcode2095 />;
     case 2421:
       return <Leetcode2421 />;
     case 2422:
