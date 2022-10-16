@@ -1,8 +1,12 @@
 import Leetcode0003 from './Leetcode0003';
 import Leetcode0016 from './Leetcode0016';
 import Leetcode0019 from './Leetcode0019';
+import Leetcode0053 from './Leetcode0053';
 import Leetcode0076 from './Leetcode0076';
 import Leetcode0091 from './Leetcode0091';
+import Leetcode0121 from './Leetcode0121';
+import Leetcode0152 from './Leetcode0152';
+import Leetcode0205 from './Leetcode0205';
 import Leetcode0237 from './Leetcode0237';
 import Leetcode0322 from './Leetcode0322';
 import Leetcode0377 from './Leetcode0377';
@@ -17,6 +21,7 @@ import Leetcode2421 from './Leetcode2421';
 import Leetcode2422 from './Leetcode2422';
 import Leetcode2434 from './Leetcode2434';
 import Leetcode2435 from './Leetcode2435';
+import Leetcode2439 from './Leetcode2439';
 import { ProblemMetadata } from './ProblemMetadata';
 
 const typeList = [
@@ -24,8 +29,12 @@ const typeList = [
   Leetcode0016,
   Leetcode0019,
   Leetcode0091,
+  Leetcode0053,
   Leetcode0076,
+  Leetcode0121,
+  Leetcode0152,
   Leetcode0237,
+  Leetcode0205,
   Leetcode0322,
   Leetcode0377,
   Leetcode0658,
@@ -39,6 +48,7 @@ const typeList = [
   Leetcode2422,
   Leetcode2434,
   Leetcode2435,
+  Leetcode2439,
 ];
 
 const metaList: ProblemMetadata[] = [
@@ -55,12 +65,28 @@ const metaList: ProblemMetadata[] = [
     title: 'Remove Nth Node From End of List',
   },
   {
+    id: 53,
+    title: 'Maximum Subarray',
+  },
+  {
     id: 76,
     title: 'Minimum Window Substring',
   },
   {
     id: 91,
     title: 'Decode Ways',
+  },
+  {
+    id: 121,
+    title: 'Best Time to Buy and Sell Stock',
+  },
+  {
+    id: 152,
+    title: 'Maximum Product Subarray',
+  },
+  {
+    id: 205,
+    title: 'Isomorphic Strings',
   },
   {
     id: 237,
@@ -118,6 +144,10 @@ const metaList: ProblemMetadata[] = [
     id: 2435,
     title: 'Paths in Matrix Whose Sum Is Divisible by K',
   },
+  {
+    id: 2439,
+    title: 'Minimize Maximum of Array',
+  },
 ];
 
 const idMetaDict = new Map<number, ProblemMetadata>();
@@ -140,10 +170,18 @@ function LeetcodeSelector(id: number) {
       return <Leetcode0016 />;
     case 19:
       return <Leetcode0019 />;
+    case 53:
+      return <Leetcode0053 />;
     case 76:
       return <Leetcode0076 />;
     case 91:
       return <Leetcode0091 />;
+    case 121:
+      return <Leetcode0121 />;
+    case 152:
+      return <Leetcode0152 />;
+    case 205:
+      return <Leetcode0205 />;
     case 237:
       return <Leetcode0237 />;
     case 322:
@@ -172,6 +210,8 @@ function LeetcodeSelector(id: number) {
       return <Leetcode2434 />;
     case 2435:
       return <Leetcode2435 />;
+    case 2439:
+      return <Leetcode2439 />;
     default:
       return <Leetcode0659 />;
   }
