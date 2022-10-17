@@ -14,6 +14,7 @@ import Leetcode0658 from './Leetcode0658';
 import Leetcode0659 from './Leetcode0659';
 import Leetcode0732 from './Leetcode0732';
 import Leetcode0862 from './Leetcode0862';
+import Leetcode0904 from './Leetcode0904';
 import Leetcode0940 from './Leetcode0940';
 import Leetcode1234 from './Leetcode1234';
 import Leetcode2095 from './Leetcode2095';
@@ -41,6 +42,7 @@ const typeList = [
   Leetcode0659,
   Leetcode0732,
   Leetcode0862,
+  Leetcode0904,
   Leetcode0940,
   Leetcode1234,
   Leetcode2095,
@@ -117,6 +119,10 @@ const metaList: ProblemMetadata[] = [
     title: 'Shortest Subarray with Sum at Least K',
   },
   {
+    id: 904,
+    title: 'Fruit Into Baskets',
+  },
+  {
     id: 940,
     title: 'Distinct Subsequences II',
   },
@@ -159,10 +165,10 @@ for (const meta of metaList) {
   nameMetaDict.set(name, meta);
 }
 
+const default_id = 904;
+
 function LeetcodeSelector(id: number) {
-  // const [searchParams] = useSearchParams();
-  // const id = searchParams.get('id');
-  const definedId = id == null ? 659 : Number(id);
+  const definedId = id == null ? default_id : Number(id);
   switch (definedId) {
     case 3:
       return <Leetcode0003 />;
@@ -194,6 +200,8 @@ function LeetcodeSelector(id: number) {
       return <Leetcode0659 />;
     case 732:
       return <Leetcode0732 />;
+    case 904:
+      return <Leetcode0904 />;
     case 940:
       return <Leetcode0940 />;
     case 862:
@@ -217,4 +225,4 @@ function LeetcodeSelector(id: number) {
   }
 }
 
-export { metaList, typeList, idMetaDict, nameMetaDict, LeetcodeSelector };
+export { metaList, typeList, idMetaDict, nameMetaDict, LeetcodeSelector, default_id };
