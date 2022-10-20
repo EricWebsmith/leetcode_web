@@ -9,21 +9,21 @@ interface Props {
   style: object;
 }
 
-const Rects = React.forwardRef((props: Props, ref: React.ForwardedRef<SVGGElement>) => {
+const Circles = React.forwardRef((props: Props, ref: React.ForwardedRef<SVGGElement>) => {
   if (props.n === 0 || props.n == null) {
     return <></>;
   }
 
-  const rects = [];
+  const circles = [];
   for (let i = 0; i < props.n; i++) {
-    const rect = <circle key={i} cx={props.cx + props.offsetX * i} cy={props.cy} r={props.r} />;
-    rects.push(rect);
+    const circle = <circle key={i} cx={props.cx + props.offsetX * i} cy={props.cy} r={props.r} />;
+    circles.push(circle);
   }
   return (
     <g ref={ref} style={props.style}>
-      {rects}
+      {circles}
     </g>
   );
 });
 
-export default Rects;
+export default Circles;

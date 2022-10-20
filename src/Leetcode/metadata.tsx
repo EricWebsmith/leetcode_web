@@ -6,6 +6,7 @@ import Leetcode0076 from './Leetcode0076';
 import Leetcode0091 from './Leetcode0091';
 import Leetcode0121 from './Leetcode0121';
 import Leetcode0152 from './Leetcode0152';
+import Leetcode0198 from './Leetcode0198';
 import Leetcode0205 from './Leetcode0205';
 import Leetcode0237 from './Leetcode0237';
 import Leetcode0322 from './Leetcode0322';
@@ -13,6 +14,7 @@ import Leetcode0377 from './Leetcode0377';
 import Leetcode0658 from './Leetcode0658';
 import Leetcode0659 from './Leetcode0659';
 import Leetcode0732 from './Leetcode0732';
+import Leetcode0779 from './Leetcode0779';
 import Leetcode0862 from './Leetcode0862';
 import Leetcode0904 from './Leetcode0904';
 import Leetcode0940 from './Leetcode0940';
@@ -34,6 +36,7 @@ const typeList = [
   Leetcode0076,
   Leetcode0121,
   Leetcode0152,
+  Leetcode0198,
   Leetcode0237,
   Leetcode0205,
   Leetcode0322,
@@ -41,6 +44,7 @@ const typeList = [
   Leetcode0658,
   Leetcode0659,
   Leetcode0732,
+  Leetcode0779,
   Leetcode0862,
   Leetcode0904,
   Leetcode0940,
@@ -87,6 +91,10 @@ const metaList: ProblemMetadata[] = [
     title: 'Maximum Product Subarray',
   },
   {
+    id: 198,
+    title: 'House Robber',
+  },
+  {
     id: 205,
     title: 'Isomorphic Strings',
   },
@@ -113,6 +121,10 @@ const metaList: ProblemMetadata[] = [
   {
     id: 732,
     title: 'My Calendar III',
+  },
+  {
+    id: 779,
+    title: 'K-th Symbol in Grammar',
   },
   {
     id: 862,
@@ -186,6 +198,8 @@ function LeetcodeSelector(id: number) {
       return <Leetcode0121 />;
     case 152:
       return <Leetcode0152 />;
+    case 198:
+      return <Leetcode0198 />;
     case 205:
       return <Leetcode0205 />;
     case 237:
@@ -200,6 +214,8 @@ function LeetcodeSelector(id: number) {
       return <Leetcode0659 />;
     case 732:
       return <Leetcode0732 />;
+    case 779:
+      return <Leetcode0779 />;
     case 904:
       return <Leetcode0904 />;
     case 940:
