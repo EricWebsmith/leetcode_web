@@ -81,7 +81,7 @@ export default function Leetcode0901() {
 
   const circles = [];
   for (let i = 0; i < n; i++) {
-    circles.push(<circle key={i} cx={xScale(i)} cy={yScale(data[i])} r={10} fill='blue' />);
+    circles.push(<circle key={i} cx={xScale(i)} cy={yScale(data[i])} r={15} fill='blue' />);
   }
 
   const lines = [];
@@ -93,8 +93,8 @@ export default function Leetcode0901() {
       const y2 = dp[x] === -1 ? yScale(data[x]) : yScale(data[dp[x]]);
       const tan = (x1 - x2) / (y1 - y2);
       const angle = Math.atan(tan);
-      const xdiff = 20 * Math.sin(angle);
-      const ydiff = 20 * Math.cos(angle);
+      const xdiff = 25 * Math.sin(angle);
+      const ydiff = 25 * Math.cos(angle);
 
       lines.push(<line key={x} x2={x2 + xdiff} y2={y2 + ydiff} x1={x1} y1={y1} />);
     }
@@ -128,8 +128,15 @@ export default function Leetcode0901() {
           cursor: 'url(Laser_Pointer.png), pointer!important',
         }}>
         <defs>
-          <marker id='arrowhead' markerWidth='2.595' orient='auto' refX='0.3' refY='1.3'>
-            <path transform='scale(.25) translate(-1,-1)' d='M2,2 L2,11 L10,6 L2,2' fill='red' />
+          <marker
+            id='arrowhead'
+            viewBox='0 0 10 10'
+            markerWidth='5'
+            markerHeight={5}
+            orient='auto-start-reverse'
+            refX='5'
+            refY='5'>
+            <path d='M0,0 L10,5 L0,10 z' fill='red' />
           </marker>
         </defs>
         <g style={{ strokeWidth: 5, stroke: 'red', markerEnd: 'url(#arrowhead)' }}>{lines}</g>
