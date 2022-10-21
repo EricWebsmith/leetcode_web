@@ -3,7 +3,7 @@ import ButtonBar from '../controls/ButtonBar';
 import SvgRects from '../controls/SvgRects';
 import SvgTexts from '../controls/SvgTexts';
 
-export default function Leetcode0053() {
+export default function Leetcode0000() {
   const [frameIndex, setFrameIndex] = React.useState<number>(0);
   const dp = '-2 1-2 4 3 5 6 1 5';
 

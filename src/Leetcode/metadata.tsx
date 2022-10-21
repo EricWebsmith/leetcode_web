@@ -16,6 +16,7 @@ import Leetcode0659 from './Leetcode0659';
 import Leetcode0732 from './Leetcode0732';
 import Leetcode0779 from './Leetcode0779';
 import Leetcode0862 from './Leetcode0862';
+import Leetcode0901 from './Leetcode0901';
 import Leetcode0904 from './Leetcode0904';
 import Leetcode0940 from './Leetcode0940';
 import Leetcode1234 from './Leetcode1234';
@@ -46,6 +47,7 @@ const typeList = [
   Leetcode0732,
   Leetcode0779,
   Leetcode0862,
+  Leetcode0901,
   Leetcode0904,
   Leetcode0940,
   Leetcode1234,
@@ -129,6 +131,10 @@ const metaList: ProblemMetadata[] = [
   {
     id: 862,
     title: 'Shortest Subarray with Sum at Least K',
+  },
+  {
+    id: 901,
+    title: 'Online Stock Span',
   },
   {
     id: 904,
@@ -216,6 +222,8 @@ function LeetcodeSelector(id: number) {
       return <Leetcode0732 />;
     case 779:
       return <Leetcode0779 />;
+    case 901:
+      return <Leetcode0901 />;
     case 904:
       return <Leetcode0904 />;
     case 940:
@@ -237,7 +245,7 @@ function LeetcodeSelector(id: number) {
     case 2439:
       return <Leetcode2439 />;
     default:
-      return <Leetcode0659 />;
+      return <Leetcode0198 />;
   }
 }
 

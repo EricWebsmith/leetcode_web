@@ -3,7 +3,7 @@ import ButtonBar from '../controls/ButtonBar';
 import SvgRects from '../controls/SvgRects';
 import SvgTexts from '../controls/SvgTexts';
 
-export default function Leetcode0053() {
+export default function Leetcode0152() {
   const [frameIndex, setFrameIndex] = React.useState<number>(0);
   const minDp = '  2  6 -2  4 48  0  0  1';
   const maxDp = '  2  3 -6-24 -8  0 -1 -1';

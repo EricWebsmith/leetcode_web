@@ -125,6 +125,12 @@ li a:hover {
   height: 100px;
 }
 
+.message {
+  margin-left: 50px;
+  font-size: 48px;
+  height: 100px;
+}
+
 .copyright {
   margin-left: 50px;
 }

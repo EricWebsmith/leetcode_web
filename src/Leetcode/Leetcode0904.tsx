@@ -6,6 +6,7 @@ import IFruitProps from '../SvgIcons/IFruitProps';
 import Orange from '../SvgIcons/Orange';
 import Pear from '../SvgIcons/Pear';
 import Scissors from '../SvgIcons/Scissors';
+import Guid from '../Utils/Guid';
 
 type Frame = {
   left: number;
@@ -19,7 +20,7 @@ type Frame = {
   best: number;
 };
 
-export default function Leetcode0053() {
+export default function Leetcode0904() {
   const [frameIndex, setFrameIndex] = React.useState<number>(0);
   const frames: Frame[] = [
     { left: 0, right: 0, f1: Apple, c1: 1, best: 1 },
@@ -74,6 +75,7 @@ export default function Leetcode0053() {
           scale: 0.3,
           x: 450 + fruitOffset * i,
           y: 700 + basket * 300,
+          key: Guid.newGuid(),
         };
         fruits.push(fruit(fruitProps));
       }

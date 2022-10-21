@@ -3,7 +3,7 @@ import ButtonBar from '../controls/ButtonBar';
 import SvgCircles from '../controls/SvgCircles';
 import SvgTexts from '../controls/SvgTexts';
 
-export default function Leetcode0053() {
+export default function Leetcode0779() {
   const [frameIndex, setFrameIndex] = React.useState<number>(0);
 
   function setIndex(index: SetStateAction<number>) {
@@ -14,12 +14,10 @@ export default function Leetcode0053() {
       newIndex = index(frameIndex);
     }
 
-    if (newIndex >= 0 && newIndex < 10) {
+    if (newIndex >= 0 && newIndex < 4) {
       setFrameIndex(index);
     }
   }
-
-  const svgRef = React.useRef(null);
 
   const circleStyle = {
     fill: 'blue',
@@ -63,22 +61,23 @@ export default function Leetcode0053() {
   };
 
   const lines = [];
+  let key = 0;
   let d = `M${cx1}, ${cy1} L${cx2}, ${cy2}`;
-  lines.push(<path d={d} style={lineStyle}></path>);
+  lines.push(<path key={key++} d={d} style={lineStyle}></path>);
   d = `M${cx1}, ${cy1} L${cx2 + offset * 4}, ${cy2}`;
-  lines.push(<path d={d} style={lineStyle}></path>);
+  lines.push(<path key={key++} d={d} style={lineStyle}></path>);
   for (let i = 0; i <= 1; i++) {
     d = `M${cx2 + i * offset * 4}, ${cy2} L${cx3 + i * offset * 4}, ${cy3}`;
-    lines.push(<path d={d} style={lineStyle}></path>);
+    lines.push(<path key={key++} d={d} style={lineStyle}></path>);
     d = `M${cx2 + i * offset * 4}, ${cy2} L${cx3 + i * offset * 4 + offset * 2}, ${cy3}`;
-    lines.push(<path d={d} style={lineStyle}></path>);
+    lines.push(<path key={key++} d={d} style={lineStyle}></path>);
   }
 
   for (let i = 0; i <= 3; i++) {
     d = `M${cx3 + i * offset * 2}, ${cy3} L${cx4 + i * offset * 2}, ${cy4}`;
-    lines.push(<path d={d} style={lineStyle}></path>);
+    lines.push(<path key={key++} d={d} style={lineStyle}></path>);
     d = `M${cx3 + i * offset * 2}, ${cy3} L${cx4 + i * offset * 2 + offset}, ${cy4}`;
-    lines.push(<path d={d} style={lineStyle}></path>);
+    lines.push(<path key={key++} d={d} style={lineStyle}></path>);
   }
 
   const displayArr = ['none', 'none', 'none', 'none'];
@@ -89,7 +88,6 @@ export default function Leetcode0053() {
   return (
     <>
       <svg
-        ref={svgRef}
         id='svg'
         width={1100}
         height={450}

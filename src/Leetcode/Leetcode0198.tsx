@@ -22,7 +22,7 @@ function House(props: IHouseProps) {
   );
 }
 
-export default function Leetcode0053() {
+export default function Leetcode0198() {
   const [frameIndex, setFrameIndex] = React.useState<number>(0);
 
   function setIndex(index: SetStateAction<number>) {
