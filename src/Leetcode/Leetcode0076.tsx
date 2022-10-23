@@ -39,8 +39,8 @@ export default function Leetcode0076() {
     { left: 8, right: 12, need: ' 0 0 0', isSubset: true, ans: 'EBANC' },
     { left: 9, right: 12, need: ' 0 0 0', isSubset: true, ans: 'BANC' },
     { left: 10, right: 12, need: ' 0 1 0', ans: 'BANC' },
-    { left: 11, right: 12, need: ' 1 0 0', ans: 'BANC' },
-    { left: 12, right: 12, need: ' 0 0 0', ans: 'BANC' },
+    { left: 11, right: 12, need: ' 1 1 0', ans: 'BANC' },
+    { left: 12, right: 12, need: ' 1 1 0', ans: 'BANC' },
   ];
 
   const step = 65;
