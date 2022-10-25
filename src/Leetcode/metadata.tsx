@@ -18,8 +18,10 @@ import Leetcode0779 from './Leetcode0779';
 import Leetcode0862 from './Leetcode0862';
 import Leetcode0901 from './Leetcode0901';
 import Leetcode0904 from './Leetcode0904';
+import Leetcode0934 from './Leetcode0934';
 import Leetcode0940 from './Leetcode0940';
 import Leetcode1234 from './Leetcode1234';
+import Leetcode1662 from './Leetcode1662';
 import Leetcode2095 from './Leetcode2095';
 import Leetcode2421 from './Leetcode2421';
 import Leetcode2422 from './Leetcode2422';
@@ -52,8 +54,10 @@ const typeList = [
   Leetcode0862,
   Leetcode0901,
   Leetcode0904,
+  Leetcode0934,
   Leetcode0940,
   Leetcode1234,
+  Leetcode1662,
   Leetcode2095,
   Leetcode2421,
   Leetcode2422,
@@ -146,12 +150,20 @@ const metaList: ProblemMetadata[] = [
     title: 'Fruit Into Baskets',
   },
   {
+    id: 934,
+    title: 'Shortest Bridge',
+  },
+  {
     id: 940,
     title: 'Distinct Subsequences II',
   },
   {
     id: 1234,
     title: 'Replace the Substring for Balanced String',
+  },
+  {
+    id: 1662,
+    title: 'Check If Two String Arrays are Equivalent',
   },
   {
     id: 2095,
@@ -239,12 +251,16 @@ function LeetcodeSelector(id: number) {
       return <Leetcode0901 />;
     case 904:
       return <Leetcode0904 />;
+    case 934:
+      return <Leetcode0934 />;
     case 940:
       return <Leetcode0940 />;
     case 862:
       return <Leetcode0862 />;
     case 1234:
       return <Leetcode1234 />;
+    case 1662:
+      return <Leetcode1662 />;
     case 2095:
       return <Leetcode2095 />;
     case 2421:
