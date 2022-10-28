@@ -1,6 +1,7 @@
 import Leetcode0003 from './Leetcode0003';
 import Leetcode0016 from './Leetcode0016';
 import Leetcode0019 from './Leetcode0019';
+import Leetcode0042 from './Leetcode0042';
 import Leetcode0053 from './Leetcode0053';
 import Leetcode0076 from './Leetcode0076';
 import Leetcode0091 from './Leetcode0091';
@@ -30,15 +31,15 @@ import Leetcode2435 from './Leetcode2435';
 import Leetcode2439 from './Leetcode2439';
 import Leetcode2448 from './Leetcode2448';
 import Leetcode2449 from './Leetcode2449';
-//import { default as Leetcode2439, default as Leetcode2449 } from './Leetcode2439';
 import { ProblemMetadata } from './ProblemMetadata';
 
 const typeList = [
   Leetcode0003,
   Leetcode0016,
   Leetcode0019,
-  Leetcode0091,
+  Leetcode0042,
   Leetcode0053,
+  Leetcode0091,
   Leetcode0076,
   Leetcode0121,
   Leetcode0152,
@@ -80,6 +81,10 @@ const metaList: ProblemMetadata[] = [
   {
     id: 19,
     title: 'Remove Nth Node From End of List',
+  },
+  {
+    id: 42,
+    title: 'Trapping Rain Water',
   },
   {
     id: 53,
@@ -219,6 +224,8 @@ function LeetcodeSelector(id: number) {
       return <Leetcode0016 />;
     case 19:
       return <Leetcode0019 />;
+    case 42:
+      return <Leetcode0042 />;
     case 53:
       return <Leetcode0053 />;
     case 76:
