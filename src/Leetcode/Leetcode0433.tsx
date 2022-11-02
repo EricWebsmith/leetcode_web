@@ -100,7 +100,7 @@ export default function Leetcode0433() {
         <Dna x={250} y={50} dna='ACC' distance={distances[1]} current={current_arr[1]} />
         <Dna x={450} y={50} dna='AAC' distance={distances[2]} current={current_arr[2]} />
         <Dna x={650} y={150} dna='AAA' distance={distances[3]} current={current_arr[3]} />
-        <Dna x={450} y={250} dna='ACA' distance={distances[4]} current={current_arr[4]} />
+        <Dna x={450} y={250} dna='ACG' distance={distances[4]} current={current_arr[4]} />
         <Dna x={250} y={250} dna='CCC' distance={distances[5]} current={current_arr[5]} />
       </svg>
       <ButtonBar setIndex={setIndex} />
