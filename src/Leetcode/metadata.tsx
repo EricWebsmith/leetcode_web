@@ -12,6 +12,7 @@ import Leetcode0205 from './Leetcode0205';
 import Leetcode0237 from './Leetcode0237';
 import Leetcode0322 from './Leetcode0322';
 import Leetcode0377 from './Leetcode0377';
+import Leetcode0433 from './Leetcode0433';
 import Leetcode0658 from './Leetcode0658';
 import Leetcode0659 from './Leetcode0659';
 import Leetcode0732 from './Leetcode0732';
@@ -49,6 +50,7 @@ const typeList = [
   Leetcode0205,
   Leetcode0322,
   Leetcode0377,
+  Leetcode0433,
   Leetcode0658,
   Leetcode0659,
   Leetcode0732,
@@ -127,6 +129,10 @@ const metaList: ProblemMetadata[] = [
   {
     id: 377,
     title: 'Combination Sum IV',
+  },
+  {
+    id: 433,
+    title: 'Minimum Genetic Mutation',
   },
   {
     id: 658,
@@ -252,6 +258,8 @@ function LeetcodeSelector(id: number) {
       return <Leetcode0322 />;
     case 377:
       return <Leetcode0377 />;
+    case 433:
+      return <Leetcode0433 />;
     case 658:
       return <Leetcode0658 />;
     case 659:
