@@ -2,7 +2,7 @@ import React from 'react';
 
 import csLogo from '../cs-180.png';
 import jsLogo from '../js-180.png';
-import logo from '../logo.png';
+import logo from '../logo.svg';
 import pyLogo from '../py-180.png';
 
 interface Props {
