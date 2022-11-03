@@ -25,6 +25,7 @@ import Leetcode0940 from './Leetcode0940';
 import Leetcode1234 from './Leetcode1234';
 import Leetcode1662 from './Leetcode1662';
 import Leetcode2095 from './Leetcode2095';
+import Leetcode2131 from './Leetcode2131';
 import Leetcode2421 from './Leetcode2421';
 import Leetcode2422 from './Leetcode2422';
 import Leetcode2434 from './Leetcode2434';
@@ -63,6 +64,7 @@ const typeList = [
   Leetcode1234,
   Leetcode1662,
   Leetcode2095,
+  Leetcode2131,
   Leetcode2421,
   Leetcode2422,
   Leetcode2434,
@@ -183,6 +185,10 @@ const metaList: ProblemMetadata[] = [
     title: 'Delete the Middle Node of a Linked List',
   },
   {
+    id: 2131,
+    title: 'Longest Palindrome by Concatenating Two Letter Words',
+  },
+  {
     id: 2421,
     title: 'Number of Good Paths',
   },
@@ -284,6 +290,8 @@ function LeetcodeSelector(id: number) {
       return <Leetcode1662 />;
     case 2095:
       return <Leetcode2095 />;
+    case 2131:
+      return <Leetcode2131 />;
     case 2421:
       return <Leetcode2421 />;
     case 2422:

@@ -4,7 +4,8 @@ interface Props {
   text?: string;
   x: number;
   y: number;
-  offsetX: number;
+  offsetX?: number;
+  offsetY?: number;
   style: object;
   step?: number;
   spaceOffset?: number;
@@ -16,6 +17,8 @@ const Texts = React.forwardRef((props: Props, ref: React.ForwardedRef<SVGGElemen
   }
   const texts = [];
   const step = props.step ?? 1;
+  const offsetX = props.offsetX ?? 0;
+  const offsetY = props.offsetY ?? 0;
   const spaceOffset = props.spaceOffset ?? 1;
   for (let i = 0; i < props.text.length / step; i++) {
     const s = props.text.substring(i * step, i * step + step);
@@ -27,9 +30,10 @@ const Texts = React.forwardRef((props: Props, ref: React.ForwardedRef<SVGGElemen
         break;
       }
     }
-    const x = props.x + props.offsetX * i + leadingSpaces * spaceOffset;
+    const x = props.x + offsetX * i + leadingSpaces * spaceOffset;
+    const y = props.y + offsetY * i;
     const text = (
-      <text key={i} x={x} y={props.y}>
+      <text key={i} x={x} y={y}>
         {props.text.substring(i * step, i * step + step)}
       </text>
     );
