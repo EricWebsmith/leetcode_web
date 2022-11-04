@@ -20,7 +20,6 @@ export default function Leetcode0042() {
       setFrameIndex(index);
     }
   }
-  console.log('log');
   const pillars = [];
 
   for (let i = 0; i < height.length; i++) {

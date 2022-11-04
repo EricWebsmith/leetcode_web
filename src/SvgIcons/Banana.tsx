@@ -1,13 +1,9 @@
-interface IProps {
-  x: number;
-  y: number;
-  scale: number;
-}
+import IFruitProps from './IFruitProps';
 
-export default function Pear(props: IProps) {
+export default function Pear(props: IFruitProps) {
   const transform = `scale(${props.scale}) translate(${props.x - 880}, ${props.y - 330})`;
   return (
-    <g transform={transform}>
+    <g key={props.key} transform={transform}>
       <g id='XMLID_109_'>
         <path
           id='XMLID_23_'

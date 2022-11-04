@@ -1,13 +1,9 @@
-interface IProps {
-  x: number;
-  y: number;
-  scale: number;
-}
+import IFruitProps from './IFruitProps';
 
-export default function Orange(props: IProps) {
+export default function Orange(props: IFruitProps) {
   const transform = `scale(${props.scale}) translate(${props.x - 300}, ${props.y})`;
   return (
-    <g transform={transform}>
+    <g key={props.key} transform={transform}>
       <g id='XMLID_10_'>
         <circle id='XMLID_280_' fill='#F8951D' cx='575.4' cy='332.2' r='98.5' />
       </g>

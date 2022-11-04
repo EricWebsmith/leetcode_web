@@ -23,7 +23,7 @@ const SvgMatrix = React.forwardRef((props: Props, ref: React.ForwardedRef<SVGGEl
   for (let r = 0; r < m; r++) {
     const y_r = y + width * r;
     for (let c = 0; c < n; c++) {
-      const key = `rect_${r * m + c}`;
+      const key = `rect_${r}_${c}`;
       if (colorMatrix && colorMatrix[r][c]) {
         const rect = (
           <rect
@@ -52,7 +52,7 @@ const SvgMatrix = React.forwardRef((props: Props, ref: React.ForwardedRef<SVGGEl
       const yr = y + width * r + textOffsetY;
       const charCount = Math.max(n, textArr[r].length);
       for (let c = 0; c < charCount; c++) {
-        const key = `text_${r * m + c}`;
+        const key = `text_${r}_${c}`;
         const text = (
           <text key={key} x={x + width * c + textOffsetX} y={yr} height={height} width={width}>
             {textArr[r][c]}

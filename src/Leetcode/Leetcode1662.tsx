@@ -46,8 +46,8 @@ export default function Leetcode1662() {
   const pointer1Positions = [0, 100, 200, 400, 600, 800, 900];
   const pointer2Positions = [0, 100, 300, 400, 600, 700, 900];
   for (let i = 0; i < 6; i++) {
-    rectContainer1.current?.children.item(i)?.setAttribute('fill', 'black');
-    rectContainer2.current?.children.item(i)?.setAttribute('fill', 'black');
+    rectContainer1.current?.children.item(i)?.removeAttribute('fill');
+    rectContainer2.current?.children.item(i)?.removeAttribute('fill');
   }
 
   for (let i = 0; i < frameIndex; i++) {

@@ -11,6 +11,7 @@ import Leetcode0198 from './Leetcode0198';
 import Leetcode0205 from './Leetcode0205';
 import Leetcode0237 from './Leetcode0237';
 import Leetcode0322 from './Leetcode0322';
+import Leetcode0345 from './Leetcode0345';
 import Leetcode0377 from './Leetcode0377';
 import Leetcode0433 from './Leetcode0433';
 import Leetcode0658 from './Leetcode0658';
@@ -50,6 +51,7 @@ const typeList = [
   Leetcode0237,
   Leetcode0205,
   Leetcode0322,
+  Leetcode0345,
   Leetcode0377,
   Leetcode0433,
   Leetcode0658,
@@ -127,6 +129,10 @@ const metaList: ProblemMetadata[] = [
   {
     id: 322,
     title: 'Coin Change',
+  },
+  {
+    id: 345,
+    title: 'Reverse Vowels of a String',
   },
   {
     id: 377,
@@ -262,6 +268,8 @@ function LeetcodeSelector(id: number) {
       return <Leetcode0237 />;
     case 322:
       return <Leetcode0322 />;
+    case 345:
+      return <Leetcode0345 />;
     case 377:
       return <Leetcode0377 />;
     case 433:
