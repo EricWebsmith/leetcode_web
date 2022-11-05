@@ -161,16 +161,7 @@ export default function Leetcode0732() {
 
   return (
     <>
-      <svg
-        id='svg'
-        ref={svg}
-        width={950}
-        height={500}
-        viewBox='50 0 650 400'
-        style={{
-          backgroundColor: 'white',
-          cursor: 'url(Laser_Pointer.png), pointer!important',
-        }}>
+      <svg id='svg' ref={svg} width={950} height={500} viewBox='50 0 650 400'>
         {/* Layer 1 */}
         <rect style={rectStyleRed} id='node_0_60' width='600' height='50' x='100' y='50' />
 

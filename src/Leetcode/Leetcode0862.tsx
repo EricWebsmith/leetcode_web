@@ -167,14 +167,7 @@ export default function Leetcode0862() {
         style={{
           display: 'flex',
         }}>
-        <svg
-          id='svg'
-          width={650}
-          height={450}
-          style={{
-            backgroundColor: 'white',
-            cursor: 'url(Laser_Pointer.png), pointer!important',
-          }}>
+        <svg id='svg' width={650} height={450}>
           <g id='pre-sum' transform='translate(50, 0)'>
             <text
               x='50'

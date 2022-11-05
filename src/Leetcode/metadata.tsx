@@ -82,174 +82,56 @@ const typeList = [
 ];
 
 const metaList: ProblemMetadata[] = [
-  {
-    id: 3,
-    title: 'Longest Substring Without Repeating Characters',
-  },
-  {
-    id: 16,
-    title: '3Sum Closest',
-  },
-  {
-    id: 19,
-    title: 'Remove Nth Node From End of List',
-  },
-  {
-    id: 42,
-    title: 'Trapping Rain Water',
-  },
-  {
-    id: 53,
-    title: 'Maximum Subarray',
-  },
-  {
-    id: 76,
-    title: 'Minimum Window Substring',
-  },
-  {
-    id: 91,
-    title: 'Decode Ways',
-  },
-  {
-    id: 121,
-    title: 'Best Time to Buy and Sell Stock',
-  },
-  {
-    id: 152,
-    title: 'Maximum Product Subarray',
-  },
-  {
-    id: 198,
-    title: 'House Robber',
-  },
-  {
-    id: 205,
-    title: 'Isomorphic Strings',
-  },
-  {
-    id: 212,
-    title: 'Word Search II',
-  },
-  {
-    id: 237,
-    title: 'Delete Node in a Linked List',
-  },
-  {
-    id: 322,
-    title: 'Coin Change',
-  },
-  {
-    id: 345,
-    title: 'Reverse Vowels of a String',
-  },
-  {
-    id: 377,
-    title: 'Combination Sum IV',
-  },
-  {
-    id: 424,
-    title: 'Longest Repeating Character Replacement',
-  },
-  {
-    id: 433,
-    title: 'Minimum Genetic Mutation',
-  },
-  {
-    id: 658,
-    title: 'Find K Closest Elements',
-  },
-  {
-    id: 659,
-    title: 'Split Array into Consecutive Subsequences',
-  },
-  {
-    id: 732,
-    title: 'My Calendar III',
-  },
-  {
-    id: 779,
-    title: 'K-th Symbol in Grammar',
-  },
-  {
-    id: 862,
-    title: 'Shortest Subarray with Sum at Least K',
-  },
-  {
-    id: 901,
-    title: 'Online Stock Span',
-  },
-  {
-    id: 904,
-    title: 'Fruit Into Baskets',
-  },
-  {
-    id: 934,
-    title: 'Shortest Bridge',
-  },
-  {
-    id: 940,
-    title: 'Distinct Subsequences II',
-  },
-  {
-    id: 1234,
-    title: 'Replace the Substring for Balanced String',
-  },
-  {
-    id: 1662,
-    title: 'Check If Two String Arrays are Equivalent',
-  },
-  {
-    id: 2095,
-    title: 'Delete the Middle Node of a Linked List',
-  },
-  {
-    id: 2131,
-    title: 'Longest Palindrome by Concatenating Two Letter Words',
-  },
-  {
-    id: 2421,
-    title: 'Number of Good Paths',
-  },
-  {
-    id: 2422,
-    title: 'Merge Operations to Turn Array Into a Palindrome',
-  },
-  {
-    id: 2434,
-    title: 'Using a Robot to Print the Lexicographically Smallest String',
-  },
-  {
-    id: 2435,
-    title: 'Paths in Matrix Whose Sum Is Divisible by K',
-  },
-  {
-    id: 2439,
-    title: 'Minimize Maximum of Array',
-  },
-  {
-    id: 2448,
-    title: 'Minimum Cost to Make Array Equal',
-  },
-  {
-    id: 2449,
-    title: 'Minimum Number of Operations to Make Arrays Similar',
-  },
-  {
-    id: 2453,
-    title: 'Destroy Sequential Targets',
-  },
+  { id: 3, title: 'Longest Substring Without Repeating Characters' },
+  { id: 16, title: '3Sum Closest' },
+  { id: 19, title: 'Remove Nth Node From End of List' },
+  { id: 42, title: 'Trapping Rain Water' },
+  { id: 53, title: 'Maximum Subarray' },
+  { id: 76, title: 'Minimum Window Substring' },
+  { id: 91, title: 'Decode Ways' },
+  { id: 121, title: 'Best Time to Buy and Sell Stock' },
+  { id: 152, title: 'Maximum Product Subarray' },
+  { id: 198, title: 'House Robber' },
+  { id: 205, title: 'Isomorphic Strings' },
+  { id: 212, title: 'Word Search II' },
+  { id: 237, title: 'Delete Node in a Linked List' },
+  { id: 322, title: 'Coin Change' },
+  { id: 345, title: 'Reverse Vowels of a String' },
+  { id: 377, title: 'Combination Sum IV' },
+  { id: 424, title: 'Longest Repeating Character Replacement' },
+  { id: 433, title: 'Minimum Genetic Mutation' },
+  { id: 658, title: 'Find K Closest Elements' },
+  { id: 659, title: 'Split Array into Consecutive Subsequences' },
+  { id: 732, title: 'My Calendar III' },
+  { id: 779, title: 'K-th Symbol in Grammar' },
+  { id: 862, title: 'Shortest Subarray with Sum at Least K' },
+  { id: 901, title: 'Online Stock Span' },
+  { id: 904, title: 'Fruit Into Baskets' },
+  { id: 934, title: 'Shortest Bridge' },
+  { id: 940, title: 'Distinct Subsequences II' },
+  { id: 1234, title: 'Replace the Substring for Balanced String' },
+  { id: 1662, title: 'Check If Two String Arrays are Equivalent' },
+  { id: 2095, title: 'Delete the Middle Node of a Linked List' },
+  { id: 2131, title: 'Longest Palindrome by Concatenating Two Letter Words' },
+  { id: 2421, title: 'Number of Good Paths' },
+  { id: 2422, title: 'Merge Operations to Turn Array Into a Palindrome' },
+  { id: 2434, title: 'Using a Robot to Print the Lexicographically Smallest String' },
+  { id: 2435, title: 'Paths in Matrix Whose Sum Is Divisible by K' },
+  { id: 2439, title: 'Minimize Maximum of Array' },
+  { id: 2448, title: 'Minimum Cost to Make Array Equal' },
+  { id: 2449, title: 'Minimum Number of Operations to Make Arrays Similar' },
+  { id: 2453, title: 'Destroy Sequential Targets' },
 ];
 
 const idMetaDict = new Map<number, ProblemMetadata>();
 const nameMetaDict = new Map<string, ProblemMetadata>();
+const default_id = 904;
 
 for (const meta of metaList) {
   idMetaDict.set(meta.id, meta);
   const name = 'Leetcode' + `${meta.id}`.padStart(4, '0');
   nameMetaDict.set(name, meta);
 }
-
-const default_id = 904;
 
 function LeetcodeSelector(id: number) {
   const definedId = id == null ? default_id : Number(id);

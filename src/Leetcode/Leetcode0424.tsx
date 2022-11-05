@@ -6,12 +6,7 @@ import SvgTexts from '../controls/SvgTexts';
 
 const k = 1;
 
-type Frame = {
-  left: number;
-  right: number;
-  maxf: number;
-  ans: number;
-};
+type Frame = { left: number; right: number; maxf: number; ans: number };
 
 const frames: Frame[] = [
   { left: 0, right: 0, maxf: 1, ans: 1 },
@@ -44,38 +39,19 @@ export default function Leetcode0000() {
     }
   }
 
-  const rectStyle = {
-    fill: 'blue',
-  };
-
-  const textStyle = {
-    fontWeight: 'bold',
-    fontSize: 80,
-    fontFamily: 'Arial',
-    fill: '#FFFFFF',
-  };
-
+  const rectStyle = { fill: 'blue' };
+  const textStyle = { fontWeight: 'bold', fontSize: 80, fontFamily: 'Arial', fill: '#FFFFFF' };
   const offset = 100;
-
   const valid = frame.right - frame.left + 1 - frame.maxf <= k;
-
   const pointerStyle = valid ? { fill: 'green' } : { fill: 'red' };
 
   return (
     <>
-      <svg
-        id='svg'
-        width={950}
-        height={400}
-        style={{
-          backgroundColor: 'white',
-          cursor: 'url(Laser_Pointer.png), pointer!important',
-        }}>
+      <svg id='svg' width={950} height={400}>
         <SvgRects x={80} y={125} height={90} width={90} n={7} offsetX={offset} style={rectStyle}></SvgRects>
         <SvgTexts x={95} y={200} text={'AABABBA'} offsetX={offset} style={textStyle}></SvgTexts>
         <NamedPointer x={5 + frame.left * offset} y={15} letter='L' pathStyle={pointerStyle} />
         <NamedPointer x={5 + frame.right * offset} y={15} letter='R' pathStyle={pointerStyle} />
-
         <text x={80} y={285} style={{ fontSize: 60, fontWeight: 'bold' }}>
           K: {k}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Max Frequency: {frame.maxf}
         </text>

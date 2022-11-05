@@ -64,14 +64,7 @@ export default function Leetcode0934() {
   ];
   return (
     <>
-      <svg
-        id='svg'
-        width={900}
-        height={500}
-        style={{
-          backgroundColor: 'white',
-          cursor: 'url(Laser_Pointer.png), pointer!important',
-        }}>
+      <svg id='svg' width={900} height={500}>
         <SvgMatrix
           x={100}
           y={50}

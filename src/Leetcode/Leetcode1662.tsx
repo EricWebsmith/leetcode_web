@@ -62,14 +62,7 @@ export default function Leetcode1662() {
 
   return (
     <>
-      <svg
-        id='svg'
-        width={1100}
-        height={325}
-        style={{
-          backgroundColor: 'white',
-          cursor: 'url(Laser_Pointer.png), pointer!important',
-        }}>
+      <svg id='svg' width={1100} height={325}>
         {/* Word 1 */}
         <g ref={rectContainer1} style={rectStyle}>
           <rect x={50} y={50} height={100} width={100}></rect>

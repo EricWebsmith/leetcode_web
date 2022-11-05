@@ -158,14 +158,7 @@ export default function Leetcode0659() {
 
   return (
     <>
-      <svg
-        id='svg'
-        width={950}
-        height={250}
-        style={{
-          backgroundColor: 'white',
-          cursor: 'url(Laser_Pointer.png), pointer!important',
-        }}>
+      <svg id='svg' width={950} height={250}>
         <path
           id='pointer'
           transform='translate(-45, -5)'

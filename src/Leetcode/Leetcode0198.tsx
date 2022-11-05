@@ -48,14 +48,7 @@ export default function Leetcode0198() {
 
   return (
     <>
-      <svg
-        id='svg'
-        width={1100}
-        height={520}
-        style={{
-          backgroundColor: 'white',
-          cursor: 'url(Laser_Pointer.png), pointer!important',
-        }}>
+      <svg id='svg' width={1100} height={520}>
         <g id='neigborhood' transform='translate(0, 150)'>
           <House color='green' x={0} />
           <House color='blue' x={200} />

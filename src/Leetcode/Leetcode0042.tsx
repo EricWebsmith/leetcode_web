@@ -76,14 +76,7 @@ export default function Leetcode0042() {
 
   return (
     <>
-      <svg
-        id='svg'
-        width={1100}
-        height={310}
-        style={{
-          backgroundColor: 'white',
-          cursor: 'url(Laser_Pointer.png), pointer!important',
-        }}>
+      <svg id='svg' width={1100} height={310}>
         <g style={{ fill: 'black' }}>{pillars}</g>
         <g style={{ fill: 'blue' }}>{water}</g>
         <NamedPointer scale={0.7} x={leftX} y={leftY} letter={String(left_max)} pathStyle={pointerStyle} />

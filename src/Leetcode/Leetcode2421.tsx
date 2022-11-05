@@ -70,14 +70,7 @@ export default function Leetcode2421() {
 
   return (
     <>
-      <svg
-        id='svg'
-        width={950}
-        height={500}
-        style={{
-          backgroundColor: 'white',
-          cursor: 'url(Laser_Pointer.png), pointer!important',
-        }}>
+      <svg id='svg' width={950} height={500}>
         <g transform='translate(250, -75) scale(2)'>
           <g id='step1' ref={step1}>
             <text style={textStyle} x='82.725006' y='68.805' id='node0index'>

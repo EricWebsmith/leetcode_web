@@ -87,14 +87,7 @@ export default function Leetcode0779() {
 
   return (
     <>
-      <svg
-        id='svg'
-        width={1100}
-        height={450}
-        style={{
-          backgroundColor: 'white',
-          cursor: 'url(Laser_Pointer.png), pointer!important',
-        }}>
+      <svg id='svg' width={1100} height={450}>
         {lines}
         <SvgCircles cx={450} cy={50} r={r} n={1} offsetX={offset} style={circleStyle}></SvgCircles>
         <SvgCircles cx={250} cy={150} r={r} n={2} offsetX={offset * 4} style={circleStyle}></SvgCircles>

@@ -119,14 +119,7 @@ export default function Leetcode0901() {
 
   return (
     <>
-      <svg
-        id='svg'
-        width={900}
-        height={500}
-        style={{
-          backgroundColor: 'white',
-          cursor: 'url(Laser_Pointer.png), pointer!important',
-        }}>
+      <svg id='svg' width={900} height={500}>
         <defs>
           <marker
             id='arrowhead'

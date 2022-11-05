@@ -110,14 +110,7 @@ export default function Leetcode0019() {
 
   return (
     <>
-      <svg
-        id='svg'
-        width={1280}
-        height={500}
-        style={{
-          backgroundColor: 'white',
-          cursor: 'url(Laser_Pointer.png), pointer!important',
-        }}>
+      <svg id='svg' width={1280} height={500}>
         <defs>
           <marker id='arrow-head' markerWidth='2.595' orient='auto' refX='0.3' refY='1.3'>
             <path transform='scale(.25) translate(-1,-1)' d='M2,2 L2,11 L10,6 L2,2' fill='#000' />

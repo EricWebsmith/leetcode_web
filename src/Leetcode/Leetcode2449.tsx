@@ -53,14 +53,7 @@ export default function Leetcode2449() {
 
   return (
     <>
-      <svg
-        id='svg'
-        width={1100}
-        height={600}
-        style={{
-          backgroundColor: 'white',
-          cursor: 'url(Laser_Pointer.png), pointer!important',
-        }}>
+      <svg id='svg' width={1100} height={600}>
         <rect
           x={175 + frameIndex * offset}
           y={45}

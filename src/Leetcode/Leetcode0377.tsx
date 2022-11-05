@@ -74,14 +74,7 @@ export default function Leetcode0377() {
 
   return (
     <>
-      <svg
-        id='svg'
-        width={850}
-        height={380}
-        style={{
-          backgroundColor: 'white',
-          cursor: 'url(Laser_Pointer.png), pointer!important',
-        }}>
+      <svg id='svg' width={850} height={380}>
         <g id='coins'>
           <circle cx={230} cy={70} r='60' fill='gold'></circle>
           <circle cx={360} cy={70} r='60' fill='gold'></circle>

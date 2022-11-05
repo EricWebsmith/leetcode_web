@@ -92,14 +92,7 @@ export default function Leetcode0003() {
 
   return (
     <div className='ppt' style={{ width: 950 }}>
-      <svg
-        id='svg'
-        width={950}
-        height={350}
-        style={{
-          backgroundColor: 'white',
-          cursor: 'url(Laser_Pointer.png), pointer!important',
-        }}>
+      <svg id='svg' width={950} height={350}>
         <SvgRects
           x={35}
           y={100}

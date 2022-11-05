@@ -111,14 +111,7 @@ export default function Leetcode2131() {
   const answer = [0, 0, 4, 6, 6, 6, 10, 10, 10, 10, 10];
   return (
     <>
-      <svg
-        id='svg'
-        width={1000}
-        height={500}
-        style={{
-          backgroundColor: 'white',
-          cursor: 'url(Laser_Pointer.png), pointer!important',
-        }}>
+      <svg id='svg' width={1000} height={500}>
         <SvgMatrix
           x={175}
           y={75}

@@ -95,15 +95,7 @@ export default function Leetcode0121() {
 
   return (
     <>
-      <svg
-        id='svg'
-        ref={svgRef}
-        width={900}
-        height={500}
-        style={{
-          backgroundColor: 'white',
-          cursor: 'url(Laser_Pointer.png), pointer!important',
-        }}></svg>
+      <svg id='svg' ref={svgRef} width={900} height={500}></svg>
       <ButtonBar setIndex={setIndex} />
     </>
   );

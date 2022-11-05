@@ -90,14 +90,7 @@ export default function Leetcode0904() {
 
   return (
     <>
-      <svg
-        id='svg'
-        width={1100}
-        height={650}
-        style={{
-          backgroundColor: 'white',
-          cursor: 'url(Laser_Pointer.png), pointer!important',
-        }}>
+      <svg id='svg' width={1100} height={650}>
         <Apple scale={0.3} x={0} y={0} />
         <Apple scale={0.3} x={300} y={0} />
         <Banana scale={0.3} x={600} y={0} />

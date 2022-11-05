@@ -118,14 +118,7 @@ export default function Leetcode0322() {
 
   return (
     <>
-      <svg
-        id='svg'
-        width={950}
-        height={350}
-        style={{
-          backgroundColor: 'white',
-          cursor: 'url(Laser_Pointer.png), pointer!important',
-        }}>
+      <svg id='svg' width={950} height={350}>
         <g
           id='coins'
           style={{

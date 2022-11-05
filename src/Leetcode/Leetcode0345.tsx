@@ -11,7 +11,7 @@ type Frame = {
   showArc?: boolean;
 };
 
-export default function Leetcode0000() {
+export default function Leetcode0345() {
   const [frameIndex, setFrameIndex] = React.useState<number>(0);
   const frames: Frame[] = [
     { s: 'LEETCODE', left: 0, right: 7 },
@@ -50,14 +50,7 @@ export default function Leetcode0000() {
 
   return (
     <>
-      <svg
-        id='svg'
-        width={1100}
-        height={300}
-        style={{
-          backgroundColor: 'white',
-          cursor: 'url(Laser_Pointer.png), pointer!important',
-        }}>
+      <svg id='svg' width={1100} height={300}>
         <SvgRects x={80} y={150} height={90} width={90} n={8} offsetX={offset} style={rectStyle}></SvgRects>
         <SvgTexts x={100} y={225} text={frame.s} offsetX={offset} style={textStyle}></SvgTexts>
         <NamedPointer letter='L' x={5 + frame.left * offset} y={40} pathStyle={{ fill: 'green' }} />

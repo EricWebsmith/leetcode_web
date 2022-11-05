@@ -136,3 +136,8 @@ li a:hover {
 .copyright {
   margin-left: 50px;
 }
+
+.ppt {
+  background-color: 'white';
+  cursor: 'url(Laser_Pointer.png), pointer!important';
+}

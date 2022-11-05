@@ -108,14 +108,7 @@ export default function Leetcode2435() {
 
   return (
     <>
-      <svg
-        id='svg'
-        width={1100}
-        height={450}
-        style={{
-          backgroundColor: 'white',
-          cursor: 'url(Laser_Pointer.png), pointer!important',
-        }}>
+      <svg id='svg' width={1100} height={450}>
         <text x={100} y={90} style={textStyle}>
           Matrix
         </text>

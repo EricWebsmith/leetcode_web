@@ -101,15 +101,7 @@ export default function Leetcode0433() {
 
   return (
     <>
-      <svg
-        id='svg'
-        width={1100}
-        height={375}
-        style={{
-          backgroundColor: 'white',
-          cursor: 'url(Laser_Pointer.png), pointer!important',
-        }}
-        transform='translate(50, 0)'>
+      <svg id='svg' width={1100} height={375} transform='translate(50, 0)'>
         {/* ACT -> ACC */}
         <line x1={190} y1={175} x2={270} y2={75} stroke='blue' strokeWidth={8} display={visible[1]} />
         {/* ACT -> ACG */}
