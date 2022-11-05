@@ -9,10 +9,12 @@ import Leetcode0121 from './Leetcode0121';
 import Leetcode0152 from './Leetcode0152';
 import Leetcode0198 from './Leetcode0198';
 import Leetcode0205 from './Leetcode0205';
+import Leetcode0212 from './Leetcode0212';
 import Leetcode0237 from './Leetcode0237';
 import Leetcode0322 from './Leetcode0322';
 import Leetcode0345 from './Leetcode0345';
 import Leetcode0377 from './Leetcode0377';
+import Leetcode0424 from './Leetcode0424';
 import Leetcode0433 from './Leetcode0433';
 import Leetcode0658 from './Leetcode0658';
 import Leetcode0659 from './Leetcode0659';
@@ -48,11 +50,13 @@ const typeList = [
   Leetcode0121,
   Leetcode0152,
   Leetcode0198,
-  Leetcode0237,
   Leetcode0205,
+  Leetcode0212,
+  Leetcode0237,
   Leetcode0322,
   Leetcode0345,
   Leetcode0377,
+  Leetcode0424,
   Leetcode0433,
   Leetcode0658,
   Leetcode0659,
@@ -123,6 +127,10 @@ const metaList: ProblemMetadata[] = [
     title: 'Isomorphic Strings',
   },
   {
+    id: 212,
+    title: 'Word Search II',
+  },
+  {
     id: 237,
     title: 'Delete Node in a Linked List',
   },
@@ -137,6 +145,10 @@ const metaList: ProblemMetadata[] = [
   {
     id: 377,
     title: 'Combination Sum IV',
+  },
+  {
+    id: 424,
+    title: 'Longest Repeating Character Replacement',
   },
   {
     id: 433,
@@ -264,6 +276,8 @@ function LeetcodeSelector(id: number) {
       return <Leetcode0198 />;
     case 205:
       return <Leetcode0205 />;
+    case 212:
+      return <Leetcode0212 />;
     case 237:
       return <Leetcode0237 />;
     case 322:
@@ -272,6 +286,8 @@ function LeetcodeSelector(id: number) {
       return <Leetcode0345 />;
     case 377:
       return <Leetcode0377 />;
+    case 424:
+      return <Leetcode0424 />;
     case 433:
       return <Leetcode0433 />;
     case 658:
