@@ -37,6 +37,7 @@ import Leetcode2439 from './Leetcode2439';
 import Leetcode2448 from './Leetcode2448';
 import Leetcode2449 from './Leetcode2449';
 import Leetcode2453 from './Leetcode2453';
+import Leetcode2462 from './Leetcode2462';
 import { ProblemMetadata } from './ProblemMetadata';
 
 const typeList = [
@@ -79,6 +80,7 @@ const typeList = [
   Leetcode2448,
   Leetcode2449,
   Leetcode2453,
+  Leetcode2462,
 ];
 
 const metaList: ProblemMetadata[] = [
@@ -121,6 +123,7 @@ const metaList: ProblemMetadata[] = [
   { id: 2448, title: 'Minimum Cost to Make Array Equal' },
   { id: 2449, title: 'Minimum Number of Operations to Make Arrays Similar' },
   { id: 2453, title: 'Destroy Sequential Targets' },
+  { id: 2462, title: 'Total Cost to Hire K Workers' },
 ];
 
 const idMetaDict = new Map<number, ProblemMetadata>();
@@ -214,6 +217,8 @@ function LeetcodeSelector(id: number) {
       return <Leetcode2449 />;
     case 2453:
       return <Leetcode2453 />;
+    case 2462:
+      return <Leetcode2462 />;
     default:
       return <Leetcode0198 />;
   }
