@@ -11,6 +11,7 @@ import Leetcode0198 from './Leetcode0198';
 import Leetcode0205 from './Leetcode0205';
 import Leetcode0212 from './Leetcode0212';
 import Leetcode0237 from './Leetcode0237';
+import Leetcode0252 from './Leetcode0252';
 import Leetcode0322 from './Leetcode0322';
 import Leetcode0345 from './Leetcode0345';
 import Leetcode0377 from './Leetcode0377';
@@ -29,6 +30,7 @@ import Leetcode1234 from './Leetcode1234';
 import Leetcode1662 from './Leetcode1662';
 import Leetcode2095 from './Leetcode2095';
 import Leetcode2131 from './Leetcode2131';
+import Leetcode2402 from './Leetcode2402';
 import Leetcode2421 from './Leetcode2421';
 import Leetcode2422 from './Leetcode2422';
 import Leetcode2434 from './Leetcode2434';
@@ -54,6 +56,7 @@ const typeList = [
   Leetcode0205,
   Leetcode0212,
   Leetcode0237,
+  Leetcode0252,
   Leetcode0322,
   Leetcode0345,
   Leetcode0377,
@@ -72,6 +75,7 @@ const typeList = [
   Leetcode1662,
   Leetcode2095,
   Leetcode2131,
+  Leetcode2402,
   Leetcode2421,
   Leetcode2422,
   Leetcode2434,
@@ -96,6 +100,8 @@ const metaList: ProblemMetadata[] = [
   { id: 198, title: 'House Robber' },
   { id: 205, title: 'Isomorphic Strings' },
   { id: 212, title: 'Word Search II' },
+  { id: 252, title: 'Meeting Rooms' },
+  { id: 253, title: 'Meeting Rooms II' },
   { id: 237, title: 'Delete Node in a Linked List' },
   { id: 322, title: 'Coin Change' },
   { id: 345, title: 'Reverse Vowels of a String' },
@@ -115,6 +121,7 @@ const metaList: ProblemMetadata[] = [
   { id: 1662, title: 'Check If Two String Arrays are Equivalent' },
   { id: 2095, title: 'Delete the Middle Node of a Linked List' },
   { id: 2131, title: 'Longest Palindrome by Concatenating Two Letter Words' },
+  { id: 2402, title: 'Meeting Rooms III' },
   { id: 2421, title: 'Number of Good Paths' },
   { id: 2422, title: 'Merge Operations to Turn Array Into a Palindrome' },
   { id: 2434, title: 'Using a Robot to Print the Lexicographically Smallest String' },
@@ -165,6 +172,10 @@ function LeetcodeSelector(id: number) {
       return <Leetcode0212 />;
     case 237:
       return <Leetcode0237 />;
+    case 252:
+      return <Leetcode0252 />;
+    case 253:
+      return <Leetcode0252 />;
     case 322:
       return <Leetcode0322 />;
     case 345:
@@ -201,6 +212,8 @@ function LeetcodeSelector(id: number) {
       return <Leetcode2095 />;
     case 2131:
       return <Leetcode2131 />;
+    case 2402:
+      return <Leetcode2402 />;
     case 2421:
       return <Leetcode2421 />;
     case 2422:
