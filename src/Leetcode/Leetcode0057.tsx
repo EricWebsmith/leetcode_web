@@ -1,21 +1,20 @@
 import * as d3 from 'd3';
 import React, { SetStateAction } from 'react';
 import ButtonBar from '../controls/ButtonBar';
-import MeetingRoom from '../SvgIcons/MeetingRoom';
 
-export default function Leetcode2402() {
+export default function Leetcode0056() {
   const [frameIndex, setFrameIndex] = React.useState<number>(0);
   const w = 900;
   const h = 400;
 
   const svgRef = React.useRef<SVGSVGElement>(null);
   const intervals = [
-    [0, 10],
-    [1, 5],
-    [2, 7],
-    [3, 4],
+    [1, 2],
+    [3, 5],
+    [6, 7],
+    [8, 10],
+    [12, 16],
   ];
-  const colors = ['red', 'green', 'blue', 'orange'];
 
   React.useEffect(() => {
     if (svgRef.current == null) {
@@ -27,12 +26,12 @@ export default function Leetcode2402() {
     svg.selectAll('*').remove();
     const xScale = d3
       .scaleLinear()
-      .domain([-1, 12])
+      .domain([0, 17])
       .range([100, w - 50]);
 
     const yScale = d3
       .scaleLinear()
-      .domain([0, 4])
+      .domain([0, intervals.length + 1])
       .range([h - padding, padding]);
 
     const xAxis = d3.axisBottom(xScale);
@@ -49,56 +48,33 @@ export default function Leetcode2402() {
       svg
         .append('line')
         .attr('x1', `${xScale(start)}`)
-        .attr('y1', yScale(i / 2 + 2))
+        .attr('y1', yScale(i + 2))
         .attr('x2', `${xScale(end)}`)
-        .attr('y2', yScale(i / 2 + 2))
-        .attr('stroke', colors[i])
+        .attr('y2', yScale(i + 2))
+        .attr('stroke', 'blue')
         .attr('stroke-width', meeting_height);
     }
 
-    if (frameIndex >= 1) {
+    for (let i = 0; i < frameIndex; i++) {
       svg
         .append('line')
-        .attr('x1', `${xScale(intervals[0][0])}`)
+        .attr('x1', `${xScale(intervals[i][0])}`)
         .attr('y1', yScale(1))
-        .attr('x2', `${xScale(intervals[0][1])}`)
+        .attr('x2', `${xScale(intervals[i][1])}`)
         .attr('y2', yScale(1))
-        .attr('stroke', colors[0])
+        .attr('stroke', 'blue')
         .attr('stroke-width', meeting_height);
     }
 
-    if (frameIndex >= 2) {
-      svg
-        .append('line')
-        .attr('x1', `${xScale(intervals[1][0])}`)
-        .attr('y1', yScale(0.4))
-        .attr('x2', `${xScale(intervals[1][1])}`)
-        .attr('y2', yScale(0.4))
-        .attr('stroke', colors[1])
-        .attr('stroke-width', meeting_height);
-    }
-
-    if (frameIndex >= 3) {
-      svg
-        .append('line')
-        .attr('x1', `${xScale(5)}`)
-        .attr('y1', yScale(0.4))
-        .attr('x2', `${xScale(10)}`)
-        .attr('y2', yScale(0.4))
-        .attr('stroke', colors[2])
-        .attr('stroke-width', meeting_height);
-    }
-
-    if (frameIndex >= 4) {
-      svg
-        .append('line')
-        .attr('x1', `${xScale(10)}`)
-        .attr('y1', yScale(1))
-        .attr('x2', `${xScale(11)}`)
-        .attr('y2', yScale(1))
-        .attr('stroke', colors[3])
-        .attr('stroke-width', meeting_height);
-    }
+    // new Interval
+    svg
+      .append('line')
+      .attr('x1', `${xScale(4)}`)
+      .attr('y1', yScale(1))
+      .attr('x2', `${xScale(8)}`)
+      .attr('y2', yScale(1))
+      .attr('stroke', 'blue')
+      .attr('stroke-width', meeting_height);
   }, [frameIndex]);
 
   function setIndex(index: SetStateAction<number>) {
@@ -117,18 +93,9 @@ export default function Leetcode2402() {
   return (
     <>
       <svg id='svg' ref={svgRef} width={w} height={h}>
-        <MeetingRoom x={900} y={2500} color='green' scale={0.1} />
-        <MeetingRoom x={900} y={3000} color='blue' scale={0.1} />
         <g id='change'></g>
       </svg>
       <ButtonBar setIndex={setIndex} />
-      <div
-        style={{
-          paddingTop: 100,
-          paddingLeft: 50,
-        }}>
-        The meeting room icon is from <a href='https://www.svgrepo.com/'>svgrepo.com/</a>
-      </div>
     </>
   );
 }

@@ -3,6 +3,8 @@ import Leetcode0016 from './Leetcode0016';
 import Leetcode0019 from './Leetcode0019';
 import Leetcode0042 from './Leetcode0042';
 import Leetcode0053 from './Leetcode0053';
+import Leetcode0056 from './Leetcode0056';
+import Leetcode0057 from './Leetcode0057';
 import Leetcode0076 from './Leetcode0076';
 import Leetcode0091 from './Leetcode0091';
 import Leetcode0121 from './Leetcode0121';
@@ -17,6 +19,7 @@ import Leetcode0345 from './Leetcode0345';
 import Leetcode0377 from './Leetcode0377';
 import Leetcode0424 from './Leetcode0424';
 import Leetcode0433 from './Leetcode0433';
+import Leetcode0435 from './Leetcode0435';
 import Leetcode0658 from './Leetcode0658';
 import Leetcode0659 from './Leetcode0659';
 import Leetcode0732 from './Leetcode0732';
@@ -48,6 +51,8 @@ const typeList = [
   Leetcode0019,
   Leetcode0042,
   Leetcode0053,
+  Leetcode0056,
+  Leetcode0057,
   Leetcode0091,
   Leetcode0076,
   Leetcode0121,
@@ -62,6 +67,7 @@ const typeList = [
   Leetcode0377,
   Leetcode0424,
   Leetcode0433,
+  Leetcode0435,
   Leetcode0658,
   Leetcode0659,
   Leetcode0732,
@@ -93,6 +99,8 @@ const metaList: ProblemMetadata[] = [
   { id: 19, title: 'Remove Nth Node From End of List' },
   { id: 42, title: 'Trapping Rain Water' },
   { id: 53, title: 'Maximum Subarray' },
+  { id: 56, title: 'Merge Intervals' },
+  { id: 57, title: 'Insert Interval' },
   { id: 76, title: 'Minimum Window Substring' },
   { id: 91, title: 'Decode Ways' },
   { id: 121, title: 'Best Time to Buy and Sell Stock' },
@@ -108,6 +116,7 @@ const metaList: ProblemMetadata[] = [
   { id: 377, title: 'Combination Sum IV' },
   { id: 424, title: 'Longest Repeating Character Replacement' },
   { id: 433, title: 'Minimum Genetic Mutation' },
+  { id: 435, title: 'Non-overlapping Intervals' },
   { id: 658, title: 'Find K Closest Elements' },
   { id: 659, title: 'Split Array into Consecutive Subsequences' },
   { id: 732, title: 'My Calendar III' },
@@ -156,6 +165,10 @@ function LeetcodeSelector(id: number) {
       return <Leetcode0042 />;
     case 53:
       return <Leetcode0053 />;
+    case 56:
+      return <Leetcode0056 />;
+    case 57:
+      return <Leetcode0057 />;
     case 76:
       return <Leetcode0076 />;
     case 91:
@@ -186,6 +199,8 @@ function LeetcodeSelector(id: number) {
       return <Leetcode0424 />;
     case 433:
       return <Leetcode0433 />;
+    case 435:
+      return <Leetcode0435 />;
     case 658:
       return <Leetcode0658 />;
     case 659:
