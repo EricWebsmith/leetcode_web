@@ -63,6 +63,11 @@ a {
   padding: 5px;
 }
 
+.navbar {
+  overflow-y:scroll;
+  height: 100vh;
+}
+
 ul {
   list-style-type: none;
   margin: 0;
@@ -140,4 +145,12 @@ li a:hover {
 .ppt {
   background-color: 'white';
   cursor: 'url(Laser_Pointer.png), pointer!important';
+}
+
+.svg-text {
+  fill: 'white';
+  font-size: '30px';
+  font-weight: 'bold';
+  dominant-baseline: 'middle';
+  text-anchor: 'middle';
 }

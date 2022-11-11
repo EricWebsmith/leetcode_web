@@ -10,7 +10,7 @@ type Frame = {
   cy?: number | null;
 };
 
-export default function Leetcode0000() {
+export default function Leetcode0212() {
   const [frameIndex, setFrameIndex] = React.useState<number>(0);
   const frames: Frame[] = [
     { path: [[0, 0]], r: 0, c: 0 },

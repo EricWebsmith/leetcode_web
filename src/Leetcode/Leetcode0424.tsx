@@ -22,7 +22,7 @@ const frames: Frame[] = [
   { left: 4, right: 6, maxf: 2, ans: 4 },
 ];
 
-export default function Leetcode0000() {
+export default function Leetcode0424() {
   const [frameIndex, setFrameIndex] = React.useState<number>(0);
   const frame: Frame = frames[frameIndex];
 
