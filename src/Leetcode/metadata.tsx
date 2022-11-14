@@ -20,6 +20,7 @@ import Leetcode0152 from './Leetcode0152';
 import Leetcode0198 from './Leetcode0198';
 import Leetcode0205 from './Leetcode0205';
 import Leetcode0212 from './Leetcode0212';
+import Leetcode0230 from './Leetcode0230';
 import Leetcode0237 from './Leetcode0237';
 import Leetcode0252 from './Leetcode0252';
 import Leetcode0295 from './Leetcode0295';
@@ -79,6 +80,7 @@ const typeList = [
   Leetcode0198,
   Leetcode0205,
   Leetcode0212,
+  Leetcode0230,
   Leetcode0237,
   Leetcode0252,
   Leetcode0295,
@@ -135,6 +137,7 @@ const metaList: ProblemMetadata[] = [
   { id: 198, title: 'House Robber' },
   { id: 205, title: 'Isomorphic Strings' },
   { id: 212, title: 'Word Search II' },
+  { id: 230, title: 'Kth Smallest Element in a BST' },
   { id: 237, title: 'Delete Node in a Linked List' },
   { id: 252, title: 'Meeting Rooms' },
   { id: 253, title: 'Meeting Rooms II' },
@@ -224,6 +227,8 @@ function LeetcodeSelector(id: number) {
       return <Leetcode0212 />;
     case 237:
       return <Leetcode0237 />;
+    case 230:
+      return <Leetcode0230 />;
     case 252:
       return <Leetcode0252 />;
     case 253:

@@ -5,7 +5,35 @@ export type D3Node = {
   parent: string;
 };
 
+function addAnotherChild(root: TreeNode): void {
+  let virtialNodes = 0;
+  function dfs(root: TreeNode): void {
+    if (root.left == null && root.right != null) {
+      virtialNodes++;
+      root.left = new TreeNode(-1);
+      root.left.id = -virtialNodes;
+    }
+
+    if (root.right == null && root.left != null) {
+      virtialNodes++;
+      root.right = new TreeNode(-1);
+      root.right.id = -virtialNodes;
+    }
+
+    if (root.right) {
+      dfs(root.right);
+    }
+
+    if (root.left) {
+      dfs(root.left);
+    }
+  }
+  dfs(root);
+}
+
 export function getTreeData(root: TreeNode): D3Node[] {
+  addAnotherChild(root);
+  console.log(root);
   const treeData: D3Node[] = [];
   getTreeDataRecursive(root, null, treeData);
   return treeData;
