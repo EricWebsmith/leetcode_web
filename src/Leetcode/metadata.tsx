@@ -9,14 +9,20 @@ import Leetcode0076 from './Leetcode0076';
 import Leetcode0091 from './Leetcode0091';
 import Leetcode0100 from './Leetcode0100';
 import Leetcode0102 from './Leetcode0102';
+import Leetcode0104 from './Leetcode0104';
+import Leetcode0104Bfs from './Leetcode0104Bfs';
+import Leetcode0104Dfs from './Leetcode0104Dfs';
+import Leetcode0104DfsIterative from './Leetcode0104DfsIterative';
 import Leetcode0105 from './Leetcode0105';
 import Leetcode0121 from './Leetcode0121';
+import Leetcode0124 from './Leetcode0124';
 import Leetcode0152 from './Leetcode0152';
 import Leetcode0198 from './Leetcode0198';
 import Leetcode0205 from './Leetcode0205';
 import Leetcode0212 from './Leetcode0212';
 import Leetcode0237 from './Leetcode0237';
 import Leetcode0252 from './Leetcode0252';
+import Leetcode0295 from './Leetcode0295';
 import Leetcode0297 from './Leetcode0297';
 import Leetcode0297Deserialize from './Leetcode0297Deserialize';
 import Leetcode0297Serialize from './Leetcode0297Serialize';
@@ -63,14 +69,19 @@ const typeList = [
   Leetcode0076,
   Leetcode0100,
   Leetcode0102,
+  Leetcode0104Bfs,
+  Leetcode0104Dfs,
+  Leetcode0104DfsIterative,
   Leetcode0105,
   Leetcode0121,
+  Leetcode0124,
   Leetcode0152,
   Leetcode0198,
   Leetcode0205,
   Leetcode0212,
   Leetcode0237,
   Leetcode0252,
+  Leetcode0295,
   Leetcode0297Serialize,
   Leetcode0297Deserialize,
   Leetcode0322,
@@ -116,8 +127,10 @@ const metaList: ProblemMetadata[] = [
   { id: 91, title: 'Decode Ways' },
   { id: 100, title: 'Same Tree' },
   { id: 102, title: 'Binary Tree Level Order Traversal' },
+  { id: 104, title: 'Maximum Depth of Binary Tree' },
   { id: 105, title: 'Construct Binary Tree from Preorder and Inorder Traversal' },
   { id: 121, title: 'Best Time to Buy and Sell Stock' },
+  { id: 124, title: 'Binary Tree Maximum Path Sum' },
   { id: 152, title: 'Maximum Product Subarray' },
   { id: 198, title: 'House Robber' },
   { id: 205, title: 'Isomorphic Strings' },
@@ -125,6 +138,7 @@ const metaList: ProblemMetadata[] = [
   { id: 237, title: 'Delete Node in a Linked List' },
   { id: 252, title: 'Meeting Rooms' },
   { id: 253, title: 'Meeting Rooms II' },
+  { id: 295, title: 'Find Median from Data Stream' },
   { id: 297, title: 'Serialize and Deserialize Binary Tree' },
   { id: 322, title: 'Coin Change' },
   { id: 345, title: 'Reverse Vowels of a String' },
@@ -192,10 +206,14 @@ function LeetcodeSelector(id: number) {
       return <Leetcode0100 />;
     case 102:
       return <Leetcode0102 />;
+    case 104:
+      return <Leetcode0104 />;
     case 105:
       return <Leetcode0105 />;
     case 121:
       return <Leetcode0121 />;
+    case 124:
+      return <Leetcode0124 />;
     case 152:
       return <Leetcode0152 />;
     case 198:
@@ -210,6 +228,8 @@ function LeetcodeSelector(id: number) {
       return <Leetcode0252 />;
     case 253:
       return <Leetcode0252 />;
+    case 295:
+      return <Leetcode0295 />;
     case 297:
       return <Leetcode0297 />;
     case 322:

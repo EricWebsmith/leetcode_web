@@ -2,10 +2,7 @@ import * as d3 from 'd3';
 import React, { SetStateAction } from 'react';
 import ButtonBar from '../controls/ButtonBar';
 import SvgCircles from '../controls/SvgCircles';
-import SvgLines from '../controls/SvgLines';
-import SvgRects from '../controls/SvgRects';
 import SvgTexts from '../controls/SvgTexts';
-import html from '../Utils/html';
 
 type Node = {
   child: string;
@@ -14,28 +11,72 @@ type Node = {
 
 type Frame = {
   node: number;
-  qPop: number;
-  qLen: number;
-  arrLen: number;
+  dp: (number | null)[];
+  stack: string;
 };
 const frames: Frame[] = [
-  { node: -1, qPop: 0, qLen: 0, arrLen: 0 },
-  { node: -1, qPop: 0, qLen: 1, arrLen: 0 },
-  { node: 0, qPop: 1, qLen: 1, arrLen: 0 },
-  { node: 0, qPop: 1, qLen: 1, arrLen: 1 },
-  { node: 0, qPop: 1, qLen: 3, arrLen: 1 },
-  { node: 1, qPop: 3, qLen: 3, arrLen: 1 },
-  { node: 1, qPop: 3, qLen: 3, arrLen: 3 },
-  { node: 1, qPop: 3, qLen: 5, arrLen: 3 },
-  { node: 3, qPop: 5, qLen: 5, arrLen: 3 },
-  { node: 3, qPop: 5, qLen: 5, arrLen: 5 },
+  {
+    node: -1,
+    dp: [null, null, null, null, null],
+    stack: '',
+  },
+  {
+    node: -1,
+    dp: [1, null, null, null, null],
+    stack: ' 3',
+  },
+  {
+    node: 0,
+    dp: [1, null, null, null, null],
+    stack: '',
+  },
+  {
+    node: 0,
+    dp: [1, 2, null, null, null],
+    stack: ' 9',
+  },
+  {
+    node: 0,
+    dp: [1, 2, 2, null, null],
+    stack: ' 920',
+  },
+  {
+    node: 2,
+    dp: [1, 2, 2, null, null],
+    stack: ' 9',
+  },
+  {
+    node: 2,
+    dp: [1, 2, 2, 3, null],
+    stack: ' 915',
+  },
+  {
+    node: 2,
+    dp: [1, 2, 2, 3, 3],
+    stack: ' 915 7',
+  },
+  {
+    node: 4,
+    dp: [1, 2, 2, 3, 3],
+    stack: ' 915',
+  },
+  {
+    node: 3,
+    dp: [1, 2, 2, 3, 3],
+    stack: ' 9',
+  },
+  {
+    node: 1,
+    dp: [1, 2, 2, 3, 3],
+    stack: '',
+  },
 ];
 
-export default function Leetcode0102() {
+export default function Leetcode0104Dfs() {
   const [frameIndex, setFrameIndex] = React.useState<number>(0);
   const frame = frames[frameIndex];
-  // Tree 1
-  const tree1Data: Node[] = [
+
+  const data: Node[] = [
     { child: '3', parent: '' },
     { child: '9', parent: '3' },
     { child: '20', parent: '3' },
@@ -43,26 +84,41 @@ export default function Leetcode0102() {
     { child: '7', parent: '20' },
   ];
 
-  const tree1ds = d3
+  const ds = d3
     .stratify<Node>()
     .id((d) => d.child)
-    .parentId((d) => d.parent)(tree1Data);
+    .parentId((d) => d.parent)(data);
 
-  const tree1Struct = d3.tree().size([800, 200]);
-  const tree1Info = tree1Struct(tree1ds);
-  const tree1Nodes = tree1Info.descendants();
-  const tree1Links = tree1Info.links();
+  const treeStruct = d3.tree().size([900, 280]);
+  const dsInfo = treeStruct(ds);
+  const nodes = dsInfo.descendants();
+  const tree1Links = dsInfo.links();
 
   const tree1Circles = [];
   const tree1Texts = [];
-  for (let i = 0; i < tree1Nodes.length; i++) {
-    const node = tree1Nodes[i];
+  const dpRects = [];
+  const dpTexts = [];
+  const r = 50;
+  //const dp = [3, 1, 2, 1, 1];
+  for (let i = 0; i < nodes.length; i++) {
+    const node = nodes[i];
     const key = `tree1_node${i}`;
-    tree1Circles.push(<circle key={key} cx={node.x} cy={node.y} r={50}></circle>);
+    tree1Circles.push(<circle key={key} cx={node.x} cy={node.y} r={r} fill='blue'></circle>);
     const textKey = `tree1_text${i}`;
     tree1Texts.push(
       <text key={textKey} x={node.x} y={node.y}>
         {node.id}
+      </text>
+    );
+    if (frame.dp[i] == null) {
+      continue;
+    }
+    const dpRectKey = `dp_rect_${i}`;
+    dpRects.push(<rect key={dpRectKey} x={node.x + r} y={node.y - r} height={40} width={40}></rect>);
+    const dpKey = `dp_${i}`;
+    dpTexts.push(
+      <text key={dpKey} x={node.x + r + 20} y={node.y - r + 20 + 2}>
+        {frame.dp[i]}
       </text>
     );
   }
@@ -94,37 +150,25 @@ export default function Leetcode0102() {
     fill: 'blue',
   };
 
-  const arrFont = {
-    fontSize: 45,
+  const dpFont = {
+    fontSize: 35,
     fontWeight: 'bold',
     fill: 'white',
   };
 
-  const dpRef = React.useRef<SVGGElement>(null);
   React.useEffect(() => {
-    if (dpRef.current) {
-      const rects = html.getChildrenFromRef(dpRef);
-      for (let i = 0; i < rects.length; i++) {
-        if (i == 0) {
-          rects[i].setAttribute('fill', 'green');
-        } else if (i >= 1 && i <= 2) {
-          rects[i].setAttribute('fill', 'purple');
-        } else {
-          rects[i].setAttribute('fill', 'cyan');
-        }
-      }
-    }
     d3.select('#tree1').selectAll('text').style('dominant-baseline', 'middle').style('text-anchor', 'middle');
     d3.select('#calc').selectAll('text').style('dominant-baseline', 'middle').style('text-anchor', 'middle');
     d3.select('#cross').selectAll('text').style('dominant-baseline', 'middle').style('text-anchor', 'middle');
   }, [frameIndex]);
 
+  let currentX = -100;
   let currentY = -100;
   if (frame.node >= 0) {
-    currentY = tree1Nodes[frame.node].y;
+    currentX = nodes[frame.node].x;
+    currentY = nodes[frame.node].y;
   }
   const currentStyle = { fill: 'none', stroke: 'red', strokeWidth: 10, strokeDasharray: '10' };
-  const qString = ' 3 920157'.substring(0, frame.qLen * 2);
 
   function setIndex(index: SetStateAction<number>) {
     let newIndex = 0;
@@ -143,38 +187,33 @@ export default function Leetcode0102() {
     <>
       <svg id='svg' width={950} height={540}>
         <g id='tree1' transform='translate(0, 60)'>
-          <g style={{ fill: 'blue' }}>{tree1Circles}</g>
           <g style={{ stroke: 'blue', strokeWidth: 10 }}>{tree1Lines}</g>
+          <g style={{ fill: 'blue' }}>{tree1Circles}</g>
+
           <g style={textStyle}>{tree1Texts}</g>
-          <rect x={100} y={currentY - 50} width={600} height={100} r={50} style={currentStyle}></rect>
+          <g style={{ fill: 'green' }}>{dpRects}</g>
+          <g style={dpFont}>{dpTexts}</g>
+          <circle cx={currentX} cy={currentY} r={50} style={currentStyle}></circle>
         </g>
-        <text x={50} y={400} style={titleStyle}>
-          Queue:
+        <g style={{ stroke: 'purple', strokeWidth: '10' }}>
+          <line x1={240} y1={410} x2={780} y2={410}></line>
+          <line x1={240} y1={410} x2={240} y2={530}></line>
+          <line x1={240} y1={530} x2={780} y2={530}></line>
+        </g>
+
+        <text x={50} y={465} style={titleStyle}>
+          Stack:
         </text>
         <SvgCircles
-          cx={285}
-          cy={385}
-          n={frame.qLen}
+          cx={300}
+          cy={470}
+          n={frame.stack.length / 2}
           style={{ stroke: 'blue', strokeWidth: 10, fill: 'none' }}
           r={35}
           offsetX={100}
         />
-        <SvgLines
-          x1={285 + 28}
-          y1={385 - 28}
-          x2={285 - 28}
-          y2={385 + 28}
-          n={frame.qPop}
-          style={{ stroke: 'blue', strokeWidth: 10 }}
-          offsetX={100}
-        />
-        <text x={75} y={510} style={titleStyle}>
-          Array:
-        </text>
-        <SvgRects ref={dpRef} x={250} y={460} n={frame.arrLen} style={{}} width={70} offsetX={100} />
         <g id='calc'>
-          <SvgTexts x={285} y={385} text={qString} step={2} style={qFont} offsetX={100} />
-          <SvgTexts x={285} y={500} text=' 3 920157' step={2} style={arrFont} offsetX={100} />
+          <SvgTexts x={300} y={470} text={frame.stack} step={2} style={qFont} offsetX={100} />
         </g>
       </svg>
       <ButtonBar setIndex={setIndex} />
