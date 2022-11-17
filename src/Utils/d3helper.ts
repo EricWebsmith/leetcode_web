@@ -1,4 +1,6 @@
+import { Queue } from '@datastructures-js/queue';
 import { TreeNode } from './binaryTree';
+import { TrieNode } from './trie';
 
 export type D3Node = {
   child: string;
@@ -33,7 +35,6 @@ function addAnotherChild(root: TreeNode): void {
 
 export function getTreeData(root: TreeNode): D3Node[] {
   addAnotherChild(root);
-  console.log(root);
   const treeData: D3Node[] = [];
   getTreeDataRecursive(root, null, treeData);
   return treeData;
@@ -52,4 +53,21 @@ function getTreeDataRecursive(node: TreeNode, parent: TreeNode | null, treeData:
   if (node.right) {
     getTreeDataRecursive(node.right, node, treeData);
   }
+}
+
+export function getTrieData(root: TrieNode): D3Node[] {
+  const trieData: D3Node[] = [];
+  trieData.push({ child: '0', parent: '' });
+  const q = new Queue<TrieNode>();
+  q.enqueue(root);
+  while (q.size() > 0) {
+    const p = q.dequeue();
+    for (const c of p.children) {
+      if (c) {
+        q.enqueue(c);
+        trieData.push({ child: c.id.toString(), parent: p.id.toString() });
+      }
+    }
+  }
+  return trieData;
 }

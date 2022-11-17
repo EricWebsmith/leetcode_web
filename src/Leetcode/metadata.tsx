@@ -19,6 +19,8 @@ import Leetcode0124 from './Leetcode0124';
 import Leetcode0152 from './Leetcode0152';
 import Leetcode0198 from './Leetcode0198';
 import Leetcode0205 from './Leetcode0205';
+import Leetcode0208 from './Leetcode0208';
+import Leetcode0211 from './Leetcode0211';
 import Leetcode0212 from './Leetcode0212';
 import Leetcode0222 from './Leetcode0222';
 import Leetcode0230 from './Leetcode0230';
@@ -79,7 +81,9 @@ const typeList = [
   Leetcode0124,
   Leetcode0152,
   Leetcode0198,
+  Leetcode0208,
   Leetcode0205,
+  Leetcode0211,
   Leetcode0212,
   Leetcode0222,
   Leetcode0230,
@@ -138,6 +142,8 @@ const metaList: ProblemMetadata[] = [
   { id: 152, title: 'Maximum Product Subarray' },
   { id: 198, title: 'House Robber' },
   { id: 205, title: 'Isomorphic Strings' },
+  { id: 208, title: 'Implement Trie (Prefix Tree)' },
+  { id: 211, title: 'Design Add and Search Words Data Structure' },
   { id: 212, title: 'Word Search II' },
   { id: 222, title: 'Count Complete Tree Nodes' },
   { id: 230, title: 'Kth Smallest Element in a BST' },
@@ -226,6 +232,10 @@ function LeetcodeSelector(id: number) {
       return <Leetcode0198 />;
     case 205:
       return <Leetcode0205 />;
+    case 208:
+      return <Leetcode0208 />;
+    case 211:
+      return <Leetcode0211 />;
     case 212:
       return <Leetcode0212 />;
     case 222:
@@ -234,7 +244,6 @@ function LeetcodeSelector(id: number) {
       return <Leetcode0230 />;
     case 237:
       return <Leetcode0237 />;
-
     case 252:
       return <Leetcode0252 />;
     case 253:

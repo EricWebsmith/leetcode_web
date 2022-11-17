@@ -116,7 +116,6 @@ export default function Leetcode0222() {
   const r = 50;
   for (let i = 0; i < nodes.length; i++) {
     const node = nodes[i];
-    console.log(`${i} node id : ${node.id}`);
     if (node.id?.startsWith('-')) {
       continue;
     }
@@ -173,7 +172,6 @@ export default function Leetcode0222() {
   const tree1Lines = [];
   for (let i = 0; i < links.length; i++) {
     const l = links[i];
-    console.log(i);
 
     if (nodes[i + 1].id?.startsWith('-')) {
       continue;
