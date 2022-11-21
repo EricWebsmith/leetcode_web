@@ -1,4 +1,4 @@
-export default interface IFruitProps {
+export default interface IIconProps {
   x: number;
   y: number;
   scale: number;

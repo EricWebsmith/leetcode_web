@@ -21,6 +21,8 @@ import Leetcode0198 from './Leetcode0198';
 import Leetcode0205 from './Leetcode0205';
 import Leetcode0208 from './Leetcode0208';
 import Leetcode0211 from './Leetcode0211';
+import Leetcode0211PrefixLte from './Leetcode0211PrefixLte';
+import Leetcode0211PrefixPostfix from './Leetcode0211PrefixPostfix';
 import Leetcode0212 from './Leetcode0212';
 import Leetcode0222 from './Leetcode0222';
 import Leetcode0230 from './Leetcode0230';
@@ -47,6 +49,7 @@ import Leetcode0934 from './Leetcode0934';
 import Leetcode0940 from './Leetcode0940';
 import Leetcode1234 from './Leetcode1234';
 import Leetcode1662 from './Leetcode1662';
+import Leetcode1926 from './Leetcode1926';
 import Leetcode2095 from './Leetcode2095';
 import Leetcode2131 from './Leetcode2131';
 import Leetcode2402 from './Leetcode2402';
@@ -83,7 +86,8 @@ const typeList = [
   Leetcode0198,
   Leetcode0208,
   Leetcode0205,
-  Leetcode0211,
+  Leetcode0211PrefixLte,
+  Leetcode0211PrefixPostfix,
   Leetcode0212,
   Leetcode0222,
   Leetcode0230,
@@ -109,6 +113,7 @@ const typeList = [
   Leetcode0940,
   Leetcode1234,
   Leetcode1662,
+  Leetcode1926,
   Leetcode2095,
   Leetcode2131,
   Leetcode2402,
@@ -169,6 +174,7 @@ const metaList: ProblemMetadata[] = [
   { id: 940, title: 'Distinct Subsequences II' },
   { id: 1234, title: 'Replace the Substring for Balanced String' },
   { id: 1662, title: 'Check If Two String Arrays are Equivalent' },
+  { id: 1926, title: 'Nearest Exit from Entrance in Maze' },
   { id: 2095, title: 'Delete the Middle Node of a Linked List' },
   { id: 2131, title: 'Longest Palindrome by Concatenating Two Letter Words' },
   { id: 2402, title: 'Meeting Rooms III' },
@@ -286,6 +292,8 @@ function LeetcodeSelector(id: number) {
       return <Leetcode1234 />;
     case 1662:
       return <Leetcode1662 />;
+    case 1926:
+      return <Leetcode1926 />;
     case 2095:
       return <Leetcode2095 />;
     case 2131:

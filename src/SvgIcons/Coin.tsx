@@ -1,11 +1,7 @@
-interface IProps {
-  x: number;
-  y: number;
-  scale: number;
-}
+import IIconProps from './IIconProps';
 
 //this is from svgrepo.com
-export default function Pear(props: IProps) {
+export default function Pear(props: IIconProps) {
   const transform = `scale(${props.scale}) translate(${props.x}, ${props.y})`;
   return (
     <g transform={transform}>

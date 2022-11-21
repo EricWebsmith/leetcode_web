@@ -1,6 +1,6 @@
-import IFruitProps from './IFruitProps';
+import IIconProps from './IIconProps';
 
-export default function Orange(props: IFruitProps) {
+export default function Orange(props: IIconProps) {
   const transform = `scale(${props.scale}) translate(${props.x - 300}, ${props.y})`;
   return (
     <g key={props.key} transform={transform}>

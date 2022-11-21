@@ -36,7 +36,7 @@ function getFrames(data: string) {
     let [operation, word] = od.split(' ');
     operation = operation.trim();
     word = word.trim().toUpperCase();
-    console.log(`{${operation} ${word}}`);
+
     if (operation === 'insert') {
       words.push(word);
     }

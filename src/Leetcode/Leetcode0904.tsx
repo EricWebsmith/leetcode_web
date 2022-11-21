@@ -2,7 +2,7 @@ import React, { SetStateAction } from 'react';
 import ButtonBar from '../controls/ButtonBar';
 import Apple from '../SvgIcons/Apple';
 import Banana from '../SvgIcons/Banana';
-import IFruitProps from '../SvgIcons/IFruitProps';
+import IIconProps from '../SvgIcons/IIconProps';
 import Orange from '../SvgIcons/Orange';
 import Pear from '../SvgIcons/Pear';
 import Scissors from '../SvgIcons/Scissors';
@@ -11,11 +11,11 @@ import Guid from '../Utils/Guid';
 type Frame = {
   left: number;
   right: number;
-  f1: (props: IFruitProps) => JSX.Element;
+  f1: (props: IIconProps) => JSX.Element;
   c1: number;
-  f2?: (props: IFruitProps) => JSX.Element;
+  f2?: (props: IIconProps) => JSX.Element;
   c2?: number;
-  f3?: (props: IFruitProps) => JSX.Element;
+  f3?: (props: IIconProps) => JSX.Element;
   c3?: number;
   best: number;
 };
@@ -67,7 +67,7 @@ export default function Leetcode0904() {
 
   const scissorsOffset = 450;
 
-  function pickFruits(basket: number, fruit?: (props: IFruitProps) => JSX.Element, count?: number) {
+  function pickFruits(basket: number, fruit?: (props: IIconProps) => JSX.Element, count?: number) {
     const fruits = [];
     if (fruit != null && count != null) {
       for (let i = 0; i < count; i++) {

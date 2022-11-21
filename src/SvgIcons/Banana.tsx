@@ -1,6 +1,6 @@
-import IFruitProps from './IFruitProps';
+import IIconProps from './IIconProps';
 
-export default function Pear(props: IFruitProps) {
+export default function Pear(props: IIconProps) {
   const transform = `scale(${props.scale}) translate(${props.x - 880}, ${props.y - 330})`;
   return (
     <g key={props.key} transform={transform}>
