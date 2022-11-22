@@ -1,6 +1,7 @@
 import Leetcode0003 from './Leetcode0003';
 import Leetcode0016 from './Leetcode0016';
 import Leetcode0019 from './Leetcode0019';
+import Leetcode0023 from './Leetcode0023';
 import Leetcode0042 from './Leetcode0042';
 import Leetcode0053 from './Leetcode0053';
 import Leetcode0056 from './Leetcode0056';
@@ -68,6 +69,7 @@ const typeList = [
   Leetcode0003,
   Leetcode0016,
   Leetcode0019,
+  Leetcode0023,
   Leetcode0042,
   Leetcode0053,
   Leetcode0056,
@@ -132,6 +134,7 @@ const metaList: ProblemMetadata[] = [
   { id: 3, title: 'Longest Substring Without Repeating Characters' },
   { id: 16, title: '3Sum Closest' },
   { id: 19, title: 'Remove Nth Node From End of List' },
+  { id: 23, title: 'Merge k Sorted Lists' },
   { id: 42, title: 'Trapping Rain Water' },
   { id: 53, title: 'Maximum Subarray' },
   { id: 56, title: 'Merge Intervals' },
@@ -208,6 +211,8 @@ function LeetcodeSelector(id: number) {
       return <Leetcode0016 />;
     case 19:
       return <Leetcode0019 />;
+    case 23:
+      return <Leetcode0023 />;
     case 42:
       return <Leetcode0042 />;
     case 53:

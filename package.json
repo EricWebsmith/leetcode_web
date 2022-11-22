@@ -4,6 +4,7 @@
   "homepage": "https://ericwebsmith.github.io/leetcode_web/",
   "private": true,
   "dependencies": {
+    "@datastructures-js/priority-queue": "^6.1.4",
     "@datastructures-js/queue": "^4.2.3",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
