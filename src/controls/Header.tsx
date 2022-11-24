@@ -1,8 +1,9 @@
 import React from 'react';
 
-import csLogo from '../cs-180.png';
 import jsLogo from '../js-180.png';
 import logo from '../logo.svg';
+import amazonLogo from '../logos/amazon.svg';
+import googleLogo from '../logos/google.svg';
 import pyLogo from '../py-180.png';
 
 interface Props {
@@ -12,7 +13,7 @@ interface Props {
 
 export default function Header(props: Props) {
   const [logoId, setLogoId] = React.useState(0);
-  const logos = [logo, csLogo, pyLogo, jsLogo];
+  const logos = [logo, amazonLogo, googleLogo, pyLogo, jsLogo];
   const currentLogo = logos[logoId];
 
   function imageClickHandler() {

@@ -30,10 +30,8 @@ export default function Leetcode0000() {
       frameCurrent.colorMatrix.push(Array(board[0].length).fill(''));
     }
   }
-  //resetCurrentFrame();
 
   const frames: Frame[] = [];
-  // frames.push(_.cloneDeep(frameCurrent));
 
   const visiting: boolean[][] = Array(rows);
   for (let row = 0; row < rows; row++) {
@@ -96,6 +94,7 @@ export default function Leetcode0000() {
   const rectStyle = {
     fill: 'white',
     stroke: 'black',
+    strokeWidth: 5,
   };
 
   const dpStyle = {
@@ -177,6 +176,9 @@ export default function Leetcode0000() {
             strokeWidth: 10,
             fill: 'none',
           }}></rect>
+        <text x={550} y={200} style={dpStyle}>
+          {word}
+        </text>
       </svg>
 
       <ButtonBar setIndex={setIndex} />
