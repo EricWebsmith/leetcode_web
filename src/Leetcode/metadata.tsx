@@ -7,6 +7,7 @@ import Leetcode0053 from './Leetcode0053';
 import Leetcode0056 from './Leetcode0056';
 import Leetcode0057 from './Leetcode0057';
 import Leetcode0076 from './Leetcode0076';
+import Leetcode0079 from './Leetcode0079';
 import Leetcode0091 from './Leetcode0091';
 import Leetcode0100 from './Leetcode0100';
 import Leetcode0102 from './Leetcode0102';
@@ -74,8 +75,9 @@ const typeList = [
   Leetcode0053,
   Leetcode0056,
   Leetcode0057,
-  Leetcode0091,
   Leetcode0076,
+  Leetcode0079,
+  Leetcode0091,
   Leetcode0100,
   Leetcode0102,
   Leetcode0104Bfs,
@@ -140,6 +142,7 @@ const metaList: ProblemMetadata[] = [
   { id: 56, title: 'Merge Intervals' },
   { id: 57, title: 'Insert Interval' },
   { id: 76, title: 'Minimum Window Substring' },
+  { id: 79, title: 'Word Search' },
   { id: 91, title: 'Decode Ways' },
   { id: 100, title: 'Same Tree' },
   { id: 102, title: 'Binary Tree Level Order Traversal' },
@@ -223,6 +226,8 @@ function LeetcodeSelector(id: number) {
       return <Leetcode0057 />;
     case 76:
       return <Leetcode0076 />;
+    case 79:
+      return <Leetcode0079 />;
     case 91:
       return <Leetcode0091 />;
     case 100:

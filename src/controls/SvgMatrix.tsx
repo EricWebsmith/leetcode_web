@@ -7,14 +7,16 @@ interface Props {
   n: number;
   height: number;
   width: number;
-  textArr?: string[];
   rectStyle: object;
   textStyle: object;
   colorMatrix?: string[][];
+  textArr?: string[] | string[][];
+  textColorMatrix?: string[][];
+  textOffsetX?: number;
 }
 
 const SvgMatrix = React.forwardRef((props: Props, ref: React.ForwardedRef<SVGGElement>) => {
-  const { m, n, height, width, x, y, textArr, rectStyle, textStyle, colorMatrix } = props;
+  const { m, n, height, width, x, y, textArr, rectStyle, textStyle, colorMatrix, textColorMatrix } = props;
   if (m === 0 || n === 0) {
     return <></>;
   }
@@ -24,41 +26,33 @@ const SvgMatrix = React.forwardRef((props: Props, ref: React.ForwardedRef<SVGGEl
     const y_r = y + width * r;
     for (let c = 0; c < n; c++) {
       const key = `rect_${r}_${c}`;
+      let fill = '';
       if (colorMatrix && colorMatrix[r][c]) {
-        const rect = (
-          <rect
-            key={key}
-            x={x + width * c}
-            y={y_r}
-            height={height}
-            width={width}
-            fill={colorMatrix[r][c]}></rect>
-        );
-        rects.push(rect);
-      } else {
-        const rect = (
-          <rect key={key} x={x + width * c} y={y_r} height={height} width={width} fill={''}></rect>
-        );
-        rects.push(rect);
+        fill = colorMatrix[r][c];
       }
+
+      rects.push(<rect key={key} x={x + width * c} y={y_r} height={height} width={width} fill={fill}></rect>);
     }
   }
 
   const texts = [];
   if (textArr) {
-    const textOffsetX = 30;
+    const textOffsetX = props.textOffsetX ?? 25;
     const textOffsetY = 80;
     for (let r = 0; r < m; r++) {
       const yr = y + width * r + textOffsetY;
       const charCount = Math.max(n, textArr[r].length);
       for (let c = 0; c < charCount; c++) {
         const key = `text_${r}_${c}`;
-        const text = (
-          <text key={key} x={x + width * c + textOffsetX} y={yr} height={height} width={width}>
+        let fill = '';
+        if (textColorMatrix && textColorMatrix[r][c]) {
+          fill = textColorMatrix[r][c];
+        }
+        texts.push(
+          <text key={key} x={x + width * c + textOffsetX} y={yr} height={height} width={width} fill={fill}>
             {textArr[r][c]}
           </text>
         );
-        texts.push(text);
       }
     }
   }
