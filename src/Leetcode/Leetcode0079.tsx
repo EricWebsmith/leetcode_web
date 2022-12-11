@@ -12,7 +12,7 @@ type Frame = {
   colorMatrix: string[][];
 };
 
-export default function Leetcode0000() {
+export default function Leetcode0079() {
   const [board, setBoard] = React.useState<string[][]>([
     ['A', 'B', 'C', 'E'],
     ['S', 'F', 'C', 'S'],

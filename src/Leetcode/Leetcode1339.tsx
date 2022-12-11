@@ -13,17 +13,21 @@ type Frame = {
   nodeColors: string[];
   linkColors: string[];
   dp: (number | null)[];
-  pathSumMax: number;
+  sum: number | null;
+  result: number | null;
+  current: string;
 };
 
-const defaultData = [-3, 9, 20, null, null, 15, 7, -5];
+const defaultData = [1, 2, 3, 4, 5, 6];
 function getFrames(arr: (number | null)[]) {
   const frameOriginal: Frame = {
     node: -1,
     nodeColors: Array(arr.length).fill(BLUE),
     linkColors: Array(arr.length - 1).fill(BLUE),
     dp: Array(arr.length).fill(null),
-    pathSumMax: -10000,
+    sum: null,
+    result: null,
+    current: '',
   };
 
   const frame0 = _.cloneDeep(frameOriginal);
@@ -37,12 +41,11 @@ function getFrames(arr: (number | null)[]) {
     .id((d) => d.child)
     .parentId((d) => d.parent)(treeData);
 
-  const treeStruct = d3.tree<D3Node>().size([800, 400]);
+  const treeStruct = d3.tree<D3Node>().size([700, 400]);
   const dsInfo = treeStruct(ds);
   const nodes = dsInfo.descendants();
   const links = dsInfo.links();
 
-  let pathSumMax = -100000;
   function dfs(node: TreeNode | null): number {
     if (node == null || node.id === -1) {
       return 0;
@@ -52,32 +55,57 @@ function getFrames(arr: (number | null)[]) {
     const entryFrame = _.cloneDeep(frameOriginal);
     frames.push(entryFrame);
 
-    const leftMax = Math.max(dfs(node.left), 0);
-    if (node.left) {
-      frameOriginal.node = nodeIndex;
-      const reentryFrame = _.cloneDeep(frameOriginal);
-      frames.push(reentryFrame);
-    }
-
-    const rightMax = Math.max(dfs(node.right), 0);
-    const pathSum = leftMax + node.val + rightMax;
-    pathSumMax = Math.max(pathSumMax, pathSum);
-    const mathHalfPath = node.val + Math.max(leftMax, rightMax);
+    const result = node.val + dfs(node.left) + dfs(node.right);
 
     frameOriginal.node = nodeIndex;
-    frameOriginal.dp[nodeIndex] = mathHalfPath;
+    frameOriginal.dp[nodeIndex] = result;
 
-    frameOriginal.pathSumMax = pathSumMax;
     frameOriginal.nodeColors[nodeIndex] = GREEN;
     const leaveFrame = _.cloneDeep(frameOriginal);
     frames.push(leaveFrame);
     if (nodeIndex > 0) {
       frameOriginal.linkColors[nodeIndex - 1] = GREEN;
     }
-    return mathHalfPath;
+    return result;
   }
 
-  dfs(root);
+  const s = dfs(root);
+  frameOriginal.sum = s;
+  for (let i = 0; i < frameOriginal.dp.length; i++) {
+    frameOriginal.nodeColors[i] = BLUE;
+    frameOriginal.dp[i] = null;
+    if (i > 0) {
+      frameOriginal.linkColors[i - 1] = BLUE;
+    }
+  }
+  frames.push(_.cloneDeep(frameOriginal));
+
+  function dfs2(node: TreeNode | null): number {
+    if (node == null || node.id === -1) {
+      return 0;
+    }
+    const nodeIndex = nodes.findIndex((data) => data.id === node.id.toString());
+    frameOriginal.node = nodeIndex;
+    const entryFrame = _.cloneDeep(frameOriginal);
+    frames.push(entryFrame);
+
+    const result = node.val + dfs2(node.left) + dfs2(node.right);
+    const current = result * ((frameOriginal.sum ?? 0) - result);
+    frameOriginal.result = Math.max(frameOriginal.result ?? 0, current);
+    frameOriginal.current = `${result} * ${(frameOriginal.sum ?? 0) - result} = ${current}`;
+    frameOriginal.node = nodeIndex;
+    frameOriginal.dp[nodeIndex] = result;
+
+    frameOriginal.nodeColors[nodeIndex] = GREEN;
+    const leaveFrame = _.cloneDeep(frameOriginal);
+    frames.push(leaveFrame);
+    if (nodeIndex > 0) {
+      frameOriginal.linkColors[nodeIndex - 1] = GREEN;
+    }
+    return result;
+  }
+
+  dfs2(root);
 
   return { frames, nodes, links };
 }
@@ -87,7 +115,7 @@ let frames = result.frames;
 let nodes = result.nodes;
 let links = result.links;
 
-export default function Leetcode0124() {
+export default function Leetcode1339() {
   const [frameIndex, setFrameIndex] = React.useState<number>(0);
   const [data, setData] = React.useState<(number | null)[]>(defaultData);
 
@@ -218,7 +246,7 @@ export default function Leetcode0124() {
 
   return (
     <>
-      <svg id='svg' width={950} height={540}>
+      <svg id='svg' width={1000} height={540}>
         <g id='tree1' transform='translate(0, 60)'>
           <g style={{ stroke: 'blue', strokeWidth: 10 }}>{tree1Lines}</g>
           <g style={{ fill: 'blue' }}>{tree1Circles}</g>
@@ -228,8 +256,18 @@ export default function Leetcode0124() {
           <g style={dpFont}>{dpTexts}</g>
           <circle cx={currentX} cy={currentY} r={50} style={currentStyle}></circle>
         </g>
-        <text x={450} y={100} style={answerFont}>
-          Max Path: {frame.pathSumMax}
+        <text x={650} y={100} style={answerFont}>
+          Sum: {frame.sum}
+        </text>
+
+        <text x={650} y={200} style={answerFont}>
+          Product:
+        </text>
+        <text x={650} y={300} style={answerFont}>
+          {frame.current}
+        </text>
+        <text x={650} y={400} style={answerFont}>
+          Max: {frame.result}
         </text>
       </svg>
       <ButtonBar setIndex={setIndex} />
