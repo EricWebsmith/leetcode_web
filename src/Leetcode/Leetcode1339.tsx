@@ -1,5 +1,5 @@
 import * as d3 from 'd3';
-import * as _ from 'lodash';
+import cloneDeep from 'lodash/cloneDeep';
 import React, { SetStateAction } from 'react';
 import ButtonBar from '../controls/ButtonBar';
 import { array2TreeNode, TreeNode } from '../Utils/binaryTree';
@@ -30,7 +30,7 @@ function getFrames(arr: (number | null)[]) {
     current: '',
   };
 
-  const frame0 = _.cloneDeep(frameOriginal);
+  const frame0 = cloneDeep(frameOriginal);
   const frames = [frame0];
 
   const root = array2TreeNode(arr) ?? new TreeNode(1);
@@ -52,7 +52,7 @@ function getFrames(arr: (number | null)[]) {
     }
     const nodeIndex = nodes.findIndex((data) => data.id === node.id.toString());
     frameOriginal.node = nodeIndex;
-    const entryFrame = _.cloneDeep(frameOriginal);
+    const entryFrame = cloneDeep(frameOriginal);
     frames.push(entryFrame);
 
     const result = node.val + dfs(node.left) + dfs(node.right);
@@ -61,7 +61,7 @@ function getFrames(arr: (number | null)[]) {
     frameOriginal.dp[nodeIndex] = result;
 
     frameOriginal.nodeColors[nodeIndex] = GREEN;
-    const leaveFrame = _.cloneDeep(frameOriginal);
+    const leaveFrame = cloneDeep(frameOriginal);
     frames.push(leaveFrame);
     if (nodeIndex > 0) {
       frameOriginal.linkColors[nodeIndex - 1] = GREEN;
@@ -78,7 +78,7 @@ function getFrames(arr: (number | null)[]) {
       frameOriginal.linkColors[i - 1] = BLUE;
     }
   }
-  frames.push(_.cloneDeep(frameOriginal));
+  frames.push(cloneDeep(frameOriginal));
 
   function dfs2(node: TreeNode | null): number {
     if (node == null || node.id === -1) {
@@ -86,7 +86,7 @@ function getFrames(arr: (number | null)[]) {
     }
     const nodeIndex = nodes.findIndex((data) => data.id === node.id.toString());
     frameOriginal.node = nodeIndex;
-    const entryFrame = _.cloneDeep(frameOriginal);
+    const entryFrame = cloneDeep(frameOriginal);
     frames.push(entryFrame);
 
     const result = node.val + dfs2(node.left) + dfs2(node.right);
@@ -97,7 +97,7 @@ function getFrames(arr: (number | null)[]) {
     frameOriginal.dp[nodeIndex] = result;
 
     frameOriginal.nodeColors[nodeIndex] = GREEN;
-    const leaveFrame = _.cloneDeep(frameOriginal);
+    const leaveFrame = cloneDeep(frameOriginal);
     frames.push(leaveFrame);
     if (nodeIndex > 0) {
       frameOriginal.linkColors[nodeIndex - 1] = GREEN;

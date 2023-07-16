@@ -1,4 +1,4 @@
-import * as _ from 'lodash';
+import cloneDeep from 'lodash/cloneDeep';
 import React, { SetStateAction } from 'react';
 import ButtonBar from '../controls/ButtonBar';
 import SvgMatrix from '../controls/SvgMatrix';
@@ -44,18 +44,18 @@ export default function Leetcode0079() {
     frameCurrent.wordIndex = wordIndex;
 
     if (row === -1 || row === rows || col === -1 || col === cols) {
-      frames.push(_.cloneDeep(frameCurrent));
+      frames.push(cloneDeep(frameCurrent));
       return false;
     }
 
     if (board[row][col] !== word[wordIndex] || visiting[row][col]) {
-      frames.push(_.cloneDeep(frameCurrent));
+      frames.push(cloneDeep(frameCurrent));
       return false;
     }
 
     visiting[row][col] = true;
     frameCurrent.colorMatrix[row][col] = GREEN;
-    frames.push(_.cloneDeep(frameCurrent));
+    frames.push(cloneDeep(frameCurrent));
     // we return true betwen visiting.add and visiting .remove
     // because true is the end,
     // no need to clean up
@@ -77,7 +77,7 @@ export default function Leetcode0079() {
 
     visiting[row][col] = false;
     frameCurrent.colorMatrix[row][col] = '';
-    frames.push(_.cloneDeep(frameCurrent));
+    frames.push(cloneDeep(frameCurrent));
     return false;
   }
 
@@ -109,7 +109,7 @@ export default function Leetcode0079() {
   function getFrames(): void {
     resetCurrentFrame();
     frames.length = 0;
-    frames.push(_.cloneDeep(frameCurrent));
+    frames.push(cloneDeep(frameCurrent));
     search();
   }
 

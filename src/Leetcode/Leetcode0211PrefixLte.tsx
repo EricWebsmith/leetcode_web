@@ -1,9 +1,9 @@
 import * as d3 from 'd3';
-import * as _ from 'lodash';
+import cloneDeep from 'lodash/cloneDeep';
 import React, { SetStateAction } from 'react';
-import ButtonBar from '../controls/ButtonBar';
 import { D3Node, getTrieData } from '../Utils/d3helper';
 import { TrieNode } from '../Utils/trie';
+import ButtonBar from '../controls/ButtonBar';
 
 const BLACK = 'black';
 const WHITE = 'white';
@@ -68,7 +68,7 @@ function getFrames(data: string) {
     result: '',
   };
   frameOriginal.nodeStates[0] = NODE_CHAR;
-  const frame0 = _.cloneDeep(frameOriginal);
+  const frame0 = cloneDeep(frameOriginal);
   const frames = [frame0];
 
   function insert(word: string) {
@@ -82,7 +82,7 @@ function getFrames(data: string) {
         frameOriginal.nodeStates[current.id] = Math.max(frameOriginal.nodeStates[current.id], NODE_WORD_END);
       }
 
-      const newFrame = _.cloneDeep(frameOriginal);
+      const newFrame = cloneDeep(frameOriginal);
       frames.push(newFrame);
     }
   }
@@ -122,7 +122,7 @@ function getFrames(data: string) {
       if (i === word.length - 1 && layer.find((node) => node.isWord)) {
         frameOriginal.result = 'FOUND';
       }
-      const newFrame = _.cloneDeep(frameOriginal);
+      const newFrame = cloneDeep(frameOriginal);
       frames.push(newFrame);
       frameOriginal.result = '';
 
@@ -136,7 +136,7 @@ function getFrames(data: string) {
     frameOriginal.operation = operation;
     frameOriginal.word = word;
     frameOriginal.nodeIndices = [0];
-    const newFrame = _.cloneDeep(frameOriginal);
+    const newFrame = cloneDeep(frameOriginal);
     frames.push(newFrame);
     switch (operation) {
       case ADD_WORD:

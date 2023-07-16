@@ -1,5 +1,5 @@
 import * as d3 from 'd3';
-import * as _ from 'lodash';
+import cloneDeep from 'lodash/cloneDeep';
 import React, { SetStateAction } from 'react';
 import ButtonBar from '../controls/ButtonBar';
 import { str2Array } from '../Utils/arrayHelper';
@@ -30,7 +30,7 @@ function getFrames(arr: (number | null)[]) {
     dpRight: Array(arr.length).fill(null),
   };
 
-  const frame0 = _.cloneDeep(frameOriginal);
+  const frame0 = cloneDeep(frameOriginal);
   const frames = [frame0];
 
   const root = array2TreeNode(arr) ?? new TreeNode(1);
@@ -75,7 +75,7 @@ function getFrames(arr: (number | null)[]) {
     const rightHeight = getRightHeight(node);
     frameOriginal.dpLeft[nodeIndex] = leftHeight;
     frameOriginal.dpRight[nodeIndex] = rightHeight;
-    const frameCountLeftAndRight = _.cloneDeep(frameOriginal);
+    const frameCountLeftAndRight = cloneDeep(frameOriginal);
     frames.push(frameCountLeftAndRight);
     let count = 0;
     if (leftHeight === rightHeight) {
@@ -87,7 +87,7 @@ function getFrames(arr: (number | null)[]) {
     frameOriginal.nodeColors[nodeIndex] = GREEN;
     frameOriginal.dp[nodeIndex] = count;
 
-    const leaveFrame = _.cloneDeep(frameOriginal);
+    const leaveFrame = cloneDeep(frameOriginal);
     frames.push(leaveFrame);
     if (nodeIndex > 0) {
       frameOriginal.linkColors[nodeIndex - 1] = GREEN;

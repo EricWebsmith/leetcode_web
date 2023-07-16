@@ -1,6 +1,6 @@
 import { PriorityQueue } from '@datastructures-js/priority-queue';
 import * as d3 from 'd3';
-import * as _ from 'lodash';
+import cloneDeep from 'lodash/cloneDeep';
 import React, { SetStateAction } from 'react';
 import ButtonBar from '../controls/ButtonBar';
 
@@ -33,14 +33,14 @@ export default function Leetcode0023() {
 
   const frameOriginal = { row: -1, col: -1 };
   const frames: Frame[] = [];
-  const frame0 = _.cloneDeep(frameOriginal);
+  const frame0 = cloneDeep(frameOriginal);
   frames.push(frame0);
   const indices = Array<number>(data.length).fill(0);
   while (q.size() > 0) {
     const [, row] = q.dequeue();
     frameOriginal.row = row;
     frameOriginal.col = indices[row];
-    const frameCurrent = _.cloneDeep(frameOriginal);
+    const frameCurrent = cloneDeep(frameOriginal);
     frames.push(frameCurrent);
     // nodes
     indices[row]++;

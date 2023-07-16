@@ -1,5 +1,5 @@
 import * as d3 from 'd3';
-import * as _ from 'lodash';
+import cloneDeep from 'lodash/cloneDeep';
 import React, { SetStateAction } from 'react';
 import ButtonBar from '../controls/ButtonBar';
 import { array2TreeNode, TreeNode } from '../Utils/binaryTree';
@@ -26,7 +26,7 @@ function getFrames(arr: (number | null)[]) {
     pathSumMax: -10000,
   };
 
-  const frame0 = _.cloneDeep(frameOriginal);
+  const frame0 = cloneDeep(frameOriginal);
   const frames = [frame0];
 
   const root = array2TreeNode(arr) ?? new TreeNode(1);
@@ -49,13 +49,13 @@ function getFrames(arr: (number | null)[]) {
     }
     const nodeIndex = nodes.findIndex((data) => data.id === node.id.toString());
     frameOriginal.node = nodeIndex;
-    const entryFrame = _.cloneDeep(frameOriginal);
+    const entryFrame = cloneDeep(frameOriginal);
     frames.push(entryFrame);
 
     const leftMax = Math.max(dfs(node.left), 0);
     if (node.left) {
       frameOriginal.node = nodeIndex;
-      const reentryFrame = _.cloneDeep(frameOriginal);
+      const reentryFrame = cloneDeep(frameOriginal);
       frames.push(reentryFrame);
     }
 
@@ -69,7 +69,7 @@ function getFrames(arr: (number | null)[]) {
 
     frameOriginal.pathSumMax = pathSumMax;
     frameOriginal.nodeColors[nodeIndex] = GREEN;
-    const leaveFrame = _.cloneDeep(frameOriginal);
+    const leaveFrame = cloneDeep(frameOriginal);
     frames.push(leaveFrame);
     if (nodeIndex > 0) {
       frameOriginal.linkColors[nodeIndex - 1] = GREEN;
