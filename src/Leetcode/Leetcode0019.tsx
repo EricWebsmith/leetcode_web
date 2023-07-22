@@ -1,4 +1,4 @@
-import { SetStateAction, useEffect, useRef, useState } from 'react';
+import { SetStateAction, useState } from 'react';
 import ButtonBar from '../controls/ButtonBar';
 
 type Frame = {
@@ -10,11 +10,6 @@ type Frame = {
 
 export default function Leetcode0019() {
   const [frameIndex, setFrameIndex] = useState<number>(0);
-
-  const crosses = useRef<SVGGElement>(null);
-  const fastPointer = useRef<SVGPathElement>(null);
-  const slowPointer = useRef<SVGPathElement>(null);
-  const edge35 = useRef<SVGPathElement>(null);
 
   const frames: Frame[] = [
     { fastPointer: 0, slowPointer: -1 },
@@ -31,37 +26,6 @@ export default function Leetcode0019() {
   ];
 
   const frame = frames[frameIndex];
-
-  useEffect(() => {
-    if (
-      crosses.current == null ||
-      edge35.current == null ||
-      fastPointer.current == null ||
-      slowPointer.current == null
-    ) {
-      return;
-    }
-
-    if (frame.edgeRemoved) {
-      crosses.current.setAttribute('opacity', '1');
-    } else {
-      crosses.current.setAttribute('opacity', '0');
-    }
-
-    if (frame._35connected) {
-      edge35.current.setAttribute('opacity', '1');
-    } else {
-      edge35.current.setAttribute('opacity', '0');
-    }
-
-    fastPointer.current.setAttribute('transform', `translate(${frame.fastPointer * 200}, 0)`);
-
-    if (frame.slowPointer < 0) {
-      slowPointer.current.setAttribute('transform', 'translate(-150, 0)');
-    } else {
-      slowPointer.current.setAttribute('transform', `translate(${frame.slowPointer * 200}, 0)`);
-    }
-  }, [frameIndex]);
 
   function setIndex(index: SetStateAction<number>) {
     let newIndex = 0;
@@ -130,13 +94,13 @@ export default function Leetcode0019() {
             <path id='edge34' d='m665, 250 L715 250' />
             <path id='edge45' d='m865, 250 L915 250' />
             <path
-              ref={edge35}
+              opacity={frame._35connected ? 1 : 0}
               id='edge35'
               d='m600 310.1c-1.0101 36.701-2.0202 73.402 68.708 94.161 70.728 20.759 213.18 25.579 284.15 6.9497 70.965-20 40-50 44-77'
             />
           </g>
         </g>
-        <g ref={crosses} fill='none' style={crossStyle}>
+        <g fill='none' style={crossStyle} opacity={frame.edgeRemoved ? 1 : 0}>
           <g transform='translate(249.99 -249.99)' stroke='#ab0000'>
             <path d='m420, 470 L460, 530' strokeWidth='10' />
             <path d='m420, 530 L460, 470' strokeWidth='10' />
@@ -147,29 +111,18 @@ export default function Leetcode0019() {
           </g>
         </g>
         <g id='vals' style={textStyle}>
-          <text x='190' y='268'>
-            1
-          </text>
-          <text x='390' y='268'>
-            2
-          </text>
-          <text x='590' y='268'>
-            3
-          </text>
-          <text x='790' y='268'>
-            4
-          </text>
-          <text x='990' y='268'>
-            5
-          </text>
+          <text x='190' y='268'>1</text>
+          <text x='390' y='268'>2</text>
+          <text x='590' y='268'>3</text>
+          <text x='790' y='268'>4</text>
+          <text x='990' y='268'>5</text>
         </g>
-        <path ref={fastPointer} id='fast-pointer' d='M205, 95 L205, 160' style={pointerStyle} />
+        <path id='fast-pointer' d='M205, 95 L205, 160' style={pointerStyle} transform={`translate(${frame.fastPointer * 200}, 0)`} />
         <path
-          ref={slowPointer}
           id='slow-pointer'
           d='M205, 95 L205, 160'
           style={pointerStyle}
-          transform='translate(-150, 0)'
+          transform={`translate(${frame.slowPointer * 200}, 0)`}
         />
       </svg>
       <ButtonBar setIndex={setIndex} />

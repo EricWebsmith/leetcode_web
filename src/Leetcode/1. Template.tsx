@@ -3,7 +3,6 @@ import ButtonBar from '../controls/ButtonBar';
 
 export default function Leetcode0000() {
   const [frameIndex, setFrameIndex] = useState<number>(0);
-  const dp = '-2 1-2 4 3 5 6 1 5';
 
   function setIndex(index: SetStateAction<number>) {
     let newIndex = 0;
@@ -17,6 +16,8 @@ export default function Leetcode0000() {
       setFrameIndex(index);
     }
   }
+  /*
+  const dp = '-2 1-2 4 3 5 6 1 5';
 
   const rectStyle = {
     fill: 'blue',
@@ -37,6 +38,7 @@ export default function Leetcode0000() {
   };
 
   const offset = 100;
+  */
 
   return (
     <>

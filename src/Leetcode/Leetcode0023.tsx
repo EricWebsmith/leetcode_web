@@ -67,8 +67,6 @@ export default function Leetcode0023() {
     fill: '#FFFFFF',
   };
 
-
-
   // Sorted Node List
   const y0 = 50;
   const offsetY = 120;

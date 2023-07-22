@@ -46,11 +46,6 @@ export default function Leetcode0003() {
 
   useEffect(() => {
     const previousFrame = frameIndex > 0 ? frames[frameIndex - 1] : null;
-    const leftPointer = getElementById('leftPointer');
-    leftPointer.setAttribute('transform', `translate(${leftPointerBase + frame.left * step}, 0)`);
-
-    const rightPointer = getElementById('rightPointer');
-    rightPointer.setAttribute('transform', `translate(${rightPointerBase + frame.right * step}, 0)`);
 
     const leftPointerShadow = getElementById('leftPointerShadow');
     leftPointerShadow.setAttribute('display', 'none');
@@ -189,7 +184,7 @@ export default function Leetcode0003() {
 
         <path
           id='leftPointer'
-          transform='translate(-110, 0)'
+          transform={`translate(${leftPointerBase + frame.left * step}, 0)`}
           d='M150 50 L150 80 L140 80 L160 100 L180 80 L170 80 L170 50 Z'
         />
         <path
@@ -203,7 +198,7 @@ export default function Leetcode0003() {
         />
         <path
           id='rightPointer'
-          transform='translate(-80, 0)'
+          transform={`translate(${rightPointerBase + frame.right * step}, 0)`}
           d='M150 50 L150 80 L140 80 L160 100 L180 80 L170 80 L170 50 Z'
         />
       </svg>
