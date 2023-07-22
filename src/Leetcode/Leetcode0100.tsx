@@ -1,5 +1,5 @@
 import * as d3 from 'd3';
-import React, { SetStateAction } from 'react';
+import { SetStateAction, useEffect, useState } from 'react';
 import ButtonBar from '../controls/ButtonBar';
 
 type Node = {
@@ -8,7 +8,7 @@ type Node = {
 };
 
 export default function Leetcode0100() {
-  const [frameIndex, setFrameIndex] = React.useState<number>(0);
+  const [frameIndex, setFrameIndex] = useState<number>(0);
 
   const tree1Colors = ['blue', 'blue', 'blue', 'blue', 'blue'];
   const tree2Colors = ['darkblue', 'darkblue', 'darkblue', 'darkblue', 'darkblue', 'darkblue'];
@@ -153,7 +153,7 @@ export default function Leetcode0100() {
     fill: '#FFFFFF',
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     d3.selectAll('text').style('dominant-baseline', 'middle').style('text-anchor', 'middle');
   }, [frameIndex]);
 

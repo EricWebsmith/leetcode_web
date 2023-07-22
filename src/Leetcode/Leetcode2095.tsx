@@ -1,4 +1,5 @@
-import React, { SetStateAction } from 'react';
+import { SetStateAction, useState } from 'react';
+
 import ButtonBar from '../controls/ButtonBar';
 import NamedPointer from '../controls/NamedPointer';
 import SvgCircles from '../controls/SvgCircles';
@@ -7,7 +8,7 @@ import SvgTexts from '../controls/SvgTexts';
 type Frame = { connected?: boolean; fast: number; slow: number };
 
 export default function Leetcode2095() {
-  const [frameIndex, setFrameIndex] = React.useState<number>(0);
+  const [frameIndex, setFrameIndex] = useState<number>(0);
 
   const frames: Frame[] = [
     { fast: -1, slow: -1 },

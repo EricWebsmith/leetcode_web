@@ -1,11 +1,11 @@
 import * as d3 from 'd3';
-import React, { SetStateAction } from 'react';
+import { SetStateAction, useEffect, useRef, useState } from 'react';
+import html from '../Utils/html';
 import ButtonBar from '../controls/ButtonBar';
 import SvgCircles from '../controls/SvgCircles';
 import SvgLines from '../controls/SvgLines';
 import SvgRects from '../controls/SvgRects';
 import SvgTexts from '../controls/SvgTexts';
-import html from '../Utils/html';
 
 type Node = {
   child: string;
@@ -32,7 +32,7 @@ const frames: Frame[] = [
 ];
 
 export default function Leetcode0102() {
-  const [frameIndex, setFrameIndex] = React.useState<number>(0);
+  const [frameIndex, setFrameIndex] = useState<number>(0);
   const frame = frames[frameIndex];
   // Tree 1
   const tree1Data: Node[] = [
@@ -100,8 +100,8 @@ export default function Leetcode0102() {
     fill: 'white',
   };
 
-  const dpRef = React.useRef<SVGGElement>(null);
-  React.useEffect(() => {
+  const dpRef = useRef<SVGGElement>(null);
+  useEffect(() => {
     if (dpRef.current) {
       const rects = html.getChildrenFromRef(dpRef);
       for (let i = 0; i < rects.length; i++) {

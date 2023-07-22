@@ -1,4 +1,4 @@
-import React, { SetStateAction } from 'react';
+import { SetStateAction, useEffect, useRef, useState } from 'react';
 import ButtonBar from '../controls/ButtonBar';
 
 type Frame = {
@@ -9,12 +9,12 @@ type Frame = {
 };
 
 export default function Leetcode0019() {
-  const [frameIndex, setFrameIndex] = React.useState<number>(0);
+  const [frameIndex, setFrameIndex] = useState<number>(0);
 
-  const crosses = React.useRef<SVGGElement>(null);
-  const fastPointer = React.useRef<SVGPathElement>(null);
-  const slowPointer = React.useRef<SVGPathElement>(null);
-  const edge35 = React.useRef<SVGPathElement>(null);
+  const crosses = useRef<SVGGElement>(null);
+  const fastPointer = useRef<SVGPathElement>(null);
+  const slowPointer = useRef<SVGPathElement>(null);
+  const edge35 = useRef<SVGPathElement>(null);
 
   const frames: Frame[] = [
     { fastPointer: 0, slowPointer: -1 },
@@ -32,7 +32,7 @@ export default function Leetcode0019() {
 
   const frame = frames[frameIndex];
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (
       crosses.current == null ||
       edge35.current == null ||

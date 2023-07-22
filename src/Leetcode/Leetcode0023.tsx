@@ -1,7 +1,7 @@
 import { PriorityQueue } from '@datastructures-js/priority-queue';
 import * as d3 from 'd3';
 import cloneDeep from 'lodash/cloneDeep';
-import React, { SetStateAction } from 'react';
+import { SetStateAction, useEffect, useState } from 'react';
 import ButtonBar from '../controls/ButtonBar';
 
 function comparer(list1: number[], list2: number[]): number {
@@ -18,7 +18,7 @@ type Frame = {
 };
 
 export default function Leetcode0023() {
-  const [frameIndex, setFrameIndex] = React.useState<number>(0);
+  const [frameIndex, setFrameIndex] = useState<number>(0);
   const data = [
     [1, 4, 5],
     [1, 3, 4],
@@ -60,10 +60,6 @@ export default function Leetcode0023() {
     dp[row][col] = i;
   }
 
-  const rectStyle = {
-    fill: 'blue',
-  };
-
   const textStyle = {
     fontWeight: 'bold',
     fontSize: 80,
@@ -71,14 +67,7 @@ export default function Leetcode0023() {
     fill: '#FFFFFF',
   };
 
-  const dpStyle = {
-    fontWeight: 'bold',
-    fontSize: 80,
-    fontFamily: 'Arial',
-    fill: '#000000',
-  };
 
-  const offset = 100;
 
   // Sorted Node List
   const y0 = 50;
@@ -96,9 +85,9 @@ export default function Leetcode0023() {
       }
       const x = x0 + offsetX * col;
       const y = y0 + offsetY * row;
-      circles.push(<circle cx={x} cy={y} r={radius} fill={colors[row]}></circle>);
+      circles.push(<circle key={`circle-${row}-${col}`} cx={x} cy={y} r={radius} fill={colors[row]}></circle>);
       texts.push(
-        <text x={x} y={y}>
+        <text key={`test-${row}-${col}`} x={x} y={y}>
           {data[row][col]}
         </text>
       );
@@ -112,15 +101,15 @@ export default function Leetcode0023() {
     const { row, col } = frames[i];
     const x = x0 - 150 + i * mergedOffsetX;
     const y = y0 + 3 * offsetY;
-    mergedNodes.push(<circle cx={x} cy={y} r={radius} fill={colors[row]}></circle>);
+    mergedNodes.push(<circle key={`merged-node-${row}-${col}`} cx={x} cy={y} r={radius} fill={colors[row]}></circle>);
     texts.push(
-      <text x={x} y={y}>
+      <text  key={`merged-node-test-${row}-${col}`} x={x} y={y}>
         {data[row][col]}
       </text>
     );
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     d3.select('#texts').selectAll('text').style('dominant-baseline', 'middle').style('text-anchor', 'middle');
   }, [frameIndex]);
 

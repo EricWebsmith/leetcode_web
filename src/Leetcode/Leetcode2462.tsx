@@ -1,8 +1,9 @@
-import React, { SetStateAction, useEffect } from 'react';
+import { SetStateAction, useEffect, useRef, useState } from 'react';
+
+import html from '../Utils/html';
 import ButtonBar from '../controls/ButtonBar';
 import SvgRects from '../controls/SvgRects';
 import SvgTexts from '../controls/SvgTexts';
-import html from '../Utils/html';
 
 const UNSEEN = 0;
 const SEEN = 1;
@@ -27,7 +28,7 @@ textColorDict.set(SEEN, 'white');
 textColorDict.set(HIRED, 'white');
 
 export default function Leetcode2462() {
-  const [frameIndex, setFrameIndex] = React.useState<number>(0);
+  const [frameIndex, setFrameIndex] = useState<number>(0);
   const frame = frames[frameIndex];
 
   function setIndex(index: SetStateAction<number>) {
@@ -55,8 +56,8 @@ export default function Leetcode2462() {
   };
 
   const offset = 100;
-  const rectsRef = React.useRef<SVGGElement>(null);
-  const textsRef = React.useRef<SVGGElement>(null);
+  const rectsRef = useRef<SVGGElement>(null);
+  const textsRef = useRef<SVGGElement>(null);
 
   useEffect(() => {
     const rects = html.getChildrenFromRef<SVGRectElement>(rectsRef);

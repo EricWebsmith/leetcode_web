@@ -1,5 +1,5 @@
 import cloneDeep from 'lodash/cloneDeep';
-import React, { SetStateAction } from 'react';
+import { SetStateAction, useEffect, useRef, useState } from 'react';
 import ButtonBar from '../controls/ButtonBar';
 import SvgMatrix from '../controls/SvgMatrix';
 
@@ -13,15 +13,15 @@ type Frame = {
 };
 
 export default function Leetcode0079() {
-  const [board, setBoard] = React.useState<string[][]>([
+  const [board, setBoard] = useState<string[][]>([
     ['A', 'B', 'C', 'E'],
     ['S', 'F', 'C', 'S'],
     ['A', 'D', 'E', 'E'],
   ]);
   let rows = board.length;
   let cols = board[0].length;
-  const [word, setWord] = React.useState<string>('SEE');
-  const [frameIndex, setFrameIndex] = React.useState<number>(0);
+  const [word, setWord] = useState<string>('SEE');
+  const [frameIndex, setFrameIndex] = useState<number>(0);
   const frameCurrent: Frame = { row: -1, col: -1, wordIndex: -1, colorMatrix: [] };
 
   function resetCurrentFrame(): void {
@@ -113,7 +113,7 @@ export default function Leetcode0079() {
     search();
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     rows = board.length;
     cols = board[0].length;
     getFrames();
@@ -123,8 +123,8 @@ export default function Leetcode0079() {
     getFrames();
   }
 
-  const boardInputRef = React.useRef<HTMLInputElement>(null);
-  const wordInputRef = React.useRef<HTMLInputElement>(null);
+  const boardInputRef = useRef<HTMLInputElement>(null);
+  const wordInputRef = useRef<HTMLInputElement>(null);
 
   function dataChangeClickHandler() {
     if (boardInputRef.current == null || wordInputRef.current == null) {

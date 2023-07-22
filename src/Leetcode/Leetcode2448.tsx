@@ -1,16 +1,17 @@
 import * as d3 from 'd3';
-import React, { SetStateAction } from 'react';
+import { SetStateAction, useEffect, useRef, useState } from 'react';
+
 import ButtonBar from '../controls/ButtonBar';
 import SvgTexts from '../controls/SvgTexts';
 
 export default function Leetcode2448() {
-  const [frameIndex, setFrameIndex] = React.useState<number>(0);
+  const [frameIndex, setFrameIndex] = useState<number>(0);
 
   const nums = [1, 2, 3, 5];
   const cost = [2, 14, 3, 1];
   const dp = '24 820  56';
 
-  const gRef = React.useRef<SVGGElement>(null);
+  const gRef = useRef<SVGGElement>(null);
   const n = 10;
   const messages = [
     'cost = 14*1 + 3*2 + 1*4 = 24',
@@ -41,7 +42,7 @@ export default function Leetcode2448() {
     .domain([0, 5])
     .range([h - padding, padding]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (gRef.current == null) {
       return;
     }

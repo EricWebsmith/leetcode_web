@@ -1,11 +1,12 @@
-import React, { SetStateAction } from 'react';
+import { SetStateAction, useRef, useState } from 'react';
+
 import ButtonBar from '../controls/ButtonBar';
 import SvgTexts from '../controls/SvgTexts';
 
 export default function Leetcode1662() {
-  const [frameIndex, setFrameIndex] = React.useState<number>(0);
-  const rectContainer1 = React.useRef<SVGGElement>(null);
-  const rectContainer2 = React.useRef<SVGGElement>(null);
+  const [frameIndex, setFrameIndex] = useState<number>(0);
+  const rectContainer1 = useRef<SVGGElement>(null);
+  const rectContainer2 = useRef<SVGGElement>(null);
 
   function setIndex(index: SetStateAction<number>) {
     let newIndex = 0;

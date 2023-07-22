@@ -1,9 +1,9 @@
-import React, { SetStateAction } from 'react';
+import { SetStateAction, useState } from 'react';
 import ButtonBar from '../controls/ButtonBar';
 import NamedPointer from '../controls/NamedPointer';
 
 export default function Leetcode0042() {
-  const [frameIndex, setFrameIndex] = React.useState<number>(0);
+  const [frameIndex, setFrameIndex] = useState<number>(0);
   const height = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1];
   const w = 60;
   const n = height.length;

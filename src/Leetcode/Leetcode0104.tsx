@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import Leetcode0104Bfs from './Leetcode0104Bfs';
 import Leetcode0104Dfs from './Leetcode0104Dfs';
 import Leetcode0104DfsIterative from './Leetcode0104DfsIterative';
@@ -8,7 +8,7 @@ const DFS = 'DFS (Recursive)';
 const DFSIterative = 'Iterative DFS';
 
 export default function Leetcode0104() {
-  const [child, setChild] = React.useState(DFS);
+  const [child, setChild] = useState(DFS);
   function handleDfsClick() {
     setChild(DFS);
   }

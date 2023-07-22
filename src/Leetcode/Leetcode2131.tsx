@@ -1,10 +1,11 @@
-import React, { SetStateAction } from 'react';
+import { SetStateAction, useState } from 'react';
+
 import ButtonBar from '../controls/ButtonBar';
 import SvgMatrix from '../controls/SvgMatrix';
 import SvgTexts from '../controls/SvgTexts';
 
 export default function Leetcode2131() {
-  const [frameIndex, setFrameIndex] = React.useState<number>(0);
+  const [frameIndex, setFrameIndex] = useState<number>(0);
 
   function setIndex(index: SetStateAction<number>) {
     let newIndex = 0;

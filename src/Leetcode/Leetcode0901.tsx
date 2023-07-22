@@ -1,13 +1,14 @@
 import * as d3 from 'd3';
-import React, { SetStateAction } from 'react';
+import { SetStateAction, useEffect, useRef, useState } from 'react';
+
 import ButtonBar from '../controls/ButtonBar';
 
 export default function Leetcode0901() {
-  const [frameIndex, setFrameIndex] = React.useState<number>(0);
-  const [data, setData] = React.useState([100, 80, 60, 70, 60, 75, 85]);
+  const [frameIndex, setFrameIndex] = useState<number>(0);
+  const [data, setData] = useState([100, 80, 60, 70, 60, 75, 85]);
   const n = data.length;
-  const gRef = React.useRef<SVGGElement>(null);
-  const inputRef = React.useRef<HTMLInputElement>(null);
+  const gRef = useRef<SVGGElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const dp = new Array(n).fill(-1);
   const minValue = Math.min(...data);
@@ -34,7 +35,7 @@ export default function Leetcode0901() {
     .domain([minValue, maxValue])
     .range([h - padding, padding]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (gRef.current == null) {
       return;
     }

@@ -1,5 +1,5 @@
-import React, { SetStateAction } from 'react';
-import ButtonBar from '../controls/ButtonBar';
+import { SetStateAction, useState } from 'react';
+
 import Apple from '../SvgIcons/Apple';
 import Banana from '../SvgIcons/Banana';
 import IIconProps from '../SvgIcons/IIconProps';
@@ -7,6 +7,7 @@ import Orange from '../SvgIcons/Orange';
 import Pear from '../SvgIcons/Pear';
 import Scissors from '../SvgIcons/Scissors';
 import Guid from '../Utils/Guid';
+import ButtonBar from '../controls/ButtonBar';
 
 type Frame = {
   left: number;
@@ -21,7 +22,7 @@ type Frame = {
 };
 
 export default function Leetcode0904() {
-  const [frameIndex, setFrameIndex] = React.useState<number>(0);
+  const [frameIndex, setFrameIndex] = useState<number>(0);
   const frames: Frame[] = [
     { left: 0, right: 0, f1: Apple, c1: 1, best: 1 },
     { left: 0, right: 1, f1: Apple, c1: 2, best: 2 },

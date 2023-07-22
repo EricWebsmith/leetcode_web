@@ -1,9 +1,9 @@
 import * as d3 from 'd3';
-import React, { SetStateAction, useEffect } from 'react';
+import { SetStateAction, useEffect, useRef, useState } from 'react';
+import html from '../Utils/html';
 import ButtonBar from '../controls/ButtonBar';
 import SvgRects from '../controls/SvgRects';
 import SvgTexts from '../controls/SvgTexts';
-import html from '../Utils/html';
 
 type Node = {
   child: string;
@@ -11,7 +11,7 @@ type Node = {
 };
 
 export default function Leetcode0105() {
-  const [frameIndex, setFrameIndex] = React.useState<number>(0);
+  const [frameIndex, setFrameIndex] = useState<number>(0);
 
   function setIndex(index: SetStateAction<number>) {
     let newIndex = 0;
@@ -44,10 +44,10 @@ export default function Leetcode0105() {
   const hierNodes = treeInfo.descendants();
   const links = treeInfo.links();
 
-  const pre1Ref = React.useRef<SVGGElement>(null);
-  const in1Ref = React.useRef<SVGGElement>(null);
-  const pre2Ref = React.useRef<SVGGElement>(null);
-  const in2Ref = React.useRef<SVGGElement>(null);
+  const pre1Ref = useRef<SVGGElement>(null);
+  const in1Ref = useRef<SVGGElement>(null);
+  const pre2Ref = useRef<SVGGElement>(null);
+  const in2Ref = useRef<SVGGElement>(null);
 
   useEffect(() => {
     d3.select('#node0').attr('display', 'none');

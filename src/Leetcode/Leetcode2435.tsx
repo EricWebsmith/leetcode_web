@@ -1,4 +1,5 @@
-import React, { SetStateAction } from 'react';
+import { SetStateAction, useEffect, useState } from 'react';
+
 import ButtonBar from '../controls/ButtonBar';
 import SvgMatrix from '../controls/SvgMatrix';
 
@@ -10,7 +11,7 @@ type Frame = {
 };
 
 export default function Leetcode2435() {
-  const [frameIndex, setFrameIndex] = React.useState<number>(0);
+  const [frameIndex, setFrameIndex] = useState<number>(0);
 
   const frames: Frame[] = [
     { r: 0, c: 0, dp: ['', '', ''], newDp: ['', '', ''] },
@@ -32,7 +33,7 @@ export default function Leetcode2435() {
   const frame = frames[frameIndex];
   const { r, c } = frame;
 
-  React.useEffect(() => {
+  useEffect(() => {
     return;
   }, [frameIndex]);
 

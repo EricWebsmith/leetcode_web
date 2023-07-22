@@ -1,20 +1,21 @@
 import * as d3 from 'd3';
-import React, { SetStateAction } from 'react';
+import { SetStateAction, useEffect, useRef, useState } from 'react';
+
 import ButtonBar from '../controls/ButtonBar';
 
 export default function Leetcode0252() {
-  const [frameIndex, setFrameIndex] = React.useState<number>(0);
+  const [frameIndex, setFrameIndex] = useState<number>(0);
   const w = 900;
   const h = 400;
 
-  const svgRef = React.useRef<SVGSVGElement>(null);
+  const svgRef = useRef<SVGSVGElement>(null);
   const intervals = [
     [0, 30],
     [5, 10],
     [15, 20],
   ];
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (svgRef.current == null) {
       return;
     }

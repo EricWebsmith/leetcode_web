@@ -1,4 +1,5 @@
-import React, { SetStateAction } from 'react';
+import { SetStateAction, useEffect, useRef, useState } from 'react';
+
 import ButtonBar from '../controls/ButtonBar';
 
 type Frame = {
@@ -7,10 +8,10 @@ type Frame = {
 };
 
 export default function Leetcode2422() {
-  const [frameIndex, setFrameIndex] = React.useState<number>(0);
-  const leftPointer = React.useRef<SVGPathElement>(null);
-  const rightPointer = React.useRef<SVGPathElement>(null);
-  const sumContainer = React.useRef<SVGGElement>(null);
+  const [frameIndex, setFrameIndex] = useState<number>(0);
+  const leftPointer = useRef<SVGPathElement>(null);
+  const rightPointer = useRef<SVGPathElement>(null);
+  const sumContainer = useRef<SVGGElement>(null);
 
   const frames: Frame[] = [
     { left: 0, right: 6 },
@@ -22,7 +23,7 @@ export default function Leetcode2422() {
 
   const frame = frames[frameIndex];
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (sumContainer.current == null || leftPointer.current == null || rightPointer.current == null) {
       return;
     }

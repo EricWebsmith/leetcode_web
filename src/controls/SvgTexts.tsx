@@ -1,4 +1,4 @@
-import React from 'react';
+import { forwardRef } from "react";
 
 interface Props {
   text?: string;
@@ -11,7 +11,7 @@ interface Props {
   spaceOffset?: number;
 }
 
-const Texts = React.forwardRef((props: Props, ref: React.ForwardedRef<SVGGElement>) => {
+const Texts = forwardRef((props: Props, ref: React.ForwardedRef<SVGGElement>) => {
   if (props.text == null) {
     return <></>;
   }

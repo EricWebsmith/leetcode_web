@@ -1,4 +1,5 @@
-import React from 'react';
+import { forwardRef } from "react";
+
 
 interface Props {
   letter: string;
@@ -9,7 +10,7 @@ interface Props {
   scale?: number;
 }
 
-const NamedPointer = React.forwardRef((props: Props, ref: React.ForwardedRef<SVGGElement>) => {
+const NamedPointer = forwardRef((props: Props, ref: React.ForwardedRef<SVGGElement>) => {
   const scale = props.scale ?? 1;
   const transform = `translate(${-40 + props.x}, ${10 + props.y}) scale(${scale})`;
   const offset = -5;

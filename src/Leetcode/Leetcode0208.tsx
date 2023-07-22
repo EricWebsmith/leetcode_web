@@ -1,6 +1,6 @@
 import * as d3 from 'd3';
 import cloneDeep from 'lodash/cloneDeep';
-import React, { SetStateAction } from 'react';
+import { SetStateAction, useEffect, useRef, useState } from 'react';
 import { D3Node, getTrieData } from '../Utils/d3helper';
 import { TrieNode } from '../Utils/trie';
 import ButtonBar from '../controls/ButtonBar';
@@ -194,8 +194,8 @@ let d3nodes = result.d3nodes;
 let d3links = result.d3links;
 
 export default function Leetcode0208() {
-  const [frameIndex, setFrameIndex] = React.useState<number>(0);
-  const [data, setData] = React.useState<string>(defaultData);
+  const [frameIndex, setFrameIndex] = useState<number>(0);
+  const [data, setData] = useState<string>(defaultData);
   const frame = frames[frameIndex];
 
   const trieCircles = [];
@@ -258,11 +258,11 @@ export default function Leetcode0208() {
     fill: '#FFFFFF',
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     d3.select('#tree1').selectAll('text').style('dominant-baseline', 'middle').style('text-anchor', 'middle');
   }, [frameIndex]);
 
-  const inputRef = React.useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
   function dataChangeClickHandler() {
     if (inputRef.current == null) {
       return;

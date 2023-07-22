@@ -1,6 +1,6 @@
-import React, { SetStateAction } from 'react';
-import ButtonBar from '../controls/ButtonBar';
+import { SetStateAction, useEffect, useRef, useState } from 'react';
 import { getChildrenFromRef } from '../Utils/html';
+import ButtonBar from '../controls/ButtonBar';
 
 const RED = 'red';
 const GREEN = 'green';
@@ -14,13 +14,13 @@ type Frame = {
 };
 
 export default function Leetcode0091() {
-  const [frameIndex, setFrameIndex] = React.useState<number>(0);
-  const pointer1 = React.useRef<SVGPathElement>(null);
-  const pointer2 = React.useRef<SVGPathElement>(null);
-  const head1 = React.useRef<SVGMarkerElement>(null);
-  const head2 = React.useRef<SVGMarkerElement>(null);
-  const rectContainer = React.useRef<SVGGElement>(null);
-  const dpContainer = React.useRef<SVGGElement>(null);
+  const [frameIndex, setFrameIndex] = useState<number>(0);
+  const pointer1 = useRef<SVGPathElement>(null);
+  const pointer2 = useRef<SVGPathElement>(null);
+  const head1 = useRef<SVGMarkerElement>(null);
+  const head2 = useRef<SVGMarkerElement>(null);
+  const rectContainer = useRef<SVGGElement>(null);
+  const dpContainer = useRef<SVGGElement>(null);
 
   const frames: Frame[] = [
     { current: 0, pointer1Color: 'green', pointer2Color: 'red' },
@@ -32,7 +32,7 @@ export default function Leetcode0091() {
 
   const frame = frames[frameIndex];
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (pointer1.current == null || pointer2.current == null) {
       return;
     }

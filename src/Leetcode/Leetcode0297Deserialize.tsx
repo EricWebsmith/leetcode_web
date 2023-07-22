@@ -1,5 +1,7 @@
 import * as d3 from 'd3';
-import React, { SetStateAction } from 'react';
+import { SetStateAction, useEffect, useState } from 'react';
+
+
 import ButtonBar from '../controls/ButtonBar';
 import SvgCircles from '../controls/SvgCircles';
 import SvgLines from '../controls/SvgLines';
@@ -35,7 +37,7 @@ const frames: Frame[] = [
 ];
 
 export default function Leetcode0297Deserialize() {
-  const [frameIndex, setFrameIndex] = React.useState<number>(0);
+  const [frameIndex, setFrameIndex] = useState<number>(0);
   const frame = frames[frameIndex];
   // Tree 1
   const tree1Data: Node[] = [
@@ -103,7 +105,7 @@ export default function Leetcode0297Deserialize() {
     fill: 'white',
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     d3.select('#tree1').selectAll('text').style('dominant-baseline', 'middle').style('text-anchor', 'middle');
     d3.select('#calc').selectAll('text').style('dominant-baseline', 'middle').style('text-anchor', 'middle');
     d3.select('#cross').selectAll('text').style('dominant-baseline', 'middle').style('text-anchor', 'middle');

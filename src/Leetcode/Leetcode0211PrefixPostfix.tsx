@@ -1,6 +1,6 @@
 import * as d3 from 'd3';
 import cloneDeep from 'lodash/cloneDeep';
-import React, { SetStateAction } from 'react';
+import { SetStateAction, useEffect, useRef, useState } from 'react';
 import { D3Node, getTrieData } from '../Utils/d3helper';
 import * as strEx from '../Utils/stringUtil';
 import { TrieNode } from '../Utils/trie';
@@ -234,8 +234,8 @@ let postD3Nodes = result.postD3Nodes;
 let postD3Links = result.postD3Links;
 
 export default function Leetcode0211() {
-  const [frameIndex, setFrameIndex] = React.useState<number>(0);
-  const [data, setData] = React.useState<string>(defaultData);
+  const [frameIndex, setFrameIndex] = useState<number>(0);
+  const [data, setData] = useState<string>(defaultData);
   const frame = frames[frameIndex];
 
   const r = 50;
@@ -359,12 +359,12 @@ export default function Leetcode0211() {
     fill: '#FFFFFF',
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     d3.select('#pre').selectAll('text').style('dominant-baseline', 'middle').style('text-anchor', 'middle');
     d3.select('#post').selectAll('text').style('dominant-baseline', 'middle').style('text-anchor', 'middle');
   }, [frameIndex]);
 
-  const inputRef = React.useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
   function dataChangeClickHandler() {
     if (inputRef.current == null) {
       return;

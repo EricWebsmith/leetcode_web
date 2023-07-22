@@ -1,4 +1,5 @@
-import React from 'react';
+import { useState } from 'react';
+
 import Leetcode0297Deserialize from './Leetcode0297Deserialize';
 import Leetcode0297Serialize from './Leetcode0297Serialize';
 
@@ -6,7 +7,7 @@ const SERIALIZE = 'SERIALIZE';
 const DESERIALIZE = 'DESERIALIZE';
 
 export default function Leetcode0297() {
-  const [child, setChild] = React.useState(SERIALIZE);
+  const [child, setChild] = useState(SERIALIZE);
   function handleSerializeClick() {
     setChild(SERIALIZE);
   }

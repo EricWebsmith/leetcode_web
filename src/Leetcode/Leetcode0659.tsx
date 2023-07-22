@@ -1,7 +1,8 @@
-import React, { SetStateAction } from 'react';
-import ButtonBar from '../controls/ButtonBar';
+import { SetStateAction, useEffect, useState } from 'react';
+
 import { SHOW_LESS, SHOW_MORE } from '../Utils/constants';
 import * as html from '../Utils/html';
+import ButtonBar from '../controls/ButtonBar';
 
 type Group = {
   indices: number[];
@@ -18,8 +19,8 @@ type Frame = {
 };
 
 export default function Leetcode0659() {
-  const [frameIndex, setFrameIndex] = React.useState(0);
-  const [advanced, setAdvanced] = React.useState(false);
+  const [frameIndex, setFrameIndex] = useState(0);
+  const [advanced, setAdvanced] = useState(false);
   const groupColors = ['lightblue', 'yellow'];
   const frames: Frame[] = [
     {
@@ -109,7 +110,7 @@ export default function Leetcode0659() {
   const pointerBase = [-45, -5];
 
   const frame = frames[frameIndex];
-  React.useEffect(() => {
+  useEffect(() => {
     const pointer = html.getElementById('pointer');
     pointer.setAttribute(
       'transform',

@@ -1,8 +1,9 @@
-import React, { SetStateAction } from 'react';
+import { SetStateAction, useEffect, useRef, useState } from 'react';
+
+import { getChildrenFromRef, getElementById } from '../Utils/html';
 import ButtonBar from '../controls/ButtonBar';
 import SvgRects from '../controls/SvgRects';
 import SvgTexts from '../controls/SvgTexts';
-import { getChildrenFromRef, getElementById } from '../Utils/html';
 
 type Frame = {
   left: number;
@@ -13,7 +14,7 @@ type Frame = {
 };
 
 export default function Leetcode0003() {
-  const [frameIndex, setFrameIndex] = React.useState<number>(0);
+  const [frameIndex, setFrameIndex] = useState<number>(0);
 
   const frames: Frame[] = [
     { left: 0, right: 0, ans: 1 },
@@ -41,9 +42,9 @@ export default function Leetcode0003() {
   const rightPointerBase = -80;
   const frame = frames[frameIndex];
 
-  const rectContainer = React.useRef<SVGGElement>(null);
+  const rectContainer = useRef<SVGGElement>(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const previousFrame = frameIndex > 0 ? frames[frameIndex - 1] : null;
     const leftPointer = getElementById('leftPointer');
     leftPointer.setAttribute('transform', `translate(${leftPointerBase + frame.left * step}, 0)`);

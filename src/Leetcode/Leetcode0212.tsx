@@ -1,4 +1,4 @@
-import React, { SetStateAction } from 'react';
+import { SetStateAction, useState } from 'react';
 import ButtonBar from '../controls/ButtonBar';
 import SvgMatrix from '../controls/SvgMatrix';
 
@@ -11,7 +11,7 @@ type Frame = {
 };
 
 export default function Leetcode0212() {
-  const [frameIndex, setFrameIndex] = React.useState<number>(0);
+  const [frameIndex, setFrameIndex] = useState<number>(0);
   const frames: Frame[] = [
     { path: [[0, 0]], r: 0, c: 0 },
     { path: [[0, 1]], r: 0, c: 1 },

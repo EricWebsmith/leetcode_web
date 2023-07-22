@@ -1,4 +1,4 @@
-import React from 'react';
+import { forwardRef } from "react";
 
 interface Props {
   x: number;
@@ -15,7 +15,7 @@ interface Props {
   textOffsetX?: number;
 }
 
-const SvgMatrix = React.forwardRef((props: Props, ref: React.ForwardedRef<SVGGElement>) => {
+const SvgMatrix = forwardRef((props: Props, ref: React.ForwardedRef<SVGGElement>) => {
   const { m, n, height, width, x, y, textArr, rectStyle, textStyle, colorMatrix, textColorMatrix } = props;
   if (m === 0 || n === 0) {
     return <></>;

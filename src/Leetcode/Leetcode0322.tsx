@@ -1,6 +1,7 @@
-import React, { SetStateAction } from 'react';
-import ButtonBar from '../controls/ButtonBar';
+import { SetStateAction, useEffect, useRef, useState } from 'react';
+
 import { getChildren, getChildrenFromRef, getElementById } from '../Utils/html';
+import ButtonBar from '../controls/ButtonBar';
 
 type Frame = {
   current: number;
@@ -8,7 +9,7 @@ type Frame = {
 };
 
 export default function Leetcode0322() {
-  const [frameIndex, setFrameIndex] = React.useState<number>(0);
+  const [frameIndex, setFrameIndex] = useState<number>(0);
 
   const frames: Frame[] = [
     {
@@ -63,9 +64,9 @@ export default function Leetcode0322() {
 
   const frame = frames[frameIndex];
 
-  const rectContainer = React.useRef<SVGGElement>(null);
+  const rectContainer = useRef<SVGGElement>(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const coins = getElementById('coins');
     coins.setAttribute('transform', `translate(${65 * frameIndex - 65}, 0)`);
     if (frameIndex > 0) {

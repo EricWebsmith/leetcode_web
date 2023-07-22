@@ -1,4 +1,4 @@
-import React, { SetStateAction } from 'react';
+import { SetStateAction, useEffect, useRef, useState } from 'react';
 import ButtonBar from '../controls/ButtonBar';
 import SvgTexts from '../controls/SvgTexts';
 
@@ -9,10 +9,10 @@ type Frame = {
 };
 
 export default function Leetcode0237() {
-  const [frameIndex, setFrameIndex] = React.useState<number>(0);
+  const [frameIndex, setFrameIndex] = useState<number>(0);
 
-  const crosses = React.useRef<SVGGElement>(null);
-  const edge59 = React.useRef<SVGPathElement>(null);
+  const crosses = useRef<SVGGElement>(null);
+  const edge59 = useRef<SVGPathElement>(null);
 
   const frames: Frame[] = [
     { text: '4519' },
@@ -22,7 +22,7 @@ export default function Leetcode0237() {
 
   const frame = frames[frameIndex];
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (crosses.current == null || edge59.current == null) {
       return;
     }

@@ -1,10 +1,10 @@
-import React from 'react';
+import { useState } from 'react';
 import { NavLink, useSearchParams } from 'react-router-dom';
+import { LeetcodeSelector, default_id, idMetaDict, metaList } from './Leetcode/metadata';
 import Header from './controls/Header';
-import { default_id, idMetaDict, LeetcodeSelector, metaList } from './Leetcode/metadata';
 
 function App(): JSX.Element {
-  const [showNavbar, setShowNavbar] = React.useState<boolean>(true);
+  const [showNavbar, setShowNavbar] = useState<boolean>(true);
 
   function hide() {
     setShowNavbar(false);

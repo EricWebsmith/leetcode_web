@@ -1,4 +1,5 @@
-import React, { SetStateAction } from 'react';
+import { SetStateAction, useState } from 'react';
+
 import ButtonBar from '../controls/ButtonBar';
 import SvgRects from '../controls/SvgRects';
 import SvgTexts from '../controls/SvgTexts';
@@ -10,7 +11,7 @@ type Frame = {
 };
 
 export default function Leetcode0940() {
-  const [frameIndex, setFrameIndex] = React.useState<number>(0);
+  const [frameIndex, setFrameIndex] = useState<number>(0);
   ('But we must subtract the same ending. So 8 * 2 - 1 = 15');
   const frames: Frame[] = [
     { dp: ' 1', message: 'At the first, we have an empty sting. hence dp[0]=1' },

@@ -1,4 +1,5 @@
-import React, { SetStateAction } from 'react';
+import { SetStateAction, useEffect, useState } from 'react';
+
 import ButtonBar from '../controls/ButtonBar';
 import SvgRects from '../controls/SvgRects';
 import SvgTexts from '../controls/SvgTexts';
@@ -42,7 +43,7 @@ type Frame = {
 };
 
 export default function Leetcode1234() {
-  const [frameIndex, setFrameIndex] = React.useState<number>(0);
+  const [frameIndex, setFrameIndex] = useState<number>(0);
 
   const frames: Frame[] = [
     { left: -1, right: -1, counter: '4211', valid: false, best: '8' },
@@ -69,7 +70,7 @@ export default function Leetcode1234() {
   const leftPointer = Pointer({ letter: 'L', x: offset * frame.left - 35, y: 0 });
   const rightPointer = Pointer({ letter: 'R', x: offset * frame.right + 35, y: 0 });
 
-  React.useEffect(() => {
+  useEffect(() => {
     return;
   }, [frameIndex]);
 

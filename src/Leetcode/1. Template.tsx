@@ -1,8 +1,8 @@
-import React, { SetStateAction } from 'react';
+import { SetStateAction, useState } from 'react';
 import ButtonBar from '../controls/ButtonBar';
 
 export default function Leetcode0000() {
-  const [frameIndex, setFrameIndex] = React.useState<number>(0);
+  const [frameIndex, setFrameIndex] = useState<number>(0);
   const dp = '-2 1-2 4 3 5 6 1 5';
 
   function setIndex(index: SetStateAction<number>) {

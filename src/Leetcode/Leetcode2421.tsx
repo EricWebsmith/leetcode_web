@@ -1,4 +1,5 @@
-import React, { RefObject, SetStateAction, useRef } from 'react';
+import { RefObject, SetStateAction, useEffect, useRef, useState } from 'react';
+
 import ButtonBar from '../controls/ButtonBar';
 
 type Frame = {
@@ -6,7 +7,7 @@ type Frame = {
 };
 
 export default function Leetcode2421() {
-  const [frameIndex, setFrameIndex] = React.useState<number>(0);
+  const [frameIndex, setFrameIndex] = useState<number>(0);
 
   const step1 = useRef<SVGGElement>(null);
   const step2 = useRef<SVGGElement>(null);
@@ -21,7 +22,7 @@ export default function Leetcode2421() {
 
   const frame = frames[frameIndex];
 
-  React.useEffect(() => {
+  useEffect(() => {
     for (const step_control of [step1, step2, step3]) {
       if (step_control.current == null) {
         continue;

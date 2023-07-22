@@ -1,5 +1,5 @@
-import React from 'react';
 
+import { useState } from 'react';
 import jsLogo from '../js-180.png';
 import logo from '../logo.svg';
 import amazonLogo from '../logos/amazon.svg';
@@ -12,7 +12,7 @@ interface Props {
 }
 
 export default function Header(props: Props) {
-  const [logoId, setLogoId] = React.useState(0);
+  const [logoId, setLogoId] = useState(0);
   const logos = [logo, amazonLogo, googleLogo, microsoftLogo, jsLogo];
   const currentLogo = logos[logoId];
 

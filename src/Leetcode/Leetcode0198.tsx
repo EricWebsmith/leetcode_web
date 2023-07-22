@@ -1,7 +1,7 @@
-import React, { SetStateAction } from 'react';
-import ButtonBar from '../controls/ButtonBar';
+import { SetStateAction, useState } from 'react';
 import Coin from '../SvgIcons/Coin';
 import Robber from '../SvgIcons/Robber';
+import ButtonBar from '../controls/ButtonBar';
 
 interface IHouseProps {
   x: number;
@@ -23,7 +23,7 @@ function House(props: IHouseProps) {
 }
 
 export default function Leetcode0198() {
-  const [frameIndex, setFrameIndex] = React.useState<number>(0);
+  const [frameIndex, setFrameIndex] = useState<number>(0);
 
   function setIndex(index: SetStateAction<number>) {
     let newIndex = 0;

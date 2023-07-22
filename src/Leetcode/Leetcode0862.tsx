@@ -1,6 +1,7 @@
-import React, { SetStateAction } from 'react';
-import ButtonBar from '../controls/ButtonBar';
+import { SetStateAction, useEffect, useRef, useState } from 'react';
+
 import { getChildrenFromRef } from '../Utils/html';
+import ButtonBar from '../controls/ButtonBar';
 
 type Frame = {
   colors: string[];
@@ -16,7 +17,7 @@ const colors = {
 };
 
 export default function Leetcode0862() {
-  const [frameIndex, setFrameIndex] = React.useState<number>(0);
+  const [frameIndex, setFrameIndex] = useState<number>(0);
 
   const frames: Frame[] = [
     {
@@ -135,10 +136,10 @@ export default function Leetcode0862() {
 
   const frame = frames[frameIndex];
 
-  const preSumRectContainer = React.useRef<SVGGElement>(null);
-  const rectContainer = React.useRef<SVGGElement>(null);
+  const preSumRectContainer = useRef<SVGGElement>(null);
+  const rectContainer = useRef<SVGGElement>(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const preRects: Element[] = getChildrenFromRef(preSumRectContainer);
     const rects: Element[] = getChildrenFromRef(rectContainer);
     for (let i = 0; i < frame.colors.length; i++) {

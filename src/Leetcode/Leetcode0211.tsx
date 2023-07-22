@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import Leetcode0211PrefixLte from './Leetcode0211PrefixLte';
 import Leetcode0211PrefixPostfix from './Leetcode0211PrefixPostfix';
 
@@ -6,7 +6,7 @@ const PREFIX = 'Prefix Tree(LTE)';
 const PREFIX_POSTFIX = 'Prefix and postfix';
 
 export default function Leetcode0297() {
-  const [child, setChild] = React.useState(PREFIX_POSTFIX);
+  const [child, setChild] = useState(PREFIX_POSTFIX);
   function handleSerializeClick() {
     setChild(PREFIX);
   }

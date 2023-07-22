@@ -1,4 +1,4 @@
-import React from 'react';
+import { forwardRef } from "react";
 
 interface Props {
   x1: number;
@@ -10,7 +10,7 @@ interface Props {
   style: object;
 }
 
-const Rects = React.forwardRef((props: Props, ref: React.ForwardedRef<SVGGElement>) => {
+const Rects = forwardRef((props: Props, ref: React.ForwardedRef<SVGGElement>) => {
   if (props.n === 0 || props.n == null) {
     return <></>;
   }

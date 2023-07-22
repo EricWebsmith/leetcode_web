@@ -1,10 +1,11 @@
-import React, { SetStateAction } from 'react';
+import { SetStateAction, useState } from 'react';
+
 import ButtonBar from '../controls/ButtonBar';
 import SvgRects from '../controls/SvgRects';
 import SvgTexts from '../controls/SvgTexts';
 
 export default function Leetcode2439() {
-  const [frameIndex, setFrameIndex] = React.useState<number>(0);
+  const [frameIndex, setFrameIndex] = useState<number>(0);
   const dp = '3555';
   const sums = ['', '3', '10', '11', '17'];
   const avgs = ['', '3', '5', '4', '5'];

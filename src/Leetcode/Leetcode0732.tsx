@@ -1,4 +1,5 @@
-import React, { SetStateAction } from 'react';
+import { SetStateAction, useEffect, useRef, useState } from 'react';
+
 import ButtonBar from '../controls/ButtonBar';
 
 type Frame = {
@@ -10,7 +11,7 @@ type Frame = {
 };
 
 export default function Leetcode0732() {
-  const [frameIndex, setFrameIndex] = React.useState<number>(0);
+  const [frameIndex, setFrameIndex] = useState<number>(0);
 
   const frames: Frame[] = [
     { start: -1, end: -1, layer: 1, displays: ['node_0_60'] },
@@ -63,9 +64,9 @@ export default function Leetcode0732() {
     { start: -1, end: 55, layer: 5, textDict: new Map([['text_25_40', '2']]) },
   ];
 
-  const svg = React.useRef<SVGSVGElement>(null);
+  const svg = useRef<SVGSVGElement>(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     // reset
     if (svg.current == null) {
       return;

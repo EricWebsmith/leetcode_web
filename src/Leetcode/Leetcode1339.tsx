@@ -1,6 +1,7 @@
 import * as d3 from 'd3';
 import cloneDeep from 'lodash/cloneDeep';
-import React, { SetStateAction } from 'react';
+import { SetStateAction, useEffect, useRef, useState } from 'react';
+
 import ButtonBar from '../controls/ButtonBar';
 import { array2TreeNode, TreeNode } from '../Utils/binaryTree';
 import { D3Node, getTreeData } from '../Utils/d3helper';
@@ -116,8 +117,8 @@ let nodes = result.nodes;
 let links = result.links;
 
 export default function Leetcode1339() {
-  const [frameIndex, setFrameIndex] = React.useState<number>(0);
-  const [data, setData] = React.useState<(number | null)[]>(defaultData);
+  const [frameIndex, setFrameIndex] = useState<number>(0);
+  const [data, setData] = useState<(number | null)[]>(defaultData);
 
   const frame = frames[frameIndex];
 
@@ -191,7 +192,7 @@ export default function Leetcode1339() {
     fill: '#000',
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     d3.select('#tree1').selectAll('text').style('dominant-baseline', 'middle').style('text-anchor', 'middle');
     d3.select('#calc').selectAll('text').style('dominant-baseline', 'middle').style('text-anchor', 'middle');
     d3.select('#cross').selectAll('text').style('dominant-baseline', 'middle').style('text-anchor', 'middle');
@@ -218,7 +219,7 @@ export default function Leetcode1339() {
     }
   }
 
-  const inputRef = React.useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
   function dataChangeClickHandler() {
     if (inputRef.current == null) {
       return;

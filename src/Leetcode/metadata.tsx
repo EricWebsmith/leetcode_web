@@ -50,7 +50,6 @@ import Leetcode0904 from './Leetcode0904';
 import Leetcode0934 from './Leetcode0934';
 import Leetcode0940 from './Leetcode0940';
 import Leetcode1234 from './Leetcode1234';
-import Leetcode1339 from './Leetcode1339';
 import Leetcode1662 from './Leetcode1662';
 import Leetcode1926 from './Leetcode1926';
 import Leetcode2095 from './Leetcode2095';
@@ -117,7 +116,7 @@ const typeList = [
   Leetcode0934,
   Leetcode0940,
   Leetcode1234,
-  Leetcode1339,
+  // Leetcode1339,
   Leetcode1662,
   Leetcode1926,
   Leetcode2095,
@@ -181,7 +180,7 @@ const metaList: ProblemMetadata[] = [
   { id: 934, title: 'Shortest Bridge' },
   { id: 940, title: 'Distinct Subsequences II' },
   { id: 1234, title: 'Replace the Substring for Balanced String' },
-  { id: 1339, title: 'Maximum Product of Splitted Binary Tree' },
+  // { id: 1339, title: 'Maximum Product of Splitted Binary Tree' },
   { id: 1662, title: 'Check If Two String Arrays are Equivalent' },
   { id: 1926, title: 'Nearest Exit from Entrance in Maze' },
   { id: 2095, title: 'Delete the Middle Node of a Linked List' },
@@ -303,8 +302,8 @@ function LeetcodeSelector(id: number) {
       return <Leetcode0862 />;
     case 1234:
       return <Leetcode1234 />;
-    case 1339:
-      return <Leetcode1339 />;
+    // case 1339:
+    //   return <Leetcode1339 />;
     case 1662:
       return <Leetcode1662 />;
     case 1926:
@@ -338,4 +337,5 @@ function LeetcodeSelector(id: number) {
   }
 }
 
-export { metaList, typeList, idMetaDict, nameMetaDict, LeetcodeSelector, default_id };
+export { LeetcodeSelector, default_id, idMetaDict, metaList, nameMetaDict, typeList };
+

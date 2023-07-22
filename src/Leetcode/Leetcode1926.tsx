@@ -1,8 +1,9 @@
-import React, { SetStateAction } from 'react';
-import ButtonBar from '../controls/ButtonBar';
-import SvgMatrix from '../controls/SvgMatrix';
+import { SetStateAction, useState } from 'react';
+
 import Girl from '../SvgIcons/Girl';
 import Wall from '../SvgIcons/Wall';
+import ButtonBar from '../controls/ButtonBar';
+import SvgMatrix from '../controls/SvgMatrix';
 
 export default function Leetcode0934() {
   const maze = [
@@ -11,7 +12,7 @@ export default function Leetcode0934() {
     ['+', '+', '+', '.'],
   ];
   const entrance = [1, 2];
-  const [frameIndex, setFrameIndex] = React.useState<number>(0);
+  const [frameIndex, setFrameIndex] = useState<number>(0);
 
   function setIndex(index: SetStateAction<number>) {
     let newIndex = 0;

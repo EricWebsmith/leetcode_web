@@ -1,4 +1,5 @@
-import React, { SetStateAction } from 'react';
+import { SetStateAction, useState } from 'react';
+
 import ButtonBar from '../controls/ButtonBar';
 
 const rt3 = 1.732;
@@ -62,7 +63,7 @@ function Dna(props: IDnaProps) {
 }
 
 export default function Leetcode0433() {
-  const [frameIndex, setFrameIndex] = React.useState<number>(0);
+  const [frameIndex, setFrameIndex] = useState<number>(0);
   const n = 6;
 
   function setIndex(index: SetStateAction<number>) {
