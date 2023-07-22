@@ -114,7 +114,7 @@ export default function Leetcode0104Dfs() {
     .id((d) => d.child)
     .parentId((d) => d.parent)(tree1Data);
 
-  const treeStruct = d3.tree().size([900, 300]);
+  const treeStruct = d3.tree<Node>().size([900, 300]);
   const dsInfo = treeStruct(ds);
   const nodes = dsInfo.descendants();
   const tree1Links = dsInfo.links();

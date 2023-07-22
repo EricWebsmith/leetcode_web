@@ -61,7 +61,7 @@ export default function Leetcode0100() {
     .id((d) => d.child)
     .parentId((d) => d.parent)(tree1Data);
 
-  const tree1Struct = d3.tree().size([500, 265]);
+  const tree1Struct = d3.tree<Node>().size([500, 265]);
   const tree1Info = tree1Struct(tree1ds);
   const tree1Nodes = tree1Info.descendants();
   const tree1Links = tree1Info.links();
@@ -111,7 +111,7 @@ export default function Leetcode0100() {
     .id((d) => d.child)
     .parentId((d) => d.parent)(tree2Data);
 
-  const tree2Struct = d3.tree().size([500, 400]);
+  const tree2Struct = d3.tree<Node>().size([500, 400]);
   const tree2Info = tree2Struct(tree2ds);
   const tree2Nodes = tree2Info.descendants();
   const tree2Links = tree2Info.links();
