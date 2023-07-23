@@ -115,7 +115,7 @@ export default function Leetcode0212() {
 
   return (
     <>
-      <svg id='svg' width={1100} height={550}>
+      <svg id="svg" width={1100} height={550}>
         <SvgMatrix
           x={50}
           y={50}
@@ -132,7 +132,8 @@ export default function Leetcode0212() {
           style={{
             stroke: 'blue',
             strokeWidth: 10,
-          }}>
+          }}
+        >
           <line x1={700} y1={75} x2={550} y2={175}></line>
           <line x1={700} y1={75} x2={850} y2={175}></line>
           <line x1={550} y1={175} x2={550} y2={275}></line>
@@ -161,66 +162,34 @@ export default function Leetcode0212() {
           <circle cx={850} cy={475} r={45}></circle>
           <circle cx={950} cy={475} r={45}></circle>
         </g>
-        <circle cx={cx} cy={cy} r={45} fill='red'></circle>
-
+        <circle cx={cx} cy={cy} r={45} fill="red"></circle>
+        {/*prettier-ignore*/}
         <g style={trieTextStyle}>
-          <text x={685} y={95}>
-            ''
-          </text>
-          <text x={530} y={195}>
-            G
-          </text>
-          <text x={830} y={195}>
-            C
-          </text>
-          <text x={530} y={295}>
-            O
-          </text>
-          <text x={830} y={295}>
-            O
-          </text>
-          <text x={530} y={395}>
-            A
-          </text>
-          <text x={730} y={395}>
-            A
-          </text>
-          <text x={830} y={395}>
-            D
-          </text>
-          <text x={930} y={395}>
-            O
-          </text>
-          <text x={530} y={495}>
-            T
-          </text>
-          <text x={730} y={495}>
-            T
-          </text>
-          <text x={830} y={495}>
-            E
-          </text>
-          <text x={930} y={495}>
-            K
-          </text>
+          <text x={685} y={95}>''</text>
+          <text x={530} y={195}>G</text>
+          <text x={830} y={195}>C</text>
+          <text x={530} y={295}>O</text>
+          <text x={830} y={295}>O</text>
+          <text x={530} y={395}>A</text>
+          <text x={730} y={395}>A</text>
+          <text x={830} y={395}>D</text>
+          <text x={930} y={395}>O</text>
+          <text x={530} y={495}>T</text>
+          <text x={730} y={495}>T</text>
+          <text x={830} y={495}>E</text>
+          <text x={930} y={495}>K</text>
         </g>
         <rect
           x={50 + frame.c * offset}
           y={50 + frame.r * offset}
-          stroke='green'
+          stroke="green"
           strokeWidth={10}
-          strokeDasharray='10'
-          fill='none'
+          strokeDasharray="10"
+          fill="none"
           width={100}
-          height={100}></rect>
-        <circle
-          cx={cx}
-          cy={cy}
-          r={45}
-          stroke='green'
-          strokeWidth={10}
-          strokeDasharray='10'
-          fill='none'></circle>
+          height={100}
+        ></rect>
+        <circle cx={cx} cy={cy} r={45} stroke="green" strokeWidth={10} strokeDasharray="10" fill="none"></circle>
       </svg>
       <ButtonBar setIndex={setIndex} />
     </>

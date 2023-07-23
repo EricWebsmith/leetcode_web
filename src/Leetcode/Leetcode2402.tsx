@@ -10,12 +10,8 @@ export default function Leetcode2402() {
   const h = 400;
 
   const svgRef = useRef<SVGSVGElement>(null);
-  const intervals = [
-    [0, 10],
-    [1, 5],
-    [2, 7],
-    [3, 4],
-  ];
+  // prettier-ignore
+  const intervals = [[0, 10],[1, 5],[2, 7],[3, 4]];
   const colors = ['red', 'green', 'blue', 'orange'];
 
   useEffect(() => {

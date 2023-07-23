@@ -210,7 +210,6 @@ export default function Leetcode0104Dfs() {
         <g id='tree1' transform='translate(0, 60)'>
           <g style={{ stroke: 'blue', strokeWidth: 10 }}>{tree1Lines}</g>
           <g style={{ fill: 'blue' }}>{tree1Circles}</g>
-
           <g style={textStyle}>{tree1Texts}</g>
           <g style={{ fill: 'green' }}>{dpRects}</g>
           <g style={dpFont}>{dpTexts}</g>

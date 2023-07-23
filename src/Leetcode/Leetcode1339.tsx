@@ -119,7 +119,6 @@ let links = result.links;
 export default function Leetcode1339() {
   const [frameIndex, setFrameIndex] = useState<number>(0);
   const [data, setData] = useState<(number | null)[]>(defaultData);
-
   const frame = frames[frameIndex];
 
   const tree1Circles = [];
@@ -247,29 +246,20 @@ export default function Leetcode1339() {
 
   return (
     <>
+      {/* prettier-ignore */}
       <svg id='svg' width={1000} height={540}>
         <g id='tree1' transform='translate(0, 60)'>
           <g style={{ stroke: 'blue', strokeWidth: 10 }}>{tree1Lines}</g>
           <g style={{ fill: 'blue' }}>{tree1Circles}</g>
-
           <g style={textStyle}>{tree1Texts}</g>
           <g style={{ fill: 'green' }}>{dpRects}</g>
           <g style={dpFont}>{dpTexts}</g>
           <circle cx={currentX} cy={currentY} r={50} style={currentStyle}></circle>
         </g>
-        <text x={650} y={100} style={answerFont}>
-          Sum: {frame.sum}
-        </text>
-
-        <text x={650} y={200} style={answerFont}>
-          Product:
-        </text>
-        <text x={650} y={300} style={answerFont}>
-          {frame.current}
-        </text>
-        <text x={650} y={400} style={answerFont}>
-          Max: {frame.result}
-        </text>
+        <text x={650} y={100} style={answerFont}>Sum: {frame.sum}</text>
+        <text x={650} y={200} style={answerFont}>Product:</text>
+        <text x={650} y={300} style={answerFont}>{frame.current}</text>
+        <text x={650} y={400} style={answerFont}>Max: {frame.result}</text>
       </svg>
       <ButtonBar setIndex={setIndex} />
       <div className='message'>

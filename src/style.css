@@ -151,6 +151,6 @@ li a:hover {
   fill: 'white';
   font-size: '30px';
   font-weight: 'bold';
-  dominant-baseline: 'middle';
+  /* dominant-baseline: 'middle'; */
   text-anchor: 'middle';
 }

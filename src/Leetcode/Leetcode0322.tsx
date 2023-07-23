@@ -12,54 +12,18 @@ export default function Leetcode0322() {
   const [frameIndex, setFrameIndex] = useState<number>(0);
 
   const frames: Frame[] = [
-    {
-      current: 0,
-      dp: [0, null, null, null, null, null, null, null, null, null, null, null],
-    },
-    {
-      current: 1,
-      dp: [0, 1, 1, null, null, 1, null, null, null, null, null, null],
-    },
-    {
-      current: 2,
-      dp: [0, 1, 1, 2, null, 1, 2, null, null, null, null, null],
-    },
-    {
-      current: 2,
-      dp: [0, 1, 1, 2, 2, 1, 2, 2, null, null, null, null],
-    },
-    {
-      current: 3,
-      dp: [0, 1, 1, 2, 2, 1, 2, 2, 3, null, null, null],
-    },
-    {
-      current: 3,
-      dp: [0, 1, 1, 2, 2, 1, 2, 2, 3, 3, null, null],
-    },
-    {
-      current: 2,
-      dp: [0, 1, 1, 2, 2, 1, 2, 2, 3, 3, 2, null],
-    },
-    {
-      current: 3,
-      dp: [0, 1, 1, 2, 2, 1, 2, 2, 3, 3, 2, 3],
-    },
-    {
-      current: 3,
-      dp: [0, 1, 1, 2, 2, 1, 2, 2, 3, 3, 2, 3, null],
-    },
-    {
-      current: 4,
-      dp: [0, 1, 1, 2, 2, 1, 2, 2, 3, 3, 2, 3, null, null],
-    },
-    {
-      current: 4,
-      dp: [0, 1, 1, 2, 2, 1, 2, 2, 3, 3, 2, 3, null, null, null],
-    },
-    {
-      current: 3,
-      dp: [0, 1, 1, 2, 2, 1, 2, 2, 3, 3, 2, 3, null, null, null, null],
-    },
+    { current: 0, dp: [0, null, null, null, null, null, null, null, null, null, null, null] },
+    { current: 1, dp: [0, 1, 1, null, null, 1, null, null, null, null, null, null] },
+    { current: 2, dp: [0, 1, 1, 2, null, 1, 2, null, null, null, null, null] },
+    { current: 2, dp: [0, 1, 1, 2, 2, 1, 2, 2, null, null, null, null] },
+    { current: 3, dp: [0, 1, 1, 2, 2, 1, 2, 2, 3, null, null, null] },
+    { current: 3, dp: [0, 1, 1, 2, 2, 1, 2, 2, 3, 3, null, null] },
+    { current: 2, dp: [0, 1, 1, 2, 2, 1, 2, 2, 3, 3, 2, null] },
+    { current: 3, dp: [0, 1, 1, 2, 2, 1, 2, 2, 3, 3, 2, 3] },
+    { current: 3, dp: [0, 1, 1, 2, 2, 1, 2, 2, 3, 3, 2, 3, null] },
+    { current: 4, dp: [0, 1, 1, 2, 2, 1, 2, 2, 3, 3, 2, 3, null, null] },
+    { current: 4, dp: [0, 1, 1, 2, 2, 1, 2, 2, 3, 3, 2, 3, null, null, null] },
+    { current: 3, dp: [0, 1, 1, 2, 2, 1, 2, 2, 3, 3, 2, 3, null, null, null, null] },
   ];
 
   const frame = frames[frameIndex];
@@ -119,38 +83,25 @@ export default function Leetcode0322() {
 
   return (
     <>
-      <svg id='svg' width={950} height={350}>
+      <svg id="svg" width={950} height={350}>
         <g
-          id='coins'
+          id="coins"
           style={{
             fontSize: '48px',
             fill: '#111',
             fontFamily: 'Arial Black',
-          }}>
-          <circle cx={130} cy={40} r='30' fill='gold'></circle>
-          <circle cx={195} cy={40} r='30' fill='gold'></circle>
-          <circle cx={390} cy={40} r='30' fill='gold'></circle>
-          <text x='115' y='55'>
-            1
-          </text>
-          <text x='180' y='55'>
-            2
-          </text>
-          <text x='375' y='55'>
-            5
-          </text>
-          <path
-            transform='translate(20, 45) scale(0.6)'
-            d='M150 50 L150 80 L140 80 L160 100 L180 80 L170 80 L170 50 Z'
-          />
-          <path
-            transform='translate(85, 45) scale(0.6)'
-            d='M150 50 L150 80 L140 80 L160 100 L180 80 L170 80 L170 50 Z'
-          />
-          <path
-            transform='translate(280, 45) scale(0.6)'
-            d='M150 50 L150 80 L140 80 L160 100 L180 80 L170 80 L170 50 Z'
-          />
+          }}
+        >
+          <circle cx={130} cy={40} r="30" fill="gold"></circle>
+          <circle cx={195} cy={40} r="30" fill="gold"></circle>
+          <circle cx={390} cy={40} r="30" fill="gold"></circle>
+          <text x="115" y="55">1</text>
+          <text x="180" y="55">2</text>
+          <text x="375" y="55">5</text>
+          <path transform="translate(20, 45) scale(0.6)" d="M150 50 L150 80 L140 80 L160 100 L180 80 L170 80 L170 50 Z" />
+          <path transform="translate(85, 45) scale(0.6)" d="M150 50 L150 80 L140 80 L160 100 L180 80 L170 80 L170 50 Z" />
+          <path transform="translate(280, 45) scale(0.6)" d="M150 50 L150 80 L140 80 L160 100 L180 80 L170 80 L170 50 Z" />
+          {/* prettier-ignore */}
           <g
             id='current'
             style={{
@@ -158,84 +109,48 @@ export default function Leetcode0322() {
               fill: '#111',
               fontFamily: 'Arial Black',
             }}>
-            <text x='130' y='105'>
-              1
-            </text>
-            <text x='195' y='105'>
-              1
-            </text>
-            <text x='390' y='105'>
-              1
-            </text>
+            <text x='130' y='105'>1</text>
+            <text x='195' y='105'>1</text>
+            <text x='390' y='105'>1</text>
           </g>
         </g>
         <g
-          id='dpRects'
+          id="dpRects"
           ref={rectContainer}
           style={{
             border: '3px solid red',
             borderColor: 'red',
             fill: 'blue',
           }}
-          transform='translate(0, 10)'>
-          <rect x={35} y={100} height='60' width='60'></rect>
-          <rect x={100} y={100} height='60' width='60'></rect>
-          <rect x={165} y={100} height='60' width='60'></rect>
-          <rect x={230} y={100} height='60' width='60'></rect>
-          <rect x={295} y={100} height='60' width='60'></rect>
-          <rect x={360} y={100} height='60' width='60'></rect>
-          <rect x={425} y={100} height='60' width='60'></rect>
-          <rect x={490} y={100} height='60' width='60'></rect>
-          <rect x={555} y={100} height='60' width='60'></rect>
-          <rect x={620} y={100} height='60' width='60'></rect>
-          <rect x={685} y={100} height='60' width='60'></rect>
-          <rect x={750} y={100} height='60' width='60'></rect>
+          transform="translate(0, 10)"
+        >
+          <rect x={35} y={100} height="60" width="60"></rect>
+          <rect x={100} y={100} height="60" width="60"></rect>
+          <rect x={165} y={100} height="60" width="60"></rect>
+          <rect x={230} y={100} height="60" width="60"></rect>
+          <rect x={295} y={100} height="60" width="60"></rect>
+          <rect x={360} y={100} height="60" width="60"></rect>
+          <rect x={425} y={100} height="60" width="60"></rect>
+          <rect x={490} y={100} height="60" width="60"></rect>
+          <rect x={555} y={100} height="60" width="60"></rect>
+          <rect x={620} y={100} height="60" width="60"></rect>
+          <rect x={685} y={100} height="60" width="60"></rect>
+          <rect x={750} y={100} height="60" width="60"></rect>
         </g>
         <g
-          id='dp'
-          transform='translate(0, 10)'
+          id="dp"
+          transform="translate(0, 10)"
           style={{
             fontSize: '48px',
             fill: 'white',
             fontFamily: 'Arial Black',
-          }}>
-          <text x='50' y='145'>
-            0
-          </text>
-          <text x='115' y='145'>
-            0
-          </text>
-          <text x='180' y='145'>
-            0
-          </text>
-          <text x='245' y='145'>
-            0
-          </text>
-          <text x='310' y='145'>
-            0
-          </text>
-          <text x='375' y='145'>
-            0
-          </text>
-          <text x='440' y='145'>
-            0
-          </text>
-          <text x='505' y='145'>
-            0
-          </text>
-          <text x='570' y='145'>
-            0
-          </text>
-          <text x='635' y='145'>
-            0
-          </text>
-          <text x='700' y='145'>
-            0
-          </text>
-          <text x='765' y='145'>
+          }}
+        >
+          <text x="50" y="145">
             0
           </text>
         </g>
+        {/* prettier-ignore */}
         <g
           id='index'
           transform='translate(0, 55)'
@@ -243,42 +158,21 @@ export default function Leetcode0322() {
             fontSize: '32px',
             fontFamily: 'Arial Black',
           }}>
-          <text x='57' y='145'>
-            0
-          </text>
-          <text x='115' y='145'>
-            1
-          </text>
-          <text x='178' y='145'>
-            2
-          </text>
-          <text x='240' y='145'>
-            3
-          </text>
-          <text x='312' y='145'>
-            4
-          </text>
-          <text x='375' y='145'>
-            5
-          </text>
-          <text x='438' y='145'>
-            6
-          </text>
-          <text x='505' y='145'>
-            7
-          </text>
-          <text x='575' y='145'>
-            8
-          </text>
-          <text x='635' y='145'>
-            9
-          </text>
-          <text x='692' y='145'>
-            10
-          </text>
-          <text x='760' y='145'>
-            11
-          </text>
+          <text x='57' y='145'>0</text>
+          <text x='115' y='145'>1</text>
+          <text x='178' y='145'>2</text>
+          <text x='240' y='145'>3</text>
+          <text x='312' y='145'>4</text>
+          <text x='375' y='145'>5</text>
+        </g>
+        {/* prettier-ignore */}
+        <g>
+          <text x='438' y='145'>6</text>
+          <text x='505' y='145'>7</text>
+          <text x='575' y='145'>8</text>
+          <text x='635' y='145'>9</text>
+          <text x='692' y='145'>10</text>
+          <text x='760' y='145'>11</text>
         </g>
       </svg>
       <ButtonBar setIndex={setIndex} />

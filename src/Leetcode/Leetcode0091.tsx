@@ -169,48 +169,24 @@ export default function Leetcode0091() {
           <rect x={540} y={190} height='80' width='80'></rect>
           <rect x={640} y={190} height='80' width='80'></rect>
         </g>
+        {/* prettier-ignore */}
         <g style={textStyle}>
-          <text x='165' y='250'>
-            3
-          </text>
-          <text x='265' y='250'>
-            2
-          </text>
-          <text x='365' y='250'>
-            1
-          </text>
-          <text x='465' y='250'>
-            0
-          </text>
-          <text x='565' y='250'>
-            1
-          </text>
-          <text x='665' y='250'>
-            2
-          </text>
+          <text x='165' y='250'>3</text>
+          <text x='265' y='250'>2</text>
+          <text x='365' y='250'>1</text>
+          <text x='465' y='250'>0</text>
+          <text x='565' y='250'>1</text>
+          <text x='665' y='250'>2</text>
         </g>
+        {/* prettier-ignore */}
         <g ref={dpContainer} style={dpStyle}>
-          <text x='65' y='320'>
-            1
-          </text>
-          <text x='165' y='320'>
-            1
-          </text>
-          <text x='265' y='320'>
-            1
-          </text>
-          <text x='365' y='320'>
-            2
-          </text>
-          <text x='465' y='320'>
-            1
-          </text>
-          <text x='565' y='320'>
-            1
-          </text>
-          <text x='665' y='320'>
-            2
-          </text>
+          <text x='65' y='320'>1</text>
+          <text x='165' y='320'>1</text>
+          <text x='265' y='320'>1</text>
+          <text x='365' y='320'>2</text>
+          <text x='465' y='320'>1</text>
+          <text x='565' y='320'>1</text>
+          <text x='665' y='320'>2</text>
         </g>
       </svg>
       <ButtonBar setIndex={setIndex} />

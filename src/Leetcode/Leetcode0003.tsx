@@ -50,10 +50,7 @@ export default function Leetcode0003() {
     const leftPointerShadow = getElementById('leftPointerShadow');
     leftPointerShadow.setAttribute('display', 'none');
     if (previousFrame) {
-      leftPointerShadow.setAttribute(
-        'transform',
-        `translate(${leftPointerBase + previousFrame.left * step}, 0)`
-      );
+      leftPointerShadow.setAttribute('transform', `translate(${leftPointerBase + previousFrame.left * step}, 0)`);
       if (previousFrame.left !== frame.left) {
         leftPointerShadow.setAttribute('display', 'block');
       }
@@ -87,8 +84,8 @@ export default function Leetcode0003() {
   }
 
   return (
-    <div className='ppt' style={{ width: 950 }}>
-      <svg id='svg' width={950} height={350}>
+    <div className="ppt" style={{ width: 950 }}>
+      <svg id="svg" width={950} height={350}>
         <SvgRects
           x={35}
           y={100}
@@ -111,95 +108,69 @@ export default function Leetcode0003() {
             fontWeight: 'bold',
           }}
         />
+        {/* prettier-ignore */}
         <g
-          id='index'
-          transform='translate(0, 50)'
+          id="index"
+          transform="translate(0, 50)"
           style={{
-            fontSize: '32px',
-            fontFamily: 'Arial Black',
-          }}>
-          <text x='57' y='145'>
-            0
-          </text>
-          <text x='115' y='145'>
-            1
-          </text>
-          <text x='178' y='145'>
-            2
-          </text>
-          <text x='240' y='145'>
-            3
-          </text>
-          <text x='312' y='145'>
-            4
-          </text>
-          <text x='375' y='145'>
-            5
-          </text>
-          <text x='438' y='145'>
-            6
-          </text>
-          <text x='505' y='145'>
-            7
-          </text>
-          <text x='575' y='145'>
-            8
-          </text>
-          <text x='635' y='145'>
-            9
-          </text>
-          <text x='692' y='145'>
-            10
-          </text>
-          <text x='760' y='145'>
-            11
-          </text>
-          <text x='825' y='145'>
-            12
-          </text>
-          <text x='885' y='145'>
-            13
-          </text>
+            fontSize: "32px",
+            fontFamily: "Arial Black",
+          }}
+        >
+          <text x="57" y="145">0</text>
+          <text x="115" y="145">1</text>
+          <text x="178" y="145">2</text>
+          <text x="240" y="145">3</text>
+          <text x="312" y="145">4</text>
+          <text x="375" y="145">5</text>
+          <text x="438" y="145">6</text>
+          <text x="505" y="145">7</text>
+          <text x="575" y="145">8</text>
+          <text x="635" y="145">9</text>
+          <text x="692" y="145">10</text>
+          <text x="760" y="145">11</text>
+          <text x="825" y="145">12</text>
+          <text x="885" y="145">13</text>
         </g>
-
         <text
-          x='50'
-          y='270'
+          x="50"
+          y="270"
           style={{
             fontSize: '32px',
             fontFamily: 'Arial Black',
-          }}>
+          }}
+        >
           Current Answer:
         </text>
         <text
-          id='ans'
-          x='360'
-          y='270'
+          id="ans"
+          x="360"
+          y="270"
           style={{
             fontSize: '48px',
             fontFamily: 'Arial Black',
-          }}>
+          }}
+        >
           {frame.ans}
         </text>
-
         <path
-          id='leftPointer'
+          id="leftPointer"
           transform={`translate(${leftPointerBase + frame.left * step}, 0)`}
-          d='M150 50 L150 80 L140 80 L160 100 L180 80 L170 80 L170 50 Z'
+          d="M150 50 L150 80 L140 80 L160 100 L180 80 L170 80 L170 50 Z"
         />
         <path
-          id='leftPointerShadow'
-          fill='transparent'
-          strokeDasharray='3,3'
-          stroke='black'
-          strokeWidth='3'
-          transform='translate(-110, 0)'
-          d='M150 50 L150 80 L140 80 L160 100 L180 80 L170 80 L170 50 Z'
+          id="leftPointerShadow"
+          fill="transparent"
+          strokeDasharray="3,3"
+          stroke="black"
+          strokeWidth="3"
+          transform="translate(-110, 0)"
+          d="M150 50 L150 80 L140 80 L160 100 L180 80 L170 80 L170 50 Z"
         />
         <path
-          id='rightPointer'
+          id="rightPointer"
           transform={`translate(${rightPointerBase + frame.right * step}, 0)`}
-          d='M150 50 L150 80 L140 80 L160 100 L180 80 L170 80 L170 50 Z'
+          d="M150 50 L150 80 L140 80 L160 100 L180 80 L170 80 L170 50 Z"
         />
       </svg>
       <ButtonBar setIndex={setIndex} />

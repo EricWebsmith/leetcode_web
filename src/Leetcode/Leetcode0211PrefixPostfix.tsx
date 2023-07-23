@@ -403,7 +403,6 @@ export default function Leetcode0211() {
         <g id='post' transform='translate(650, 50)'>
           <g style={{ stroke: 'blue', strokeWidth: 10 }}>{postLines}</g>
           <g style={{ fill: 'blue' }}>{postTrieCircles}</g>
-
           <g style={textStyle}>{postTrieTexts}</g>
           <g>{postFocusCircles}</g>
         </g>

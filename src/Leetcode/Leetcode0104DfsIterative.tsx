@@ -200,7 +200,6 @@ export default function Leetcode0104Dfs() {
           <line x1={240} y1={410} x2={240} y2={530}></line>
           <line x1={240} y1={530} x2={780} y2={530}></line>
         </g>
-
         <text x={50} y={465} style={titleStyle}>
           Stack:
         </text>

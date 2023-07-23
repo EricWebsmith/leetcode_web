@@ -36,8 +36,8 @@ export default function Leetcode2131() {
     fontWeight: 'bold',
   };
 
-  const gray = 'gray';
-  const red = 'red';
+  const GRAY = 'gray';
+  const RED = 'red';
 
   const colorMatrix = [
     [
@@ -47,64 +47,64 @@ export default function Leetcode2131() {
       ['', '', '', ''],
     ],
     [
-      [red, '', '', ''],
+      [RED, '', '', ''],
       ['', '', '', ''],
       ['', '', '', ''],
       ['', '', '', ''],
     ],
     [
-      [gray, '', '', ''],
-      ['', red, '', ''],
+      [GRAY, '', '', ''],
+      ['', RED, '', ''],
       ['', '', '', ''],
       ['', '', '', ''],
     ],
     [
-      [gray, '', '', ''],
-      ['', gray, '', ''],
-      ['', '', red, ''],
+      [GRAY, '', '', ''],
+      ['', GRAY, '', ''],
+      ['', '', RED, ''],
       ['', '', '', ''],
     ],
     [
-      [gray, '', '', ''],
-      ['', gray, '', ''],
-      ['', '', gray, ''],
-      ['', '', '', red],
+      [GRAY, '', '', ''],
+      ['', GRAY, '', ''],
+      ['', '', GRAY, ''],
+      ['', '', '', RED],
     ],
     [
-      [gray, red, '', ''],
-      [red, gray, '', ''],
-      ['', '', gray, ''],
-      ['', '', '', gray],
+      [GRAY, RED, '', ''],
+      [RED, GRAY, '', ''],
+      ['', '', GRAY, ''],
+      ['', '', '', GRAY],
     ],
     [
-      [gray, gray, red, ''],
-      [gray, gray, '', ''],
-      [red, '', gray, ''],
-      ['', '', '', gray],
+      [GRAY, GRAY, RED, ''],
+      [GRAY, GRAY, '', ''],
+      [RED, '', GRAY, ''],
+      ['', '', '', GRAY],
     ],
     [
-      [gray, gray, gray, red],
-      [gray, gray, '', ''],
-      [gray, '', gray, ''],
-      [red, '', '', gray],
+      [GRAY, GRAY, GRAY, RED],
+      [GRAY, GRAY, '', ''],
+      [GRAY, '', GRAY, ''],
+      [RED, '', '', GRAY],
     ],
     [
-      [gray, gray, gray, gray],
-      [gray, gray, red, ''],
-      [gray, red, gray, ''],
-      [gray, '', '', gray],
+      [GRAY, GRAY, GRAY, GRAY],
+      [GRAY, GRAY, RED, ''],
+      [GRAY, RED, GRAY, ''],
+      [GRAY, '', '', GRAY],
     ],
     [
-      [gray, gray, gray, gray],
-      [gray, gray, gray, red],
-      [gray, gray, gray, ''],
-      [gray, red, '', gray],
+      [GRAY, GRAY, GRAY, GRAY],
+      [GRAY, GRAY, GRAY, RED],
+      [GRAY, GRAY, GRAY, ''],
+      [GRAY, RED, '', GRAY],
     ],
     [
-      [gray, gray, gray, gray],
-      [gray, gray, gray, gray],
-      [gray, gray, gray, red],
-      [gray, gray, red, gray],
+      [GRAY, GRAY, GRAY, GRAY],
+      [GRAY, GRAY, GRAY, GRAY],
+      [GRAY, GRAY, GRAY, RED],
+      [GRAY, GRAY, RED, GRAY],
     ],
   ];
 

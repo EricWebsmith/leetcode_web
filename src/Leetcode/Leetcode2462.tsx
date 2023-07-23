@@ -70,7 +70,7 @@ export default function Leetcode2462() {
 
   return (
     <>
-      <svg id='svg' width={1100} height={300}>
+      <svg id="svg" width={1100} height={300}>
         <SvgRects
           ref={rectsRef}
           x={80}
@@ -79,14 +79,9 @@ export default function Leetcode2462() {
           width={90}
           n={9}
           offsetX={offset}
-          style={rectStyle}></SvgRects>
-        <SvgTexts
-          ref={textsRef}
-          x={105}
-          y={150}
-          text={'729202192'}
-          offsetX={offset}
-          style={textStyle}></SvgTexts>
+          style={rectStyle}
+        ></SvgRects>
+        <SvgTexts ref={textsRef} x={105} y={150} text={'729202192'} offsetX={offset} style={textStyle}></SvgTexts>
       </svg>
       <ButtonBar setIndex={setIndex} />
     </>
